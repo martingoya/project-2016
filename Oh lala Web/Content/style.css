@@ -20,7 +20,7 @@
 }
 
 .bigicon {
-    font-size: 35px;
+    font-size: 15px;
     color: #545658;
 }
 
@@ -67,6 +67,31 @@
 .textboxPaddingFixed {
     padding-left: 0px;
 }
+
+.iconFacebook {
+    background:transparent url('images/facebook_32_b.png') center top no-repeat;
+}
+
+.iconFacebook:hover {
+    background-image: url('images/facebook_32.png');
+}
+
+.iconVimeo {
+    background:transparent url('images/vimeo_32_b.png') center top no-repeat;
+}
+
+.iconVimeo:hover {
+    background-image: url('images/vimeo_32.png');
+}
+
+.iconTwitter {
+    background:transparent url('images/instagram_32_b.png') center top no-repeat;
+}
+
+.iconTwitter:hover {
+    background-image: url('images/instagram_32.png');
+}
+
 /**/
 /*------ template stylization ------*/
 body {
@@ -1471,6 +1496,7 @@ footer {
 	width: 32px;
 	height: 32px;
 	overflow: hidden;
+    position: fixed;
 }
 .social_icons > li a img {
 	position: relative;

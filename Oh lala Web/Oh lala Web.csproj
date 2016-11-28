@@ -213,6 +213,7 @@
     <Content Include="Content\animation.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\camera.css" />
+    <Content Include="Content\external-styles.css" />
     <Content Include="Content\font-awesome-animation.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -458,13 +459,9 @@
     <Content Include="Content\Fotos\Fifteen\_Portadas\SOFIA PELUSO.jpg" />
     <Content Include="Content\Fotos\Fifteen\_Portadas\SOFIA.jpg" />
     <Content Include="Content\Fotos\Fifteen\_Portadas\ZOE.jpg" />
-    <Content Include="Content\Fotos\Home\Boda.jpg" />
-    <Content Include="Content\Fotos\Home\Fifteen.jpg" />
     <Content Include="Content\Fotos\Home\Home %282%29.jpg" />
     <Content Include="Content\Fotos\Home\Home %283%29.jpg" />
     <Content Include="Content\Fotos\Home\Home %284%29.jpg" />
-    <Content Include="Content\Fotos\Home\Infantiles.jpg" />
-    <Content Include="Content\Fotos\Home\NewBorn.jpg" />
     <Content Include="Content\Fotos\NewBorn\NewBorn %281%29.jpg" />
     <Content Include="Content\Fotos\NewBorn\NewBorn %2810%29.jpg" />
     <Content Include="Content\Fotos\NewBorn\NewBorn %2811%29.jpg" />
@@ -543,8 +540,8 @@
     <Content Include="Content\images\doted.png" />
     <Content Include="Content\images\dotted1.png" />
     <Content Include="Content\images\dotted2.png" />
-    <Content Include="Content\images\facebook_128.png" />
-    <Content Include="Content\images\facebook_128_b.png" />
+    <Content Include="Content\images\facebook_32.png" />
+    <Content Include="Content\images\facebook_32_b.png" />
     <Content Include="Content\images\fancybox_img\arrows.png" />
     <Content Include="Content\images\fancybox_img\blank.gif" />
     <Content Include="Content\images\fancybox_img\fancybox-x.png" />
@@ -583,8 +580,8 @@
     <Content Include="Content\images\follow_icon6_y.png" />
     <Content Include="Content\images\iconmail.png" />
     <Content Include="Content\images\indicator.png" />
-    <Content Include="Content\images\instagram_128.png" />
-    <Content Include="Content\images\instagram_128_b.png" />
+    <Content Include="Content\images\instagram_32.png" />
+    <Content Include="Content\images\instagram_32_b.png" />
     <Content Include="Content\images\linefooter-invert.jpg" />
     <Content Include="Content\images\linefooter.jpg" />
     <Content Include="Content\images\logo-completo-blanco.png" />
@@ -597,8 +594,8 @@
     <Content Include="Content\images\small-logo-footer-completo.png" />
     <Content Include="Content\images\small-logo-footer.png" />
     <Content Include="Content\images\small-logo.png" />
-    <Content Include="Content\images\vimeo_128.png" />
-    <Content Include="Content\images\vimeo_128_b.png" />
+    <Content Include="Content\images\vimeo_32.png" />
+    <Content Include="Content\images\vimeo_32_b.png" />
     <Content Include="Content\music\Ed Sheeran - Thinking Out Loud.mp3" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\photos\page1_img1.jpg" />
