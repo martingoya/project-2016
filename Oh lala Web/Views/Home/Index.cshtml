@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <script src='~/Scripts/camera.js'></script>
+        <!--[if (gt IE 9)|!(IE)]><!-->
+    <script src="~/Scripts/jquery.mobile.customized.min.js"></script>
+        <!--<![endif]-->
+     <script>
+         $(window).load(function () {
+
+             jQuery('.camera_wrap').camera();
+
+         });
+    </script> 
+
+    <link href="~/Content/camera.css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="content">
+
+    <!--==============================slider=================================-->
+    <div class="slider">
+        <div class="camera_wrap">
+          <div data-src="Content/Fotos/Home/Home (2).jpg"></div>
+          <div data-src="Content/Fotos/Home/Home (3).jpg"></div>
+          <div data-src="Content/Fotos/Home/Home (4).jpg"></div>
+        </div>
+    </div>
+    <!--==============================row1=================================-->
+    <div class="row_1">
+        <div class="container">
+            <p class="title2" style="margin-bottom: 10px">Oh Lalá es un espacio creado para que tus momentos sean realmente inolvidables.</p>
+            <p class="title2">La pasión por la fotografía nos empuja. Dejate llevar por Oh Lalá!</p>
+            @*<a href="#" class="btn btn-default btn-lg btn1">more</a>*@
+        </div>
+    </div>
+    <!--==============================row2=================================-->
+    @*<div class="row_2" style="display:none">
+        <div class="container">
+            <div class="row">
+                <ul class="list1">
+                    <li class="col-lg-3 col-md-3 col-sm-3 listbox1">
+                        <div class="box1">
+                            <a href="~/Section/Fifteen">
+                                <figure><img src="~/Content/Fotos/Home/Fifteen.jpg" alt=""></figure>
+                                <p>Fifteen</p>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-md-3 col-sm-3 listbox2">
+                        <div class="box2">
+                            <a href="~/Section/Bodas">
+                                <p>Bodas</p>
+                                <figure><img src="~/Content/Fotos/Home/Boda.jpg" alt=""></figure>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-md-3 col-sm-3 listbox3">
+                        <div class="box3">
+                            <a href="~/Section/Infantiles">
+                                <figure><img src="~/Content/Fotos/Home/Infantiles.jpg" alt=""></figure>
+                                <p>Infantiles</p>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-md-3 col-sm-3 listbox4">
+                        <div class="box4">
+                            <a href="~/Section/Newborn">
+                                <p>Newborn</p>
+                                <figure><img src="~/Content/Fotos/Home/NewBorn.jpg" alt=""></figure>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>*@
+    <!--==============================row4=================================-->
+    @*<div class="row_4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 chef row4_col">
+                    <h2>About Me</h2>
+                    <figure><img src="~/Content/photos/page1_img8.jpg" alt=""></figure>
+                    <p class="title3">Vivamus eget</p>
+                    <p>Vitaesaert asetyertya asetrde maeciegast nieri vrtye remiad.Molirnatur aut oditaut. onsq ntmagni dolores eo qui ratione. </p>
+                    <p class="m_bot1">Nasgaesaert asetyertya asetrde maeciegast nieriti vrtye remiades.Molirnatur aut oditaut.</p>
+                    <a href="#" class="btn-link btn-link2">read more<span></span></a>
+                </div>
+                <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-3 col-md-3 col-sm-3 row4_col">
+                    <h2>Latest Services</h2>                        
+                    <ul class="list2">
+                        <li><a href="#">muygasa kausyse</a></li>
+                        <li><a href="#">nuyatsas lasras batsas </a></li>
+                        <li><a href="#">kiaustyas</a></li>
+                        <li><a href="#">batresa ksate</a></li>
+                        <li><a href="#">Grerhasa mero</a></li>
+                        <li><a href="#">Lanytadas nyats</a></li>
+                        <li><a href="#">nuyatsas lasras batsas</a></li>
+                        <li><a href="#">batresa </a></li>
+                    </ul> 
+                </div>
+                <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-lg-3 col-md-3 col-sm-3 locations row4_col">
+                    <h2>Locations</h2>
+                    <figure><img src="~/Content/images/small-logo.png" alt=""></figure>
+                    <p class="title4">28 Jackson Blvd Ste 1020<br>Chicago<br>IL 60604-2340</p>
+                    <hr class="line1">
+                    <a href="#" class="btn-link btn-link3"><span></span>info@demolink.org</a>
+                </div>
+            </div>
+        </div>
+    </div>*@
+</div>
+</body>
+</html>

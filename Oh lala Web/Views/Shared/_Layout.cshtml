@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="~/Content/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="~/Content/images/favicon.ico" type="image/x-icon" />
+        <meta name = "format-detection" content = "telephone=no" />
+        <meta name="description" content="Your description">
+        <meta name="keywords" content="Your keywords">
+        <meta name="author" content="Your name">   
+
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/jquery-migrate-1.2.1.js"></script>
+        <script src="~/Scripts/superfish.js"></script>
+@*        <script src="~/Scripts/jquery.mobilemenu.js"></script>*@
+        <script src="~/Scripts/jquery.easing.1.3.js"></script>
+        <script src="~/Scripts/jquery.ui.totop.js"></script>
+        <script src="~/Scripts/jquery.touchSwipe.min.js"></script>
+        <script src="~/Scripts/jquery.equalheights.js"></script>
+    
+        <script src="~/Scripts/bootstrap.min.js"></script>
+@*        <script src="~/Scripts/tm-scripts.js"></script>*@
+        <script src="~/Scripts/jquery.collagePlus.min.js"></script>
+        <script src="~/Scripts/touchTouch.jquery.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.isotope.min.js"></script>	
+        
+        <script>
+            $(function () {
+                var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+                $('nav li a').each(function () {
+                    var hrefli = $(this).attr("href").substr($(this).attr("href").lastIndexOf("/") + 1);
+                    if (hrefli == pgurl)
+                        $(this).closest('a').addClass("selectedMenu");
+                })
+            });
+        </script>
+
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/style.css" rel="stylesheet" />
+        <link href="~/Content/touchTouch.css" rel="stylesheet" />
+
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome-animation.min.css" rel="stylesheet" />
+
+    </head>
+    <body>
+<!--==============================header=================================-->
+    <header id="header">
+        @*<audio controls autoplay loop src="~/Content/music/Ed Sheeran - Thinking Out Loud.mp3">
+          Your user agent does not support the HTML5 Audio element.
+        </audio>*@
+          <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+            <ul class="social_icons clearfix">
+                <li><a href="https://www.facebook.com/OhLalaPH" target="_blank"><img src="~/Content/images/facebook_128_b.png" alt="" 
+                                                                                     onmouseover="this.src = '/Content/images/facebook_128.png'" 
+                                                                                     onmouseout="this.src = '/Content/images/facebook_128_b.png'" >
+                </a></li>
+                <li><a href="https://vimeo.com/user42415580" target="_blank"><img src="~/Content/images/vimeo_128_b.png" alt=""
+                                                                                    onmouseover="this.src = '/Content/images/vimeo_128.png'"
+                                                                                    onmouseout="this.src = '/Content/images/vimeo_128_b.png'" >
+                </a></li>
+                <li><a href="https://www.instagram.com/ohlalaph/" target="_blank"><img src="~/Content/images/instagram_128_b.png" alt=""
+                                                                                    onmouseover="this.src = '/Content/images/instagram_128.png'"
+                                                                                    onmouseout="this.src = '/Content/images/instagram_128_b.png'" >
+                </a></li>
+            </ul>
+          </div>
+          <div class="container">
+            <h1 class="navbar-brand navbar-brand_"><a href="~/Home/Index"><img alt="Grill point" src="~/Content/images/logo-completo-negro.png"></a></h1>
+          </div>
+          <div class="menuheader">
+              <div class="container">
+                 <nav class="navbar navbar-default" role="navigation">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Fifteen", "Fifteen", "Section")</li>
+                            <li>@Html.ActionLink("Bodas", "Bodas", "Section")</li>
+                            <li>@Html.ActionLink("Infantiles", "Infantiles", "Section")</li>
+                            <li>@Html.ActionLink("Newborn & Maternity", "NewBorn", "Section")</li>
+                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                          </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </nav>
+                  @*<nav class="navbar navbar-default">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                          <a class="navbar-brand" href="#"></a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                          <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Fifteen", "Fifteen", "Section")</li>
+                            <li>@Html.ActionLink("Bodas", "Bodas", "Section")</li>
+                            <li>@Html.ActionLink("Infantiles", "Infantiles", "Section")</li>
+                            <li>@Html.ActionLink("Newborn", "NewBorn", "Section")</li>
+                          </ul>
+                        </div>
+                      </div>
+                  </nav>*@
+                @*<nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                    <ul class="nav sf-menu">
+                      <li>@Html.ActionLink("Inicio", "Index", "Home")
+                      </li>
+                      <li>@Html.ActionLink("Fifteen", "Fifteen", "Section")</li>
+                      <li>@Html.ActionLink("Bodas", "Bodas", "Section")</li>
+                      <li>@Html.ActionLink("Infantiles", "Infantiles", "Section")</li>
+                      <li>@Html.ActionLink("Newborn", "NewBorn", "Section")</li>
+                    </ul>
+                </nav>*@
+              </div>
+          </div>
+    </header>
+<!--==============================content=================================-->
+    @RenderBody()
+<!--==============================footer=================================-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 footerlogo footercol">
+                    <a class="smalllogo2 logo" href="index.html"><img src="~/Content/images/small-logo.png" alt=""></a>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 footercol">
+                    <p class="footerpriv">© 2016 Todos los derechos reservados de Oh Lalá Producciones Fotográficas</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
+

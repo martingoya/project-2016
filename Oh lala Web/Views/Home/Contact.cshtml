@@ -1,0 +1,116 @@
+﻿@model Oh_lala_Web.Models.EmailFormModel
+
+@{
+    ViewBag.Title = "Contacto";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="content">
+        <!--==============================row1=================================-->
+        <div class="row_1">
+            <div class="container">
+                <p class="title2" style="margin-bottom: 10px">Texto Contacto.</p>
+                <p class="title2"></p>
+            </div>
+        </div>
+        <!--==============================row2=================================-->
+        @*<div class="row_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-sm">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <h4>Send your comments.</h4>
+                                <hr />
+                                <div class="form-group">
+                                    <div class="col-md-8">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                        @Html.TextBoxFor(m => m.FromName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FromName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.FromEmail)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Message)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+    <div class="row_2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 formContact">
+                    <div class="well well-sm">
+                        @using (Html.BeginForm("Contact", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <fieldset>
+                                <legend class="text-center header">Contáctenos!</legend>
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", @placeholder = "Nombre" })
+                                        @Html.ValidationMessageFor(m => m.FromName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", @placeholder = "Mail" })
+                                        @Html.ValidationMessageFor(m => m.FromEmail)
+                                    </div>
+                                </div>
+                                @*<div class="form-group">
+                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                                        <div class="col-md-8">
+                                            <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                                        </div>
+                                    </div>*@
+                                <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control textAreaForm", @placeholder = "Mensaje" })
+                                        @Html.ValidationMessageFor(m => m.Message)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-primary buttonForm btn-lg">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
