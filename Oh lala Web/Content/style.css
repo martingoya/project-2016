@@ -68,28 +68,36 @@
     padding-left: 0px;
 }
 
+.spriteSocialIcons {
+    width: 32px;
+    height: 32px;
+    background-image: url(images/sprite-social-icons.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
 .iconFacebook {
-    background:transparent url('images/facebook_32_b.png') center top no-repeat;
+    background-position: -47px -5px;
 }
 
 .iconFacebook:hover {
-    background-image: url('images/facebook_32.png');
+    background-position: -5px -5px;
 }
 
 .iconVimeo {
-    background:transparent url('images/vimeo_32_b.png') center top no-repeat;
+    background-position: -89px -47px;
 }
 
 .iconVimeo:hover {
-    background-image: url('images/vimeo_32.png');
+    background-position: -89px -5px;
 }
 
-.iconTwitter {
-    background:transparent url('images/instagram_32_b.png') center top no-repeat;
+.iconInstagram {
+    background-position: -47px -47px;
 }
 
-.iconTwitter:hover {
-    background-image: url('images/instagram_32.png');
+.iconInstagram:hover {
+    background-position: -5px -47px;
 }
 
 /**/
@@ -1496,7 +1504,7 @@ footer {
 	width: 32px;
 	height: 32px;
 	overflow: hidden;
-    position: fixed;
+    position: absolute;
 }
 .social_icons > li a img {
 	position: relative;
