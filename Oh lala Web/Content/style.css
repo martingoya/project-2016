@@ -26,8 +26,8 @@
 
 .buttonForm {
     color: #ffffff !important;
-    background-color: #545658 !important;
-    border-color: #545658 !important;
+    background-color: black !important;
+    border-color: black !important;
 }
 
 .buttonForm:hover{
@@ -35,7 +35,7 @@
 }
 @media (min-width: 768px){
 .formContact{
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
 }
 }
@@ -58,10 +58,19 @@
 .transition{
     visibility:hidden;
 }
+
+.iconPaddingFixed {
+    padding-top: 5px;
+    padding-right: 0px;
+}
+
+.textboxPaddingFixed {
+    padding-left: 0px;
+}
 /**/
 /*------ template stylization ------*/
 body {
-	background: #2f3133 url(images/patternbg.png) 0 0 repeat;
+	background: #2f3133 url(images/patternbg.jpg) 0 0 repeat;
 }
 /*----------- Back to top --------------*/
 #toTop {
@@ -86,13 +95,13 @@ body {
 .row_1 {
 	text-align: center;
 	padding: 30px 0;
-	background: #2f3133 url(images/patternbg.png) 0 0 repeat;
+	background: #2f3133 url(images/patternbg.jpg) 0 0 repeat;
     /*background: url("images/linefooter-invert.jpg") bottom center repeat-x;*/
 }
 .row_1_Section {
 	text-align: center;
 	padding: 30px 0;
-	background: #2f3133 url(images/patternbg.png) 0 0 repeat;
+	background: #2f3133 url(images/patternbg.jpg) 0 0 repeat;
     /*background: url("images/linefooter-invert.jpg") bottom center repeat-x;*/
     min-height: 175px;
 }
@@ -262,7 +271,7 @@ h3 {
 }
 /*------ header ------- */
 header {
-	background: #2f3133 url(images/patternbg.png) 0 0 repeat;
+	background: #2f3133 url(images/patternbg.jpg) 0 0 repeat;
 	text-align: center;
 }
 /*-------- Logo -------- */

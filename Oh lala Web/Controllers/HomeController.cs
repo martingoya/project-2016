@@ -39,7 +39,7 @@ namespace Oh_lala_Web.Controllers
                 var message = new MailMessage();
                 message.To.Add("postmaster@ohlalaph.com");  // replace with valid value 
                 message.From = new MailAddress("tincho.592@gmail.com", "Admin");  // replace with valid value
-                message.Subject = model.FromName;
+                message.Subject = model.Subject;
                 message.SubjectEncoding = System.Text.Encoding.UTF8;
                 message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
                 message.BodyEncoding = System.Text.Encoding.UTF8;
@@ -52,20 +52,6 @@ namespace Oh_lala_Web.Controllers
                 client.EnableSsl = true; //Esto es para que vaya a través de SSL que es obligatorio con GMail
                 await client.SendMailAsync(message);
                 return RedirectToAction("Sent");
-                //using (var smtp = new SmtpClient())
-                //{
-                //    var credential = new NetworkCredential
-                //    {
-                //        UserName = "postmaster@ohlalaph.com",  // replace with valid value
-                //        Password = "lhl247MAIL!"  // replace with valid value
-                //    };
-                //    smtp.Credentials = credential;
-                //    smtp.Host = "mail.ohlalaph.com";
-                //    smtp.Port = 25;
-                //    smtp.EnableSsl = true;
-                //    await smtp.SendMailAsync(message);
-                //    return RedirectToAction("Sent");
-                //}
             }
             return View(model);
         }

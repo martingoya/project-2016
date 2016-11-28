@@ -592,7 +592,7 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\LogoBlanco.png" />
     <Content Include="Content\images\logofooter.png" />
-    <Content Include="Content\images\patternbg.png" />
+    <Content Include="Content\images\patternbg.jpg" />
     <Content Include="Content\images\preloader-back-white.gif" />
     <Content Include="Content\images\small-logo-footer-completo.png" />
     <Content Include="Content\images\small-logo-footer.png" />
