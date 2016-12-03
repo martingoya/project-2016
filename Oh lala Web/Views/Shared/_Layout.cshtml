@@ -13,10 +13,29 @@
         <meta name="author" content="Your name">   
 
         <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/jquery-migrate-1.2.1.js"></script>
+        <script src="~/Scripts/superfish.js"></script>
+        @*        <script src="~/Scripts/jquery.mobilemenu.js"></script>*@
+        <script src="~/Scripts/jquery.easing.1.3.js"></script>
+        <script src="~/Scripts/jquery.ui.totop.js"></script>
+        <script src="~/Scripts/jquery.touchSwipe.min.js"></script>
+        <script src="~/Scripts/jquery.equalheights.js"></script>
+
         <script src="~/Scripts/bootstrap.min.js"></script>
-        <script src="~/Scripts/external-jquery.js"></script>
-        
+        @*        <script src="~/Scripts/tm-scripts.js"></script>*@
+        <script src="~/Scripts/jquery.collagePlus.min.js"></script>
+        <script src="~/Scripts/touchTouch.jquery.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery.isotope.min.js"></script>	
+
         <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-88192911-1', 'auto');
+            ga('send', 'pageview');
+
             $(function () {
                 var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
                 $('nav li a').each(function () {
@@ -27,8 +46,12 @@
             });
         </script>
 
-        <link href="~/Content/external-styles.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
         <link href="~/Content/style.css" rel="stylesheet" />
+        <link href="~/Content/touchTouch.css" rel="stylesheet" />
+
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome-animation.min.css" rel="stylesheet" />
     </head>
     <body>
 <!--==============================header=================================-->
