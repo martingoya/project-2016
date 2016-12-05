@@ -315,7 +315,7 @@ header {
 	margin: 0;
 	text-align: center;
 	padding: 0;
-	margin: 68px auto 60px;
+	margin: 60px auto 20px;
 }
 .navbar-brand_ img {
 	max-width: 100%;
@@ -1036,9 +1036,16 @@ hr.line2 {
 	display: block;
 	margin: 0 0 0px 0px;
 	padding: 0;
+    background: black;
 }
 .element > a figure img {
 	width: 100%;
+    opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.element > a figure:hover img {
+	opacity: .5;
 }
 .element > a span {
 	position: relative;
@@ -1052,20 +1059,24 @@ hr.line2 {
 	text-decoration: none;
 }
 .element span {
-	position: relative;
-	/*text-transform: uppercase;*/
-    text-align: -webkit-center;
-	font-family: 'Bromello', serif;
-    font-size: 28px;
-	line-height: 20px;
-	color: #000000;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
+    position: relative;
+    bottom: 40px;
+    left: 10px;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    opacity: 0;
+    font-family: 'Bromello', serif;
 }
-.description {
-	position: relative;
-	display: block;
+#wrapper:hover span {
+	opacity: 1;
+}
+#wrapper:focus span {
+	opacity: 1;
 }
 #filters {
 	position: relative;
@@ -1871,9 +1882,9 @@ audio {
 }
 
 .navbar-default .navbar-nav > li > a {
-    /*color: #ffffff;*/
+    color: #c1c1c1;
     font-family: 'Bromello';
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -1890,4 +1901,12 @@ audio {
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: #f1ef98;
+}
+
+#overlay {  
+    background:rgba(0,0,0,.75);
+    text-align:center;
+    padding:45px 0 66px 0;
+    opacity:0;
+    -webkit-transition: opacity .25s ease;
 }
