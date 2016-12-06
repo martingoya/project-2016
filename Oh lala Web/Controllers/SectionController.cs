@@ -29,6 +29,5 @@ namespace Oh_lala_Web.Controllers
         {
             return View();
         }
-
     }
 }

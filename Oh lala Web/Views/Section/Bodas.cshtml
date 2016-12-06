@@ -11,10 +11,6 @@
         window.onload = function () {
             initGallery(2);
         };
-
-        $(function () {
-            $('.thumbs a').touchTouch();
-        });
     </script>
 </head>
 
@@ -58,33 +54,14 @@
                                     <span class="description">Karina y Germán</span>
                                 </div>
                                 @*Vero y Lau*@
-                                <div id="wrapper" class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Bodas/Vero_Lau/Vero_Lau (11).jpg" data-gallery="vero_lau">
+                                <div id="wrapper" class="element">
+                                    <a href='@Url.Action("Vero_y_Lau", "Bodas")'>
                                         <figure class="img-polaroid" title="Vero y Lau"><img src="~/Content/Fotos/Bodas/_Portadas/Vero_Lau.jpg" alt=""></figure>
                                     </a>
                                     <span>Vero y Lau</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="thumbs" style="display:none">
-                        @*Karina y German*@
-                        @for (int i = 1; i <= 16; i++)
-                        {
-                            if (i != 12)
-                            {
-                                <a href="~/Content/Fotos/Bodas/Karina_German/Karina_German (@i).jpg" data-gallery="karina_german"></a>
-                            }
-                        }
-                        
-                        @*Vero y Lau*@
-                        @for (int i = 1; i <= 15; i++)
-                        {
-                            if (i != 11)
-                            {
-                                <a href="~/Content/Fotos/Bodas/Vero_Lau/Vero_Lau (@i).jpg" data-gallery="vero_lau"></a>
-                            }
-                        }
                     </div>
 	            </div>
             </div>

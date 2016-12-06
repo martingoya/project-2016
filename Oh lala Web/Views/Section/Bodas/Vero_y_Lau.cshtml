@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Vero y Lau";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+
+<body>
+<div id="content">
+    <div class="row_1_Section">
+        <div class="container">
+            <p class="title2" style="margin-bottom: 10px; padding-top:25px">Texto</p>
+            <p class="title2">Vero y Lau</p>
+        </div>
+    </div>
+    <!--==============================row6=================================-->
+    <div class="row_6">
+        <div class="container">
+            <div class="row">
+                <div class="containerExtra">
+                    <div id="container" class="clearfix">
+                        <div>
+                            @*Vero y Lau*@
+                            @for (int i = 1; i <= 15; i++)
+                            {
+                                if (i != 11)
+                                {
+                                    <img class="imagesSection" src="~/Content/Fotos/Bodas/Vero_Lau/Vero_Lau (@i).jpg" data-gallery="vero_lau"></img>
+                                    <br />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

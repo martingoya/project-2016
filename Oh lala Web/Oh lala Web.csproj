@@ -199,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Bodas\BodasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -787,6 +788,8 @@
     <Content Include="Views\Section\Bodas.cshtml" />
     <Content Include="Views\Section\Infantiles.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
+    <Content Include="Views\Section\Bodas\Vero_y_Lau.cshtml" />
+    <Content Include="Views\Section\Bodas\karina-y-german.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
