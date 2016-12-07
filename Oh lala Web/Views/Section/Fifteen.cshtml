@@ -9,7 +9,7 @@
     <script src="~/Scripts/general-functions.js"></script>
     <script>
         window.onload = function () {
-            initGallery(3);
+            initGallery(2);
         };
 
         $(function () {
@@ -35,95 +35,108 @@
             <div class="row">
         		<div class="col-lg-12 col-md-12 col-sm-12">
                     <div id="options" class="clearfix" style="display:none">
-                      <ul id="filters" class="pagination option-set clearfix" data-option-key="filter">
-                        <li><a href="#filter" data-option-value="*" class="selected">Show all</a></li>
-                        <li><a href="#filter" data-option-value=".people">people</a></li>
-                        <li><a href="#filter" data-option-value=".macro ">macro</a></li>
-                        <li><a href="#filter" data-option-value=".nature">nature</a></li>
-                        <li><a href="#filter" data-option-value=".night">night</a></li>
-                        <li><a href="#filter" data-option-value=".panoramic">panoramic</a></li>
-                        <li><a href="#filter" data-option-value=".sports">sports</a></li>
-                      </ul>
                     </div><!-- #options -->
                     <div class="containerExtra">
                         <div id="container" class="clearfix">
                             <div class="thumbs">
                                 @*Abril*@
-                                <div id="wrapper" class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Abril/Abril (3).jpg" data-gallery="abril">
-                                        <figure class="img-polaroid" title="Abril"><img src="~/Content/Fotos/Fifteen/_Portadas/Abril.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Abril</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Abril/Abril (3).jpg" data-gallery="abril">
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Abril.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Abril</span>
+                                    </div>
                                 </div>
                                 @*Cati*@
-                                <div id="wrapper" class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Cati/Cati (2).jpg" data-gallery="cati">
-                                        <figure class="img-polaroid" title="Cati"><img src="~/Content/Fotos/Fifteen/_Portadas/Cati.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Cati</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Cati/Cati (2).jpg" data-gallery="cati">
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Cati.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Cati</span>
+                                    </div>
                                 </div>
                                 @*Cielo*@
-                                <div id="wrapper" class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Cielo/Cielo (2).jpg" data-gallery="cielo">
-                                        <figure class="img-polaroid" title="Cielo"><img src="~/Content/Fotos/Fifteen/_Portadas/Cielo.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Cielo</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Cielo/Cielo (2).jpg" data-gallery="cielo">
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Cielo.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Cielo</span>
+                                    </div>
                                 </div>
                                 @*Giuli*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Giuli/Giuli (5).jpg" data-gallery="giuli">
-                                        <figure class="img-polaroid" title="Giuli"><img src="~/Content/Fotos/Fifteen/_Portadas/Giuli.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Giuli</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Giuli/Giuli (5).jpg" data-gallery="giuli">
+                                            <figure class="img-polaroid" title="Giuli"><img src="~/Content/Fotos/Fifteen/_Portadas/Giuli.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Giuli</span>
+                                    </div>
                                 </div>
                                 @*Martina Campos*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Martina_Campos/Martina Campos (1).jpg" data-gallery="martina_campos">
-                                        <figure class="img-polaroid" title="Martina Campos Perez"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Campos.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Martina Campos Perez</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Martina_Campos/Martina Campos (1).jpg" data-gallery="martina_campos">
+                                            <figure class="img-polaroid" title="Martina Campos Perez"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Campos.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Martina Campos Perez</span>
+                                    </div>
                                 </div>
                                 @*Martina Isabella*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Martina_Isabella/Martina Isabella (8).jpg" data-gallery="martina_isabella">
-                                        <figure class="img-polaroid" title="Martina Isabella"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Isabella.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Martina Isabella</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Martina_Isabella/Martina Isabella (8).jpg" data-gallery="martina_isabella">
+                                            <figure class="img-polaroid" title="Martina Isabella"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Isabella.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Martina Isabella</span>
+                                    </div>
                                 </div>
                                 @*Martina Poveda*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Martina_Poveda/Martina Poveda (1).jpg" data-gallery="martina_poveda">
-                                        <figure class="img-polaroid" title="Martina Poveda"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Poveda.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Martina Poveda</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Martina_Poveda/Martina Poveda (1).jpg" data-gallery="martina_poveda">
+                                            <figure class="img-polaroid" title="Martina Poveda"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Poveda.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Martina Poveda</span>
+                                    </div>
                                 </div>
                                 @*Mica*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Mica/Mica (4).jpg" data-gallery="mica">
-                                        <figure class="img-polaroid" title="Mica"><img src="~/Content/Fotos/Fifteen/_Portadas/Mica.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Mica</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Mica/Mica (4).jpg" data-gallery="mica">
+                                            <figure class="img-polaroid" title="Mica"><img src="~/Content/Fotos/Fifteen/_Portadas/Mica.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Mica</span>
+                                    </div>
                                 </div>
                                 @*Sofia*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Sofia/Sofia (2).jpg" data-gallery="sofia">
-                                        <figure class="img-polaroid" title="Sofia"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Sofia</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Sofia/Sofia (2).jpg" data-gallery="sofia">
+                                            <figure class="img-polaroid" title="Sofia"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Sofia</span>
+                                    </div>
                                 </div>
                                 @*Sofia Peluso*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Sofia_Peluso/Sofia Peluso (30).jpg" data-gallery="sofia_peluso">
-                                        <figure class="img-polaroid" title="Sofia Peluso"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia Peluso.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Sofia Peluso</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Sofia_Peluso/Sofia Peluso (30).jpg" data-gallery="sofia_peluso">
+                                            <figure class="img-polaroid" title="Sofia Peluso"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia Peluso.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Sofia Peluso</span>
+                                    </div>
                                 </div>
                                 @*Zoe*@
-                                <div class="element transition people" data-category="transition">
-                                    <a href="~/Content/Fotos/Fifteen/Zoe/Zoe (8).jpg" data-gallery="zoe">
-                                        <figure class="img-polaroid" title="Zoe"><img src="~/Content/Fotos/Fifteen/_Portadas/Zoe.jpg" alt=""></figure>
-                                    </a>
-                                    <span class="description">Zoe</span>
+                                <div id="wrapper">
+                                    <div class="element">
+                                        <a href="~/Content/Fotos/Fifteen/Zoe/Zoe (8).jpg" data-gallery="zoe">
+                                            <figure class="img-polaroid" title="Zoe"><img src="~/Content/Fotos/Fifteen/_Portadas/Zoe.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Zoe</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

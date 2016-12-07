@@ -994,7 +994,7 @@ hr.line2 {
 	margin-left: 0;
 }
 .containerExtra {
-	margin-left: -30px;
+	/*margin-left: -30px;*/
 }
 .element {
 	width: 270px;
@@ -1058,25 +1058,28 @@ hr.line2 {
 	padding: 0;
 	text-decoration: none;
 }
-.element span {
+#wrapper span {
     position: relative;
     bottom: 40px;
     left: 10px;
     color: #fff;
     font-size: 30px;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
     opacity: 0;
     font-family: 'Bromello', serif;
+    display:none;
 }
 #wrapper:hover span {
 	opacity: 1;
+    display:block;
 }
 #wrapper:focus span {
 	opacity: 1;
+    display:block;
 }
 #filters {
 	position: relative;

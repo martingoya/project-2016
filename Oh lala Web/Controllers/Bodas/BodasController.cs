@@ -14,6 +14,9 @@ namespace Oh_lala_Web.Controllers.Bodas
         {
             return View("~/Views/Section/Bodas/Vero_y_Lau.cshtml");
         }
-
+        public ActionResult Karina_y_German()
+        {
+            return View("~/Views/Section/Bodas/Karina_y_German.cshtml");
+        }
     }
 }
