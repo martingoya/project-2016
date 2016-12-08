@@ -11,10 +11,6 @@
         window.onload = function () {
             initGallery(2);
         };
-
-        $(function () {
-            $('.thumbs a').touchTouch();
-        });
     </script>
 </head>
 
@@ -41,8 +37,8 @@
                             <div class="thumbs">
                                 @*Abril*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Abril/Abril (3).jpg" data-gallery="abril">
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Abril", "Fifteen")'>
                                             <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Abril.jpg" alt=""></figure>
                                         </a>
                                         <span>Abril</span>
@@ -50,17 +46,26 @@
                                 </div>
                                 @*Cati*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Cati/Cati (2).jpg" data-gallery="cati">
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Cati", "Fifteen")'>
                                             <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Cati.jpg" alt=""></figure>
                                         </a>
                                         <span>Cati</span>
                                     </div>
                                 </div>
+                                @*Martina Campos*@
+                                <div id="wrapper">
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Martina_Campos_Perez", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Campos.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Martina</span>
+                                    </div>
+                                </div>
                                 @*Cielo*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Cielo/Cielo (2).jpg" data-gallery="cielo">
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Cielo", "Fifteen")'>
                                             <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Cielo.jpg" alt=""></figure>
                                         </a>
                                         <span>Cielo</span>
@@ -68,178 +73,69 @@
                                 </div>
                                 @*Giuli*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Giuli/Giuli (5).jpg" data-gallery="giuli">
-                                            <figure class="img-polaroid" title="Giuli"><img src="~/Content/Fotos/Fifteen/_Portadas/Giuli.jpg" alt=""></figure>
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Giuli", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Giuli.jpg" alt=""></figure>
                                         </a>
                                         <span>Giuli</span>
                                     </div>
                                 </div>
-                                @*Martina Campos*@
+                                @*Sofia Peluso*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Martina_Campos/Martina Campos (1).jpg" data-gallery="martina_campos">
-                                            <figure class="img-polaroid" title="Martina Campos Perez"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Campos.jpg" alt=""></figure>
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Sofia_Peluso", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia Peluso.jpg" alt=""></figure>
                                         </a>
-                                        <span>Martina Campos Perez</span>
-                                    </div>
-                                </div>
-                                @*Martina Isabella*@
-                                <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Martina_Isabella/Martina Isabella (8).jpg" data-gallery="martina_isabella">
-                                            <figure class="img-polaroid" title="Martina Isabella"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Isabella.jpg" alt=""></figure>
-                                        </a>
-                                        <span>Martina Isabella</span>
+                                        <span>Sofia</span>
                                     </div>
                                 </div>
                                 @*Martina Poveda*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Martina_Poveda/Martina Poveda (1).jpg" data-gallery="martina_poveda">
-                                            <figure class="img-polaroid" title="Martina Poveda"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Poveda.jpg" alt=""></figure>
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Martina_Poveda", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Poveda.jpg" alt=""></figure>
                                         </a>
-                                        <span>Martina Poveda</span>
+                                        <span>Martina</span>
+                                    </div>
+                                </div>
+                                @*Zoe*@
+                                <div id="wrapper">
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Zoe", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Zoe.jpg" alt=""></figure>
+                                        </a>
+                                        <span>Zoe</span>
                                     </div>
                                 </div>
                                 @*Mica*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Mica/Mica (4).jpg" data-gallery="mica">
-                                            <figure class="img-polaroid" title="Mica"><img src="~/Content/Fotos/Fifteen/_Portadas/Mica.jpg" alt=""></figure>
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Mica", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Mica.jpg" alt=""></figure>
                                         </a>
                                         <span>Mica</span>
                                     </div>
                                 </div>
                                 @*Sofia*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Sofia/Sofia (2).jpg" data-gallery="sofia">
-                                            <figure class="img-polaroid" title="Sofia"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia.jpg" alt=""></figure>
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Sofia", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia.jpg" alt=""></figure>
                                         </a>
                                         <span>Sofia</span>
                                     </div>
                                 </div>
-                                @*Sofia Peluso*@
+                                @*Martina Isabella*@
                                 <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Sofia_Peluso/Sofia Peluso (30).jpg" data-gallery="sofia_peluso">
-                                            <figure class="img-polaroid" title="Sofia Peluso"><img src="~/Content/Fotos/Fifteen/_Portadas/Sofia Peluso.jpg" alt=""></figure>
+                                    <div class="element transition">
+                                        <a href='@Url.Action("Martina_Isabella", "Fifteen")'>
+                                            <figure class="img-polaroid"><img src="~/Content/Fotos/Fifteen/_Portadas/Martina Isabella.jpg" alt=""></figure>
                                         </a>
-                                        <span>Sofia Peluso</span>
-                                    </div>
-                                </div>
-                                @*Zoe*@
-                                <div id="wrapper">
-                                    <div class="element">
-                                        <a href="~/Content/Fotos/Fifteen/Zoe/Zoe (8).jpg" data-gallery="zoe">
-                                            <figure class="img-polaroid" title="Zoe"><img src="~/Content/Fotos/Fifteen/_Portadas/Zoe.jpg" alt=""></figure>
-                                        </a>
-                                        <span>Zoe</span>
+                                        <span>Martina</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="thumbs" style="display:none">
-                        @*Abril*@
-                        @for (int i = 1; i <= 15; i++)
-                        {
-                            if (i != 3)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Abril/Abril (@i).jpg" data-gallery="abril"></a>
-                            }
-                        }
-                        
-                        @*Cati*@
-                        @for (int i = 1; i <= 14; i++)
-                        {
-                            if (i != 2)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Cati/Cati (@i).jpg" data-gallery="cati"></a>
-                            }
-                        }
-
-                        @*Cielo*@
-                        @for (int i = 1; i <= 11; i++)
-                        {
-                            if (i != 2)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Cielo/Cielo (@i).jpg" data-gallery="cielo"></a>
-                            }
-                        }
-
-                        @*Giuli*@
-                        @for (int i = 1; i <= 24; i++)
-                        {
-                            if (i != 5)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Giuli/Giuli (@i).jpg" data-gallery="giuli"></a>
-                            }
-                        }
-
-                        @*Martina Campos*@
-                        @for (int i = 1; i <= 32; i++)
-                        {
-                            if (i != 1)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Martina_Campos/Martina Campos (@i).jpg" data-gallery="martina_campos" ></a>
-                            }
-                        }
-
-                        @*Martina Isabella*@
-                        @for (int i = 1; i <= 9; i++)
-                        {
-                            if (i != 8)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Martina_Isabella/Martina Isabella (@i).jpg" data-gallery="martina_isabella"></a>
-                            }
-                        }
-
-                        @*Martina Poveda*@
-                        @for (int i = 1; i <= 21; i++)
-                        {
-                            if (i != 1)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Martina_Poveda/Martina Poveda (@i).jpg" data-gallery="martina_poveda"></a>
-                            }
-                        }
-
-                        @*Mica*@
-                        @for (int i = 1; i <= 15; i++)
-                        {
-                            if (i != 4)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Mica/Mica (@i).jpg" data-gallery="mica"></a>
-                            }
-                        }
-
-                        @*Sofia*@
-                        @for (int i = 1; i <= 8; i++)
-                        {
-                            if (i != 2)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Sofia/Sofia (@i).jpg" data-gallery="sofia"></a>
-                            }
-                        }
-
-                        @*Sofia Peluso*@
-                        @for (int i = 1; i <= 37; i++)
-                        {
-                            if (i != 30)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Sofia_Peluso/Sofia Peluso (@i).jpg" data-gallery="sofia_peluso"></a>
-                            }
-                        }
-
-                        @*Zoe*@
-                        @for (int i = 1; i <= 11; i++)
-                        {
-                            if (i != 8)
-                            {
-                                <a href="~/Content/Fotos/Fifteen/Zoe/Zoe (@i).jpg" data-gallery="zoe"></a>
-                            }
-                        }
                     </div>
 	            </div>
             </div>

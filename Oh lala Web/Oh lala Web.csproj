@@ -200,6 +200,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Bodas\BodasController.cs" />
+    <Compile Include="Controllers\Fifteen\FifteenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -790,6 +791,17 @@
     <Content Include="Views\Home\Sent.cshtml" />
     <Content Include="Views\Section\Bodas\Vero_y_Lau.cshtml" />
     <Content Include="Views\Section\Bodas\Karina_y_German.cshtml" />
+    <Content Include="Views\Section\Fifteen\Abril.cshtml" />
+    <Content Include="Views\Section\Fifteen\Cati.cshtml" />
+    <Content Include="Views\Section\Fifteen\Martina_Campos_Perez.cshtml" />
+    <Content Include="Views\Section\Fifteen\Martina_Isabella.cshtml" />
+    <Content Include="Views\Section\Fifteen\Sofia.cshtml" />
+    <Content Include="Views\Section\Fifteen\Mica.cshtml" />
+    <Content Include="Views\Section\Fifteen\Zoe.cshtml" />
+    <Content Include="Views\Section\Fifteen\Martina_Poveda.cshtml" />
+    <Content Include="Views\Section\Fifteen\Sofia_Peluso.cshtml" />
+    <Content Include="Views\Section\Fifteen\Giuli.cshtml" />
+    <Content Include="Views\Section\Fifteen\Cielo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
