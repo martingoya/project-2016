@@ -997,13 +997,13 @@ hr.line2 {
 	/*margin-left: -30px;*/
 }
 .element {
-	width: 270px;
+	width: 783px;
 	height: auto !important;
 	display: block;
 	position: relative;
 	color: #222;
 	border: none;
-	margin: 0 !important;
+	margin: 0 auto;
 	padding: 0 0 5px 5px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -1030,6 +1030,7 @@ hr.line2 {
 	margin: 0;
 	display: block;
 	position: relative;
+    text-decoration: none;
 }
 .element > a figure {
 	position: relative;
@@ -1041,45 +1042,35 @@ hr.line2 {
 .element > a figure img {
 	width: 100%;
     opacity: 1;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+	-webkit-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
 }
 .element > a figure:hover img {
 	opacity: .5;
 }
-.element > a span {
-	position: relative;
-	text-transform: uppercase;
-	font-family: 'Georgia', serif;
-	font-size: 12px;
-	line-height: 20px;
-	color: #797979;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-}
-#wrapper span {
-    position: relative;
-    bottom: 40px;
+
+.element span {
+    position: absolute;
+    bottom: 20px;
     left: 10px;
     color: #fff;
-    font-size: 30px;
+    font-size: 40px;
     text-decoration: none;
     text-align: left;
     vertical-align: middle;
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
     opacity: 0;
     font-family: 'Bromello', serif;
+}
+.element:hover span {
+	opacity: 1;
+}
+.element:focus span {
+	opacity: 1;
+}
+.element > span:hover span{
     display:none;
-}
-#wrapper:hover span {
-	opacity: 1;
-    display:block;
-}
-#wrapper:focus span {
-	opacity: 1;
-    display:block;
 }
 #filters {
 	position: relative;
@@ -1918,4 +1909,5 @@ audio {
     width: 785px;
     display: block;
     margin: 0 auto;
+    margin-bottom: 20px !important;
 }
