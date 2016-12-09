@@ -997,14 +997,14 @@ hr.line2 {
 	/*margin-left: -30px;*/
 }
 .element {
-	width: 783px;
+    width: 783pX;
+    max-width: 100%;
 	height: auto !important;
 	display: block;
 	position: relative;
 	color: #222;
 	border: none;
 	margin: 0 auto;
-	padding: 0 0 5px 5px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -1037,7 +1037,7 @@ hr.line2 {
 	display: block;
 	margin: 0 0 0px 0px;
 	padding: 0;
-    background: black;
+    background-color: black;
 }
 .element > a figure img {
 	width: 100%;
@@ -1046,13 +1046,12 @@ hr.line2 {
 	transition: .5s ease-in-out;
 }
 .element > a figure:hover img {
-	opacity: .5;
+	/*opacity: .5;*/
 }
-
 .element span {
     position: absolute;
-    bottom: 20px;
-    left: 10px;
+    bottom: 0px;
+    left: 0px;
     color: #fff;
     font-size: 40px;
     text-decoration: none;
@@ -1060,8 +1059,12 @@ hr.line2 {
     vertical-align: middle;
     -webkit-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
-    opacity: 0;
+    opacity: 1;
     font-family: 'Bromello', serif;
+    width: 785px;
+    max-width: 100%;
+    background: rgba(0,0,0,0.5);
+    padding-left: 10px;
 }
 .element:hover span {
 	opacity: 1;
@@ -1910,4 +1913,32 @@ audio {
     display: block;
     margin: 0 auto;
     margin-bottom: 20px !important;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
 }
