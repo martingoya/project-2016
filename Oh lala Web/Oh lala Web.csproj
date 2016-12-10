@@ -779,6 +779,7 @@
     <Content Include="Views\Section\Fifteen\Sofia_Peluso.cshtml" />
     <Content Include="Views\Section\Fifteen\Giuli.cshtml" />
     <Content Include="Views\Section\Fifteen\Cielo.cshtml" />
+    <Content Include="Views\Shared\_SocialLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
