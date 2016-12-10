@@ -5,7 +5,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
+    <script type="text/javascript">
+    window.setTimeout(function() {
+        window.location.href = '@Url.Action("Index", "Home")';
+    }, 5000);
+    </script>
 </head>
 
 <body>
@@ -13,33 +17,15 @@
         <!--==============================row1=================================-->
         <div class="row_1">
             <div class="container">
-                <p class="title2" style="margin-bottom: 10px">Texto Contacto.</p>
-                <p class="title2"></p>
+                <p class="title2" style="margin-bottom: 10px">Su mensaje ha sido enviado correctamente.</p>
+                <p class="title2">En breve nos pondremos en contacto contigo.</p>
             </div>
         </div>
         <!--==============================row2=================================-->
         <div class="row_2">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <div class="well well-sm">
-                            <h3>Tu mensaje ha sido enviado</h3>
-                        </div>
-                    </div>
-                </div>
+                <p class="title2">Volviendo a inicio...</p>
             </div>
-            @*<h1>Elegant Contact Form</h1>
-            <form class="cf">
-                <div class="half left cf">
-                    <input type="text" id="input-name" placeholder="Name" required="required">
-                    <input type="email" id="input-email" placeholder="Email address">
-                    <input type="text" id="input-subject" placeholder="Subject">
-                </div>
-                <div class="half right cf">
-                    <textarea name="message" type="text" id="input-message" placeholder="Message"></textarea>
-                </div>
-                <input type="submit" value="Submit" id="input-submit">
-            </form>*@
         </div>
     </div>
 </body>

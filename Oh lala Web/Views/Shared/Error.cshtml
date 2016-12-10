@@ -3,8 +3,25 @@
 @{
     ViewBag.Title = "Error";
 }
-
-<hgroup class="title">
-    <h1 class="error">Error.</h1>
-    <h2 class="error">An error occurred while processing your request.</h2>
-</hgroup>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        window.location.href = '@Url.Action("Index", "Home")';
+    }, 5000);
+</script>
+<body>
+    <div id="content">
+        <!--==============================row1=================================-->
+        <div class="row_1">
+            <div class="container">
+                <p class="title2" style="font-size: 40px;color: red; margin-bottom: 10px; padding-top:25px">Error</p>
+                <p class="title2">La página a la que intenta acceder no existe.</p>
+            </div>
+        </div>
+        <!--==============================row2=================================-->
+        <div class="row_2">
+            <div class="container">
+                <p class="title2">Volviendo a inicio...</p>
+            </div>
+        </div>
+    </div>
+</body>

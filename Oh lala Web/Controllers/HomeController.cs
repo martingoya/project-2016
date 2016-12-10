@@ -58,6 +58,10 @@ namespace Oh_lala_Web.Controllers
 
         public ActionResult Sent()
         {
+            if (Request.ServerVariables["HTTP_REFERER"] == null)
+            {
+                return RedirectToAction("Index");
+            }
             return View();
         }
     }
