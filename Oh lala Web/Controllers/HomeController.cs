@@ -35,13 +35,13 @@ namespace Oh_lala_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
+                var body = "<p>Email From: {0} ({1}, {2})</p><p>Message:</p><p>{3}</p>";
                 var message = new MailMessage();
                 message.To.Add("postmaster@ohlalaph.com");  // replace with valid value 
                 message.From = new MailAddress("tincho.592@gmail.com", "Admin");  // replace with valid value
                 message.Subject = model.Subject;
                 message.SubjectEncoding = System.Text.Encoding.UTF8;
-                message.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
+                message.Body = string.Format(body, model.FromName, model.FromEmail, model.Phone, model.Message);
                 message.BodyEncoding = System.Text.Encoding.UTF8;
                 message.IsBodyHtml = true;
 

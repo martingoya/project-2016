@@ -12,6 +12,8 @@ namespace Oh_lala_Web.Models
         public string FromName { get; set; }
         [Required, Display(Name = "Mail"), EmailAddress]
         public string FromEmail { get; set; }
+        [Required, Display(Name = "Telefono")]
+        public string Phone { get; set; }
         [Required, Display(Name = "Asunto")]
         public string Subject { get; set; }
         [Required, Display(Name = "Mensaje")]

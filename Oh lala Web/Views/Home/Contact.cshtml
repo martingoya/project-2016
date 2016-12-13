@@ -5,9 +5,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title></title>
-</head>
 
 <body>
     <div id="content">
@@ -28,8 +25,7 @@
                         @using (Html.BeginForm("Contact", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
                         {
                             @Html.AntiForgeryToken()
-                            <fieldset>
-                                <legend class="text-center header">Contáctenos!</legend>
+                            <fieldset style="margin-top: 20px;">
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-user bigicon"></i></span>
                                     <div class="col-md-9 textboxPaddingFixed">
@@ -45,18 +41,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-mobile bigicon"></i></span>
+                                    <div class="col-md-9 textboxPaddingFixed">
+                                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Teléfono (Opcional)" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-tag bigicon"></i></span>
                                     <div class="col-md-9 textboxPaddingFixed">
                                         @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @placeholder = "Asunto" })
                                         @Html.ValidationMessageFor(m => m.Subject)
                                     </div>
                                 </div>
-                                @*<div class="form-group">
-                                        <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-                                        <div class="col-md-8">
-                                            <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
-                                        </div>
-                                    </div>*@
                                 <div class="form-group">
                                     <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-pencil-square-o bigicon"></i></span>
                                     <div class="col-md-9 textboxPaddingFixed">
