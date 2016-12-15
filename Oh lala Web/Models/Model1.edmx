@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EventModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EventModelStoreContainer">
+    <EntitySet Name="Event" EntityType="EventModel.Store.Event" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Image" EntityType="EventModel.Store.Image" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Service" EntityType="EventModel.Store.Service" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeEvent" EntityType="EventModel.Store.TypeEvent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeService" EntityType="EventModel.Store.TypeService" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventImage" EntityType="EventModel.Store.EventImage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventService" EntityType="EventModel.Store.EventService" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Event_Image" Association="EventModel.Store.FK_Event_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_TypeEvent" Association="EventModel.Store.FK_Event_TypeEvent">
+      <End Role="TypeEvent" EntitySet="TypeEvent" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Service_TypeService" Association="EventModel.Store.FK_Service_TypeService">
+      <End Role="TypeService" EntitySet="TypeService" />
+      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventImage_Event" Association="EventModel.Store.FK_EventImage_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventImage" EntitySet="EventImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventImage_Image" Association="EventModel.Store.FK_EventImage_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="EventImage" EntitySet="EventImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventService_Event" Association="EventModel.Store.FK_EventService_Event">
+      <End Role="Event" EntitySet="Event" />
+      <End Role="EventService" EntitySet="EventService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventService_Service" Association="EventModel.Store.FK_EventService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="EventService" EntitySet="EventService" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TypeEventID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Text" Type="varchar" Nullable="true" MaxLength="2048" />
+    <Property Name="ImageID" Type="int" Nullable="true" />
+    <Property Name="VideoLink" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="IsImage" Type="bit" Nullable="false" />
+    <Property Name="Controller" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Action" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ImagePath" Type="varchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TypeService" Type="int" Nullable="false" />
+    <Property Name="ServiceLink" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TypeEvent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TypeService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EventImage">
+    <Key>
+      <PropertyRef Name="Event1_ID" />
+      <PropertyRef Name="Image1_ID" />
+    </Key>
+    <Property Name="Event1_ID" Type="int" Nullable="false" />
+    <Property Name="Image1_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventService">
+    <Key>
+      <PropertyRef Name="Event_ID" />
+      <PropertyRef Name="Service_ID" />
+    </Key>
+    <Property Name="Event_ID" Type="int" Nullable="false" />
+    <Property Name="Service_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Event_Image">
+    <End Role="Image" Type="EventModel.Store.Image" Multiplicity="0..1" />
+    <End Role="Event" Type="EventModel.Store.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="ImageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_TypeEvent">
+    <End Role="TypeEvent" Type="EventModel.Store.TypeEvent" Multiplicity="1" />
+    <End Role="Event" Type="EventModel.Store.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeEvent">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="TypeEventID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Service_TypeService">
+    <End Role="TypeService" Type="EventModel.Store.TypeService" Multiplicity="1" />
+    <End Role="Service" Type="EventModel.Store.Service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Service">
+        <PropertyRef Name="TypeService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventImage_Event">
+    <End Role="Event" Type="EventModel.Store.Event" Multiplicity="1" />
+    <End Role="EventImage" Type="EventModel.Store.EventImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EventImage">
+        <PropertyRef Name="Event1_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventImage_Image">
+    <End Role="EventImage" Type="EventModel.Store.EventImage" Multiplicity="*" />
+    <End Role="Image" Type="EventModel.Store.Image" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EventImage">
+        <PropertyRef Name="Image1_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventService_Event">
+    <End Role="Event" Type="EventModel.Store.Event" Multiplicity="1" />
+    <End Role="EventService" Type="EventModel.Store.EventService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EventService">
+        <PropertyRef Name="Event_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventService_Service">
+    <End Role="EventService" Type="EventModel.Store.EventService" Multiplicity="*" />
+    <End Role="Service" Type="EventModel.Store.Service" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EventService">
+        <PropertyRef Name="Service_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EventModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeEventID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Text" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="ImageID" Type="Int32" />
+          <Property Name="VideoLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsImage" Type="Boolean" Nullable="false" />
+          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_Event_Image" FromRole="Event" ToRole="Image" />
+          <NavigationProperty Name="TypeEvent" Relationship="Self.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
+          <NavigationProperty Name="Image1" Relationship="Self.EventImage" FromRole="Event" ToRole="Image" />
+          <NavigationProperty Name="Service" Relationship="Self.EventService" FromRole="Event" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Event_Image" FromRole="Image" ToRole="Event" />
+          <NavigationProperty Name="Event1" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeService" Type="Int32" Nullable="false" />
+          <Property Name="ServiceLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TypeService1" Relationship="Self.FK_Service_TypeService" FromRole="Service" ToRole="TypeService" />
+          <NavigationProperty Name="Event" Relationship="Self.EventService" FromRole="Service" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="TypeEvent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Event_TypeEvent" FromRole="TypeEvent" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="TypeService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_Service_TypeService" FromRole="TypeService" ToRole="Service" />
+        </EntityType>
+        <Association Name="FK_Event_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="ImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_TypeEvent">
+          <End Role="TypeEvent" Type="Self.TypeEvent" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEvent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TypeEventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_TypeService">
+          <End Role="TypeService" Type="Self.TypeService" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeService">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="TypeService" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventImage">
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+        </Association>
+        <Association Name="EventService">
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <End Role="Service" Type="Self.Service" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="EventEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="Image" EntityType="Self.Image" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="TypeEvent" EntityType="Self.TypeEvent" />
+          <EntitySet Name="TypeService" EntityType="Self.TypeService" />
+          <AssociationSet Name="FK_Event_Image" Association="Self.FK_Event_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_TypeEvent" Association="Self.FK_Event_TypeEvent">
+            <End Role="TypeEvent" EntitySet="TypeEvent" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_TypeService" Association="Self.FK_Service_TypeService">
+            <End Role="TypeService" EntitySet="TypeService" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="EventImage" Association="Self.EventImage">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="EventService" Association="Self.EventService">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EventModelStoreContainer" CdmEntityContainer="EventEntities">
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="IsTypeOf(EventModel.Event)">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TypeEventID" ColumnName="TypeEventID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+          <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+          <ScalarProperty Name="IsImage" ColumnName="IsImage" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Image">
+      <EntityTypeMapping TypeName="IsTypeOf(EventModel.Image)">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Service">
+      <EntityTypeMapping TypeName="IsTypeOf(EventModel.Service)">
+        <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TypeService" ColumnName="TypeService" />
+          <ScalarProperty Name="ServiceLink" ColumnName="ServiceLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeEvent">
+      <EntityTypeMapping TypeName="IsTypeOf(EventModel.TypeEvent)">
+        <MappingFragment StoreEntitySet="TypeEvent">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeService">
+      <EntityTypeMapping TypeName="IsTypeOf(EventModel.TypeService)">
+        <MappingFragment StoreEntitySet="TypeService">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EventImage" TypeName="EventModel.EventImage" StoreEntitySet="EventImage">
+      <EndProperty Name="Event">
+        <ScalarProperty Name="ID" ColumnName="Event1_ID" />
+      </EndProperty>
+      <EndProperty Name="Image">
+        <ScalarProperty Name="ID" ColumnName="Image1_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EventService" TypeName="EventModel.EventService" StoreEntitySet="EventService">
+      <EndProperty Name="Event">
+        <ScalarProperty Name="ID" ColumnName="Event_ID" />
+      </EndProperty>
+      <EndProperty Name="Service">
+        <ScalarProperty Name="ID" ColumnName="Service_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
