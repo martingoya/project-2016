@@ -46,16 +46,19 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,ImagePath")] Image image)
+        public ActionResult Create([Bind(Include = "Title,ImagePath")] ImageView imageView)
         {
             if (ModelState.IsValid)
             {
-                db.Image.Add(image);
+                AutoMapper.Mapper.Initialize(x => {
+                    x.CreateMap<ImageView, Image>();
+                });
+                db.Image.Add(AutoMapper.Mapper.Map<Image>(imageView));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(image);
+            return View(imageView);
         }
 
         // GET: Images/Edit/5

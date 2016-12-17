@@ -46,16 +46,19 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name")] TypeService typeService)
+        public ActionResult Create([Bind(Include = "Name")] TypeServiceView typeServiceView)
         {
             if (ModelState.IsValid)
             {
-                db.TypeService.Add(typeService);
+                AutoMapper.Mapper.Initialize(x => {
+                    x.CreateMap<TypeServiceView, TypeService>();
+                });
+                db.TypeService.Add(AutoMapper.Mapper.Map<TypeService>(typeServiceView));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(typeService);
+            return View(typeServiceView);
         }
 
         // GET: TypeServices/Edit/5

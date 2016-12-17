@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="ohlalaModel.Image" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ohlalaModel.Service" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ohlalaModel.TypeEvent" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="ohlalaModel.TypeService" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ohlalaModel.TypeService" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="ohlalaModel.FK_Event_Image" ManuallyRouted="false" />
         <AssociationConnector Association="ohlalaModel.FK_Event_TypeEvent" ManuallyRouted="false" />
         <AssociationConnector Association="ohlalaModel.FK_Service_TypeService" ManuallyRouted="false" />

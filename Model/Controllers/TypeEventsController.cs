@@ -53,8 +53,7 @@ namespace Model.Controllers
                 AutoMapper.Mapper.Initialize(x => {
                     x.CreateMap<TypeEventView, TypeEvent>();
                 });
-                TypeEvent typeEvent = AutoMapper.Mapper.Map<TypeEvent>(typeEventView);
-                db.TypeEvent.Add(typeEvent);
+                db.TypeEvent.Add(AutoMapper.Mapper.Map<TypeEvent>(typeEventView));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

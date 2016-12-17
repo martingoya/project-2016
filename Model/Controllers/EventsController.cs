@@ -49,18 +49,21 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,TypeEventID,Date,Text,ImageID,VideoLink,IsImage,Controller,Action")] Event @event)
+        public ActionResult Create([Bind(Include = "Title,TypeEventID,Date,Text,ImageID,VideoLink,IsImage,Controller,Action")] EventView @eventView)
         {
             if (ModelState.IsValid)
             {
-                db.Event.Add(@event);
+                AutoMapper.Mapper.Initialize(x => {
+                    x.CreateMap<EventView, Event>();
+                });
+                db.Event.Add(AutoMapper.Mapper.Map<Event>(@eventView));
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @event.ImageID);
-            ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @event.TypeEventID);
-            return View(@event);
+            ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @eventView.ImageID);
+            ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @eventView.TypeEventID);
+            return View(@eventView);
         }
 
         // GET: Events/Edit/5
