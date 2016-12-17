@@ -10,8 +10,6 @@ namespace Oh_lala_Web.Controllers
 {
     public class SectionController : Controller
     {
-        private EventEntities db = new EventEntities("OhLalaPHEntities");
-
         public ActionResult Fifteen()
         {
             return View();
