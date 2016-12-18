@@ -16,10 +16,14 @@ namespace Model.Models
     public partial class ohlalaEntities : DbContext
     {
         public ohlalaEntities()
-            : base("name=ohlalaEntities")
+            : base("name=prod")
         {
         }
-    
+        public ohlalaEntities(string name)
+            : base("name=" + name)
+        {
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

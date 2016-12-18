@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace Model.Models
 {
@@ -75,6 +76,9 @@ namespace Model.Models
 
         public string Title { get; set; }
         public int TypeEventID { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public System.DateTime Date { get; set; }
         public string Text { get; set; }
         public Nullable<int> ImageID { get; set; }
