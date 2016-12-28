@@ -1,17 +1,21 @@
 ﻿using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Net;
 using System.Net.Mail;
+using Model.Models;
+using System.Linq;
+using System.Data.Entity;
 using Oh_lala_Web.Models;
-using System;
 
 namespace Oh_lala_Web.Controllers
 {
     public class HomeController : Controller
     {
+        private ohlalaEntities db = new ohlalaEntities();
+
         public ActionResult Index()
         {
-            return View();
+            var events = db.Event.Include(x => x.Image).Include(y => y.TypeEvent);
+            return View(events.ToList());
         }
 
         public ActionResult Fifteen()
