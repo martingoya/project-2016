@@ -80,6 +80,7 @@ namespace Model.Controllers
             }
             ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @event.ImageID);
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @event.TypeEventID);
+            ViewBag.Services = new SelectList(db.Service, "ID", "Name", @event.Service);
             return View(@event);
         }
 
@@ -88,10 +89,12 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,TypeEventID,Date,Text,ImageID,VideoLink,IsImage,Controller,Action")] Event @event)
+        public ActionResult Edit([Bind(Include = "ID,Title,TypeEventID,Date,Text,ImageID,VideoLink,IsImage,Controller,Action,Services")] Event @event)
         {
             if (ModelState.IsValid)
             {
+                var services = db.Service.ToList();
+                @event.Service.Add(services.First());
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

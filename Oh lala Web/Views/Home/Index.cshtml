@@ -20,30 +20,44 @@
     </div>*@
     <!--==============================Gallery=================================-->
     <div class="container">
-        @foreach (var item in Model)
-        {
-            <p>
-                 (@Html.DisplayFor(modelItem => item.Date))
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Text)
-            </p>
-            if (item.IsImage)
+        <div style="text-align: center">
+            @foreach (var item in Model)
             {
-                <div id="wrapper">
-                    <div class="element">
-                        <a href='@Url.Action(Html.DisplayFor(modelItem => item.Action).ToHtmlString(), Html.DisplayFor(modelItem => item.Controller).ToHtmlString())'>
-                            <figure><img class="imagesSection" alt=@Html.DisplayFor(modelItem => item.Title) src="/Content/Fotos/@Html.DisplayFor(modelItem => item.Image.ImagePath)"></figure>
-                        <span>@Html.DisplayFor(modelItem => item.Title)</span>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </p>
+                <p>
+                    (@Html.DisplayFor(modelItem => item.Date))
+                </p>
+                <p>
+                    @Html.DisplayFor(modelItem => item.Text)
+                </p>
+                <p>
+                    @foreach (var service in item.Service)
+                {
+                        @Html.DisplayFor(modelItem => service.TypeService1.Name)
+                        <a href='Url.Action(Html.DisplayFor(modelItem => service.ServiceLink).ToHtmlString()'>
+                            @Html.DisplayFor(modelItem => service.Name)
                         </a>
+                    }
+                </p>
+                if (item.IsImage)
+                {
+                    <div id="wrapper">
+                        <div class="element">
+                            <a href='@Url.Action(Html.DisplayFor(modelItem => item.Action).ToHtmlString(), Html.DisplayFor(modelItem => item.Controller).ToHtmlString())'>
+                                <figure><img class="imagesSection" alt=@Html.DisplayFor(modelItem => item.Title) src="/Content/Fotos/@Html.DisplayFor(modelItem => item.Image.ImagePath)"></figure>
+                                <span></span>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.VideoLink)
+                }
             }
-            else
-            {
-                @Html.DisplayFor(modelItem => item.VideoLink)
-            }
-        }
+        </div>
     </div>
 </div>
 </body>
