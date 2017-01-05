@@ -39,13 +39,9 @@ namespace Model.Models
         {
             this.Event = new HashSet<Event>();
         }
-
+        public int ID { get; set; }
         public string Name { get; set; }
-        public int TypeService { get; set; }
-        public string ServiceLink { get; set; }
-
-        public virtual TypeService TypeService1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public string TypeService { get; set; }
         public virtual ICollection<Event> Event { get; set; }
     }
     public partial class ImageView
@@ -77,16 +73,24 @@ namespace Model.Models
         public string Title { get; set; }
         public int TypeEventID { get; set; }
 
+        private DateTime _createdOn = DateTime.MinValue;
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public System.DateTime Date { get; set; }
+        public DateTime Date
+        {
+            get
+            {
+                return (_createdOn == DateTime.MinValue) ? DateTime.Now : _createdOn;
+            }
+            set { _createdOn = value; }
+        }
         public string Text { get; set; }
         public Nullable<int> ImageID { get; set; }
         public string VideoLink { get; set; }
         public bool IsImage { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
-
+        public Nullable<int> ServiceID { get; set; }
         public virtual Image Image { get; set; }
         public virtual TypeEvent TypeEvent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

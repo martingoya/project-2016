@@ -41,7 +41,16 @@ namespace Model.Controllers
         {
             ViewBag.ImageID = new SelectList(db.Image, "ID", "Title");
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name");
-            return View();
+            var services = db.Service
+                .Include(y => y.TypeService1)
+                .ToList()
+                .Select(x => new
+                {
+                    ServiceID = x.ID,
+                    Data = string.Format("({0}) - {1}", x.TypeService1.Name, x.Name)
+                });
+            ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data");
+            return View(new EventView());
         }
 
         // POST: Events/Create
@@ -49,20 +58,62 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,TypeEventID,Date,Text,ImageID,VideoLink,IsImage,Controller,Action")] EventView @eventView)
+        public ActionResult Create([Bind(Include = "Title,TypeEventID,Date,Text,ImageID,ServiceID,VideoLink,IsImage,Controller,Action")] EventView @eventView, FormCollection fc)
         {
-            if (ModelState.IsValid)
-            {
-                AutoMapper.Mapper.Initialize(x => {
-                    x.CreateMap<EventView, Event>();
-                });
-                db.Event.Add(AutoMapper.Mapper.Map<Event>(@eventView));
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            List<ServiceView> serviceSession = new List<ServiceView>();
+            if (Request.Form["addService"] != null)
+            {           
+                if (Session["ListService"] != null)
+                {
+                    serviceSession = (List<ServiceView>)Session["ListService"];
+                }
+                if (!serviceSession.Any(x => x.ID == @eventView.ServiceID))
+                {
+                    var serviceDB = db.Service.Include(y => y.TypeService1).FirstOrDefault(x => x.ID == @eventView.ServiceID);
+                    ServiceView service = new ServiceView();
+                    service.ID = serviceDB.ID;
+                    service.Name = serviceDB.Name;
+                    service.TypeService = serviceDB.TypeService1.Name;
+                    serviceSession.Add(service);
+                    Session["ListService"] = serviceSession;
+                }
             }
-
+            else
+            {
+                if (Request.Form["createEvent"] != null)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        AutoMapper.Mapper.Initialize(x =>
+                        {
+                            x.CreateMap<EventView, Event>();
+                        });
+                        serviceSession = (List<ServiceView>)Session["ListService"];
+                        var serviceIDs = serviceSession.Select(k => k.ID).ToList();
+                        var servicesToAdd = db.Service.Join(serviceIDs, x => x.ID, y => y, (x, y) => x);
+                        foreach (var item in servicesToAdd)
+                        {
+                            @eventView.Service.Add(item);
+                        }
+                        db.Event.Add(AutoMapper.Mapper.Map<Event>(@eventView));
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+            }
             ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @eventView.ImageID);
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @eventView.TypeEventID);
+            var serviceSessionIDs = serviceSession.Select(k => k.ID).ToList();
+            var services = db.Service
+                .Where(z => !serviceSessionIDs.Contains(z.ID))
+                .Include(y => y.TypeService1)
+                .ToList()
+                .Select(x => new
+                {
+                    ServiceID = x.ID,
+                    Data = string.Format("({0}) - {1}", x.TypeService1.Name, x.Name)
+                });
+            ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data", @eventView.ServiceID);
             return View(@eventView);
         }
 
