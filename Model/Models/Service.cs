@@ -25,7 +25,7 @@ namespace Model.Models
         public int TypeService { get; set; }
         public string ServiceLink { get; set; }
     
-        public virtual TypeService TypeService1 { get; set; }
+        public virtual TypeService TypeServices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Event> Event { get; set; }
     }

@@ -202,13 +202,13 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Text" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
           <Property Name="ImageID" Type="Int32" />
-          <Property Name="VideoLink" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VideoLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="IsImage" Type="Boolean" Nullable="false" />
           <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Image" Relationship="Self.FK_Event_Image" FromRole="Event" ToRole="Image" />
           <NavigationProperty Name="TypeEvent" Relationship="Self.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
-          <NavigationProperty Name="Image1" Relationship="Self.EventImage" FromRole="Event" ToRole="Image" />
+          <NavigationProperty Name="Images" Relationship="Self.EventImage" FromRole="Event" ToRole="Image" />
           <NavigationProperty Name="Service" Relationship="Self.EventService" FromRole="Event" ToRole="Service" />
         </EntityType>
         <EntityType Name="Image">
@@ -218,8 +218,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Event" Relationship="Self.FK_Event_Image" FromRole="Image" ToRole="Event" />
-          <NavigationProperty Name="Event1" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
+          <NavigationProperty Name="Events" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
         </EntityType>
         <EntityType Name="Service">
           <Key>
@@ -229,7 +228,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TypeService" Type="Int32" Nullable="false" />
           <Property Name="ServiceLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TypeService1" Relationship="Self.FK_Service_TypeService" FromRole="Service" ToRole="TypeService" />
+          <NavigationProperty Name="TypeServices" Relationship="Self.FK_Service_TypeService" FromRole="Service" ToRole="TypeService" />
           <NavigationProperty Name="Event" Relationship="Self.EventService" FromRole="Service" ToRole="Event" />
         </EntityType>
         <EntityType Name="TypeEvent">

@@ -23,7 +23,7 @@ namespace Model.Models
             : base("name=" + name)
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
