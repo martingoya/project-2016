@@ -52,7 +52,7 @@
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Text" Type="varchar" Nullable="true" MaxLength="2048" />
     <Property Name="ImageID" Type="int" Nullable="true" />
-    <Property Name="VideoLink" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="VideoLink" Type="varchar" Nullable="true" MaxLength="255" />
     <Property Name="IsImage" Type="bit" Nullable="false" />
     <Property Name="Controller" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Action" Type="varchar" Nullable="false" MaxLength="50" />
@@ -90,11 +90,11 @@
   </EntityType>
   <EntityType Name="EventImage">
     <Key>
-      <PropertyRef Name="Event1_ID" />
-      <PropertyRef Name="Image1_ID" />
+      <PropertyRef Name="Events_ID" />
+      <PropertyRef Name="Images_ID" />
     </Key>
-    <Property Name="Event1_ID" Type="int" Nullable="false" />
-    <Property Name="Image1_ID" Type="int" Nullable="false" />
+    <Property Name="Events_ID" Type="int" Nullable="false" />
+    <Property Name="Images_ID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="EventService">
     <Key>
@@ -148,7 +148,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EventImage">
-        <PropertyRef Name="Event1_ID" />
+        <PropertyRef Name="Events_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -160,7 +160,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EventImage">
-        <PropertyRef Name="Image1_ID" />
+        <PropertyRef Name="Images_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -377,10 +377,10 @@
     </EntitySetMapping>
     <AssociationSetMapping Name="EventImage" TypeName="ohlalaModel.EventImage" StoreEntitySet="EventImage">
       <EndProperty Name="Event">
-        <ScalarProperty Name="ID" ColumnName="Event1_ID" />
+        <ScalarProperty Name="ID" ColumnName="Events_ID" />
       </EndProperty>
       <EndProperty Name="Image">
-        <ScalarProperty Name="ID" ColumnName="Image1_ID" />
+        <ScalarProperty Name="ID" ColumnName="Images_ID" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="EventService" TypeName="ohlalaModel.EventService" StoreEntitySet="EventService">

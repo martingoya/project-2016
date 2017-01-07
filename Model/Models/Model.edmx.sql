@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/17/2016 16:28:10
+-- Date Created: 01/07/2017 18:14:24
 -- Generated from EDMX file: C:\Users\marti\Source\Repos\project-2016\Model\Models\Model.edmx
 -- --------------------------------------------------
 
@@ -23,6 +23,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Event_TypeEvent]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_Event_TypeEvent];
 GO
+IF OBJECT_ID(N'[dbo].[FK_Service_TypeService]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Service] DROP CONSTRAINT [FK_Service_TypeService];
+GO
 IF OBJECT_ID(N'[dbo].[FK_EventImage_Event]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EventImage] DROP CONSTRAINT [FK_EventImage_Event];
 GO
@@ -35,9 +38,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_EventService_Service]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EventService] DROP CONSTRAINT [FK_EventService_Service];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Service_TypeService]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Service] DROP CONSTRAINT [FK_Service_TypeService];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -45,12 +45,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[Event]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Event];
-GO
-IF OBJECT_ID(N'[dbo].[EventImage]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EventImage];
-GO
-IF OBJECT_ID(N'[dbo].[EventService]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[EventService];
 GO
 IF OBJECT_ID(N'[dbo].[Image]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Image];
@@ -63,6 +57,12 @@ IF OBJECT_ID(N'[dbo].[TypeEvent]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[TypeService]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TypeService];
+GO
+IF OBJECT_ID(N'[dbo].[EventImage]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EventImage];
+GO
+IF OBJECT_ID(N'[dbo].[EventService]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EventService];
 GO
 
 -- --------------------------------------------------
@@ -77,7 +77,7 @@ CREATE TABLE [dbo].[Event] (
     [Date] datetime  NOT NULL,
     [Text] varchar(2048)  NULL,
     [ImageID] int  NULL,
-    [VideoLink] varchar(50)  NULL,
+    [VideoLink] varchar(255)  NULL,
     [IsImage] bit  NOT NULL,
     [Controller] varchar(50)  NOT NULL,
     [Action] varchar(50)  NOT NULL
@@ -117,8 +117,8 @@ GO
 
 -- Creating table 'EventImage'
 CREATE TABLE [dbo].[EventImage] (
-    [Event1_ID] int  NOT NULL,
-    [Image1_ID] int  NOT NULL
+    [Events_ID] int  NOT NULL,
+    [Images_ID] int  NOT NULL
 );
 GO
 
@@ -163,10 +163,10 @@ ADD CONSTRAINT [PK_TypeService]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [Event1_ID], [Image1_ID] in table 'EventImage'
+-- Creating primary key on [Events_ID], [Images_ID] in table 'EventImage'
 ALTER TABLE [dbo].[EventImage]
 ADD CONSTRAINT [PK_EventImage]
-    PRIMARY KEY CLUSTERED ([Event1_ID], [Image1_ID] ASC);
+    PRIMARY KEY CLUSTERED ([Events_ID], [Images_ID] ASC);
 GO
 
 -- Creating primary key on [Event_ID], [Service_ID] in table 'EventService'
@@ -224,19 +224,19 @@ ON [dbo].[Service]
     ([TypeService]);
 GO
 
--- Creating foreign key on [Event1_ID] in table 'EventImage'
+-- Creating foreign key on [Events_ID] in table 'EventImage'
 ALTER TABLE [dbo].[EventImage]
 ADD CONSTRAINT [FK_EventImage_Event]
-    FOREIGN KEY ([Event1_ID])
+    FOREIGN KEY ([Events_ID])
     REFERENCES [dbo].[Event]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [Image1_ID] in table 'EventImage'
+-- Creating foreign key on [Images_ID] in table 'EventImage'
 ALTER TABLE [dbo].[EventImage]
 ADD CONSTRAINT [FK_EventImage_Image]
-    FOREIGN KEY ([Image1_ID])
+    FOREIGN KEY ([Images_ID])
     REFERENCES [dbo].[Image]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -245,7 +245,7 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_EventImage_Image'
 CREATE INDEX [IX_FK_EventImage_Image]
 ON [dbo].[EventImage]
-    ([Image1_ID]);
+    ([Images_ID]);
 GO
 
 -- Creating foreign key on [Event_ID] in table 'EventService'
