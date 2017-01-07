@@ -42,6 +42,8 @@ namespace Model.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string TypeService { get; set; }
+        public string ServiceLink { get; set; }
+
         public virtual ICollection<Event> Event { get; set; }
     }
     public partial class ImageView
@@ -66,16 +68,18 @@ namespace Model.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EventView()
         {
-            this.Image1 = new HashSet<Image>();
+            this.Images = new HashSet<Image>();
             this.Service = new HashSet<Service>();
         }
-
+        [Required]
         public string Title { get; set; }
+        [Required]
         public int TypeEventID { get; set; }
 
         private DateTime _createdOn = DateTime.MinValue;
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime Date
         {
             get
@@ -88,13 +92,15 @@ namespace Model.Models
         public Nullable<int> ImageID { get; set; }
         public string VideoLink { get; set; }
         public bool IsImage { get; set; }
+        [Required]
         public string Controller { get; set; }
+        [Required]
         public string Action { get; set; }
         public Nullable<int> ServiceID { get; set; }
         public virtual Image Image { get; set; }
         public virtual TypeEvent TypeEvent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Image> Image1 { get; set; }
+        public virtual ICollection<Image> Images { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Service> Service { get; set; }
     }

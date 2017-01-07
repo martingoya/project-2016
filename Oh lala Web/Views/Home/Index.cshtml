@@ -35,7 +35,7 @@
                 <p>
                     @foreach (var service in item.Service)
                 {
-                        @Html.DisplayFor(modelItem => service.TypeService1.Name)
+                        @Html.DisplayFor(modelItem => service.TypeServices.Name)
                         <a href='Url.Action(Html.DisplayFor(modelItem => service.ServiceLink).ToHtmlString()'>
                             @Html.DisplayFor(modelItem => service.Name)
                         </a>

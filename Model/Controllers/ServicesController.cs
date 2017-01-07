@@ -17,7 +17,7 @@ namespace Model.Controllers
         // GET: Services
         public ActionResult Index()
         {
-            var service = db.Service.Include(s => s.TypeService1);
+            var service = db.Service.Include(s => s.TypeServices);
             return View(service.ToList());
         }
 
