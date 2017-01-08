@@ -92,12 +92,10 @@ namespace Model.Models
         public Nullable<int> ImageID { get; set; }
         public string VideoLink { get; set; }
         public bool IsImage { get; set; }
-        [Required]
         public string Controller { get; set; }
-        [Required]
         public string Action { get; set; }
         public Nullable<int> ServiceID { get; set; }
-        public virtual Image Image { get; set; }
+        public virtual string Image { get; set; }
         public virtual TypeEvent TypeEvent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Image> Images { get; set; }

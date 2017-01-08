@@ -50,7 +50,7 @@ namespace Model.Controllers
                     ServiceID = x.ID,
                     Data = string.Format("({0}) - {1}", x.TypeServices.Name, x.Name)
                 });
-            ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data");
+            ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data");          
             return View(new EventView());
         }
 
@@ -85,10 +85,21 @@ namespace Model.Controllers
                 {
                     if (ModelState.IsValid)
                     {
+                        var path = "~/Content/" + @eventView.Controller + "/" + @eventView.Action + "/";
                         AutoMapper.Mapper.Initialize(x =>
                         {
                             x.CreateMap<EventView, Event>();
                         });
+                        //Cover or Video
+                        if (@eventView.IsImage)
+                        {
+                            eventView.VideoLink = string.Empty;
+                        }
+                        else
+                        {
+                            eventView.Image = string.Empty;
+                        }
+                        //Services
                         serviceSession = (List<ServiceView>)Session["ListService"];
                         if (serviceSession != null)
                         {
@@ -99,7 +110,7 @@ namespace Model.Controllers
                                 @eventView.Service.Add(item);
                             }
                         }
-                        var path = "~/Content/" + @eventView.Controller + "/" + @eventView.Action + "/";
+                        //Images
                         foreach (var file in files)
                         {
                             if (file.ContentLength < 0)
@@ -114,6 +125,11 @@ namespace Model.Controllers
                             }
                             @eventView.Images.Add(image);
                         }
+                        //Controller
+                        @eventView.Controller = db.TypeEvent.First(x => x.ID == eventView.TypeEventID).Name;
+                        //Action
+                        @eventView.Action = eventView.Title;
+                        //Save changes
                         db.Event.Add(AutoMapper.Mapper.Map<Event>(@eventView));
                         db.SaveChanges();
                         return RedirectToAction("Index");
