@@ -3,25 +3,6 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    var htmlAttributesImage = new Dictionary<string, object>
-    {
-        { "class" , "form-control" }
-    };
-
-    var htmlAttributesVideoLink = new Dictionary<string, object>
-    {
-        { "class" , "form-control" }
-    };
-
-    if (Model.IsImage)
-    {
-        htmlAttributesVideoLink.Add("disabled", "disabled");
-    }
-    else
-    {
-        htmlAttributesImage.Add("disabled", "disabled");
-    }
 }
 
 <h2>Create</h2>
@@ -68,17 +49,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="cover">Portada:</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Image, new { htmlAttributes = htmlAttributesImage })
-                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                <input type="file" name="coverFile" id="coverFile" accept="image/*" disabled = "disabled" />
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.VideoLink, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.VideoLink, new { htmlAttributes = htmlAttributesVideoLink })
+                @Html.EditorFor(model => model.VideoLink, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.VideoLink, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -95,15 +75,15 @@
 
         <div class="form-group">
             <label class="control-label col-md-2" for="services">Servicios:</label>
-            <div class="col-md-10">
+            <div class="col-md-4">
                 @Html.DropDownList("ServiceID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ServiceID, "", new { @class = "text-danger" })
-                <input type="submit" class="btn btn-success" name="addService" value="Agregar Servicio" />
             </div>
+            <input type="submit" class="btn btn-success" name="addService" id="addService" value="Agregar Servicio" />
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="services">Imágenes:</label>
+            <label class="control-label col-md-2" for="imagenes">Imágenes:</label>
             <div class="col-md-10">
                 <input type="file" multiple="multiple" name="Files" id="Files" accept="image/*" />
             </div>
@@ -161,4 +141,11 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $("input:checkbox").click(function() {
+            $("#coverFile").attr("disabled", !this.checked);
+            $("#VideoLink").attr("disabled", this.checked);
+        });
+    </script>
 }

@@ -59,7 +59,7 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EventView @eventView, FormCollection fc, HttpPostedFileBase[] files)
+        public ActionResult Create(EventView @eventView, FormCollection fc, HttpPostedFileBase[] files, HttpPostedFileBase coverFile)
         {
             List<ServiceView> serviceSession = new List<ServiceView>();
             if (Request.Form["addService"] != null)
@@ -68,16 +68,19 @@ namespace Model.Controllers
                 {
                     serviceSession = (List<ServiceView>)Session["ListService"];
                 }
-                if (!serviceSession.Any(x => x.ID == @eventView.ServiceID))
+                if (@eventView.ServiceID != null)
                 {
-                    var serviceDB = db.Service.Include(y => y.TypeServices).FirstOrDefault(x => x.ID == @eventView.ServiceID);
-                    ServiceView service = new ServiceView();
-                    service.ID = serviceDB.ID;
-                    service.Name = serviceDB.Name;
-                    service.TypeService = serviceDB.TypeServices.Name;
-                    serviceSession.Add(service);
-                    Session["ListService"] = serviceSession;
-                }
+                    if (!serviceSession.Any(x => x.ID == @eventView.ServiceID))
+                    {
+                        var serviceDB = db.Service.Include(y => y.TypeServices).FirstOrDefault(x => x.ID == @eventView.ServiceID);
+                        ServiceView service = new ServiceView();
+                        service.ID = serviceDB.ID;
+                        service.Name = serviceDB.Name;
+                        service.TypeService = serviceDB.TypeServices.Name;
+                        serviceSession.Add(service);
+                        Session["ListService"] = serviceSession;
+                    }
+                }   
             }
             else
             {
@@ -94,10 +97,21 @@ namespace Model.Controllers
                         if (@eventView.IsImage)
                         {
                             eventView.VideoLink = string.Empty;
-                        }
-                        else
-                        {
-                            eventView.Image = string.Empty;
+                            if (coverFile != null && coverFile.ContentLength > 0)
+                            {
+                                var fullPathCover = path + coverFile.FileName;
+                                var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
+                                if (imageCoverExist != null)
+                                {
+                                    eventView.Image = imageCoverExist;
+                                }
+                                else
+                                {
+                                    var newImage = new Image();
+                                    newImage.Title = eventView.Title;
+                                    newImage.ImagePath = fullPathCover;
+                                }
+                            }
                         }
                         //Services
                         serviceSession = (List<ServiceView>)Session["ListService"];
@@ -111,19 +125,21 @@ namespace Model.Controllers
                             }
                         }
                         //Images
-                        foreach (var file in files)
-                        {
-                            if (file.ContentLength < 0)
-                                continue;
-                            var fullPath = path + file.FileName;
-                            var image = db.Image.FirstOrDefault(x => x.ImagePath == fullPath);
-                            if (image == null)
-                            {                      
-                                image = new Image();
-                                image.ImagePath = fullPath;
-                                image.Title = @eventView.Title;
+                        if (files[0] != null) {
+                            foreach (var file in files)
+                            {
+                                if (file.ContentLength < 0)
+                                    continue;
+                                var fullPath = path + file.FileName;
+                                var image = db.Image.FirstOrDefault(x => x.ImagePath == fullPath);
+                                if (image == null)
+                                {
+                                    image = new Image();
+                                    image.ImagePath = fullPath;
+                                    image.Title = @eventView.Title;
+                                }
+                                @eventView.Images.Add(image);
                             }
-                            @eventView.Images.Add(image);
                         }
                         //Controller
                         @eventView.Controller = db.TypeEvent.First(x => x.ID == eventView.TypeEventID).Name;
