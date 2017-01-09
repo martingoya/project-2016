@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +9,14 @@ namespace Oh_lala_Web.Controllers.Fifteen
 {
     public class FifteenController : Controller
     {
+        private ohlalaEntities db = new ohlalaEntities();
         //
         // GET: /Fifteen/
 
         public ActionResult Abril()
         {
-            return View("~/Views/Section/Fifteen/Abril.cshtml");
+            var eventAbril = db.Event.FirstOrDefault(x => x.Title == "Abril");
+            return View("~/Views/Section/Fifteen/Abril.cshtml", eventAbril);
         }
         public ActionResult Cati()
         {

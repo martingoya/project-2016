@@ -59,7 +59,7 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EventView @eventView, FormCollection fc, HttpPostedFileBase[] files, HttpPostedFileBase coverFile)
+        public ActionResult Create(EventView @eventView, FormCollection fc)
         {
             List<ServiceView> serviceSession = new List<ServiceView>();
             if (Request.Form["addService"] != null)
@@ -88,7 +88,8 @@ namespace Model.Controllers
                 {
                     if (ModelState.IsValid)
                     {
-                        var path = "~/Content/" + @eventView.Controller + "/" + @eventView.Action + "/";
+                        var typeEvent = db.TypeEvent.FirstOrDefault(x => x.ID == @eventView.TypeEventID);
+                        var path = "Content/Fotos/" + typeEvent.Name + "/" + @eventView.Title + "/";
                         AutoMapper.Mapper.Initialize(x =>
                         {
                             x.CreateMap<EventView, Event>();
@@ -97,9 +98,9 @@ namespace Model.Controllers
                         if (@eventView.IsImage)
                         {
                             eventView.VideoLink = string.Empty;
-                            if (coverFile != null && coverFile.ContentLength > 0)
+                            if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
                             {
-                                var fullPathCover = path + coverFile.FileName;
+                                var fullPathCover = path + eventView.CoverFile.FileName;
                                 var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
                                 if (imageCoverExist != null)
                                 {
@@ -110,6 +111,7 @@ namespace Model.Controllers
                                     var newImage = new Image();
                                     newImage.Title = eventView.Title;
                                     newImage.ImagePath = fullPathCover;
+                                    eventView.Image = newImage;
                                 }
                             }
                         }
@@ -125,8 +127,8 @@ namespace Model.Controllers
                             }
                         }
                         //Images
-                        if (files[0] != null) {
-                            foreach (var file in files)
+                        if (eventView.Files.First() != null) {
+                            foreach (var file in eventView.Files)
                             {
                                 if (file.ContentLength < 0)
                                     continue;
@@ -246,6 +248,21 @@ namespace Model.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Event @event = db.Event.Find(id);
+            //Images
+            var images = new List<Image>(@event.Images);
+            foreach (var image in images)
+            {
+                @event.Images.Remove(image);
+            }
+            db.SaveChanges();
+            //Services
+            var services = new List<Service>(@event.Service);
+            foreach (var service in services)
+            {
+                @event.Service.Remove(service);
+            }
+            db.SaveChanges();
+            //Delete Event
             db.Event.Remove(@event);
             db.SaveChanges();
             return RedirectToAction("Index");

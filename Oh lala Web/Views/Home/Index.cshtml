@@ -46,7 +46,7 @@
                     <div id="wrapper">
                         <div class="element">
                             <a href='@Url.Action(Html.DisplayFor(modelItem => item.Action).ToHtmlString(), Html.DisplayFor(modelItem => item.Controller).ToHtmlString())'>
-                                <figure><img class="imagesSection" alt=@Html.DisplayFor(modelItem => item.Title) src="/Content/Fotos/@Html.DisplayFor(modelItem => item.Image.ImagePath)"></figure>
+                                <figure><img class="imagesSection" alt=@Html.DisplayFor(modelItem => item.Title) src="@Html.DisplayFor(modelItem => item.Image.ImagePath)"></figure>
                                 <span></span>
                             </a>
                         </div>

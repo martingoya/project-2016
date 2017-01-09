@@ -101,5 +101,8 @@ namespace Model.Models
         public virtual ICollection<Image> Images { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Service> Service { get; set; }
+        public ICollection<HttpPostedFileBase> Files { get; set; }
+
+        public HttpPostedFileBase CoverFile { get; set; }
     }
 }

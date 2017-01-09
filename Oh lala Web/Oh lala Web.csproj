@@ -33,7 +33,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -779,6 +779,7 @@
     <Content Include="Views\Section\Fifteen\Giuli.cshtml" />
     <Content Include="Views\Section\Fifteen\Cielo.cshtml" />
     <Content Include="Views\Shared\_SocialLinks.cshtml" />
+    <Content Include="Views\Shared\_BodyEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
