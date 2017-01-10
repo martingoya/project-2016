@@ -1,36 +1,45 @@
 ﻿@model Model.Models.Event
 
 <div class="container">
-    <div style="text-align: center">
+    <div class="rowSectionImages">
+        <p>
+            @Model.Date.ToShortDateString()
+        </p>
         <p>
             @Model.Title
         </p>
-            <p>
-                @Model.Date
-            </p>
-            <p>
-                @Model.Text
-            </p>
-            <p>
-                @foreach (var service in Model.Service)
-                {
-                    @Html.DisplayFor(model => service.TypeServices.Name)
-                    <a href='Url.Action(Html.DisplayFor(modelItem => service.ServiceLink).ToHtmlString()'>
-                        @Html.DisplayFor(modelService => service.Name)
-                    </a>
-                }
-            </p>
-            @foreach (var image in Model.Images)
+        <p>
+            @Model.Text
+        </p>
+        <p>
+            @foreach (var service in Model.Service)
             {
-                <div id="wrapper">
-                    <div class="element">
-                        <figure><img class="imagesSection" src="~/@image.ImagePath"></figure>
-                    </div>
+                @Html.DisplayFor(model => service.TypeServices.Name)
+                <a href='Url.Action(Html.DisplayFor(modelItem => service.ServiceLink).ToHtmlString()'>
+                    @Html.DisplayFor(modelService => service.Name)
+                </a>
+            }
+        </p>
+        @if (Model.IsImage)
+        {
+        <div id="wrapper">
+            <div class="element">
+                <figure><img class="imagesSection" src="~/@Model.Image.ImagePath"></figure>
+            </div>
+        </div>
+        }
+        else
+        {
+            <a class="embedly-card" href="@Model.VideoLink"></a>
+            <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+        }
+        @foreach (var image in Model.Images)
+            {
+            <div id="wrapper">
+                <div class="element">
+                    <figure><img class="imagesSection" src="~/@image.ImagePath"></figure>
                 </div>
-            }
-            @if (!Model.IsImage)
-            {
-                @Model.VideoLink
-            }
+            </div>
+        }
     </div>
 </div>

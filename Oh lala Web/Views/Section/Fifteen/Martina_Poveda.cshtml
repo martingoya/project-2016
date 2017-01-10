@@ -1,39 +1,7 @@
-﻿@{
+﻿@model Model.Models.Event
+
+@{
     ViewBag.Title = "Martina";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title></title>
-</head>
-
-<body>
-    <div id="content">
-        <div class="row_1_Section">
-            <div class="container">
-                <p class="title2" style="margin-bottom: 10px; padding-top:25px">Texto</p>
-                <p class="title2">Martina</p>
-            </div>
-        </div>
-        <!--==============================row6=================================-->
-        <div class="row_6">
-            <div class="container">
-                <div class="row">
-                    <div class="containerExtra">
-                        <div id="container" class="clearfix">
-                            <div>
-                                @*Martina Poveda*@
-                                @for (int i = 1; i <= 21; i++)
-                                {
-                                    <img class="imagesSection" alt="Martina @(i)" src="~/Content/Fotos/Fifteen/Martina_Poveda/@(i).jpg">
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+@Html.Partial("~/Views/Shared/_BodyEvent.cshtml", Model)

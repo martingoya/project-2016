@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Model.Models.Event>
+
+<div class="container">
+    <div class="rowSectionImages">
+        @foreach (var item in Model)
+        {
+            <p>
+                @item.Date.ToShortDateString()
+            </p>
+            <p>
+                @item.Title
+            </p>
+            <p>
+                @foreach (var service in item.Service)
+                {
+                    @Html.DisplayFor(modelItem => service.TypeServices.Name)
+                    <a href='Url.Action(Html.DisplayFor(modelItem => service.ServiceLink).ToHtmlString()'>
+                        @Html.DisplayFor(modelItem => service.Name)
+                    </a>
+                }
+            </p>
+            if (item.IsImage)
+            {
+                <div id="wrapper">
+                    <div class="element">
+                        <a href='@Url.Action(Html.DisplayFor(modelItem => item.Action).ToHtmlString(), Html.DisplayFor(modelItem => item.Controller).ToHtmlString())'>
+                            <figure><img class="imagesSection" alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.Image.ImagePath)"></figure>
+                            <span></span>
+                        </a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <a class="embedly-card" href="@Html.DisplayFor(modelItem => item.VideoLink)"></a>
+                <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+            }
+            <p>
+                @item.Text
+            </p>
+        }
+    </div>
+</div>

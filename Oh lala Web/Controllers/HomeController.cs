@@ -18,11 +18,6 @@ namespace Oh_lala_Web.Controllers
             return View(events.ToList());
         }
 
-        public ActionResult Fifteen()
-        {
-            return View();
-        }
-
         public ActionResult About()
         {
             return View();

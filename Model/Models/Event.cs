@@ -11,7 +11,8 @@ namespace Model.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,6 +25,7 @@ namespace Model.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public int TypeEventID { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public System.DateTime Date { get; set; }
         public string Text { get; set; }
         public Nullable<int> ImageID { get; set; }
