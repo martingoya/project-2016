@@ -17,7 +17,7 @@ namespace Oh_lala_Web.Controllers
         public ActionResult Fifteen(string identifier)
         {
             var events = db.Event
-                        .Include(x => x.Image)
+                        .Include(x => x.CoverImage)
                         .Include(y => y.TypeEvent)
                         .Where(l => l.TypeEvent.Name == "Fifteen")
                         .Include(z => z.Service)

@@ -18,7 +18,7 @@ namespace Model.Controllers
         // GET: Events
         public ActionResult Index()
         {
-            var events = db.Event.Include(x => x.Image).Include(y => y.TypeEvent);
+            var events = db.Event.Include(x => x.CoverImage).Include(y => y.TypeEvent);
             return View(events.ToList());
         }
 
@@ -59,7 +59,7 @@ namespace Model.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EventView @eventView, FormCollection fc)
+        public ActionResult Create(EventView @eventView, FormCollection fc, string Command)
         {
             List<ServiceView> serviceSession = new List<ServiceView>();
             if (Request.Form["addService"] != null)
@@ -88,8 +88,13 @@ namespace Model.Controllers
                 {
                     if (ModelState.IsValid)
                     {
+                        //Controller
+                        @eventView.Controller = db.TypeEvent.First(x => x.ID == eventView.TypeEventID).Name;
+                        //Action
+                        @eventView.Action = eventView.Title.Replace(" ", "_");
+
                         var typeEvent = db.TypeEvent.FirstOrDefault(x => x.ID == @eventView.TypeEventID);
-                        var path = "Content/Fotos/" + typeEvent.Name + "/" + @eventView.Title + "/";
+                        var path = "Content/Fotos/" + typeEvent.Name + "/" + @eventView.Action + "/";
                         AutoMapper.Mapper.Initialize(x =>
                         {
                             x.CreateMap<EventView, Event>();
@@ -143,10 +148,6 @@ namespace Model.Controllers
                                 @eventView.Images.Add(image);
                             }
                         }
-                        //Controller
-                        @eventView.Controller = db.TypeEvent.First(x => x.ID == eventView.TypeEventID).Name;
-                        //Action
-                        @eventView.Action = eventView.Title;
                         //Save changes
                         db.Event.Add(AutoMapper.Mapper.Map<Event>(@eventView));
                         db.SaveChanges();
@@ -201,7 +202,7 @@ namespace Model.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @event.ImageID);
+            ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @event.CoverImageID);
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @event.TypeEventID);
             ViewBag.Services = new SelectList(db.Service, "ID", "Name", @event.Service);
             return View(@event);
@@ -222,7 +223,7 @@ namespace Model.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @event.ImageID);
+            ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @event.CoverImageID);
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @event.TypeEventID);
             return View(@event);
         }

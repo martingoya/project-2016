@@ -89,18 +89,20 @@ namespace Model.Models
             set { _createdOn = value; }
         }
         public string Text { get; set; }
-        public Nullable<int> ImageID { get; set; }
-        public string VideoLink { get; set; }
-        public bool IsImage { get; set; }
+        public int CoverImageID { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
-        public Nullable<int> ServiceID { get; set; }
-        public virtual Image Image { get; set; }
+        public string CoverVideoID { get; set; }
+
+        public virtual Image CoverImage { get; set; }
         public virtual TypeEvent TypeEvent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Image> Images { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Service> Service { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Video> Videos { get; set; }
+        public virtual Video CoverVideo { get; set; }
         public ICollection<HttpPostedFileBase> Files { get; set; }
 
         public HttpPostedFileBase CoverFile { get; set; }
