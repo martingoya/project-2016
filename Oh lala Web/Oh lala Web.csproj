@@ -760,27 +760,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Section\Fifteen.cshtml" />
-    <Content Include="Views\Section\NewBorn.cshtml" />
-    <Content Include="Views\Section\Bodas.cshtml" />
-    <Content Include="Views\Section\Infantiles.cshtml" />
+    <Content Include="Views\Home\Fifteen.cshtml" />
+    <Content Include="Views\Home\NewBorn.cshtml" />
+    <Content Include="Views\Home\Bodas.cshtml" />
+    <Content Include="Views\Home\Infantiles.cshtml" />
     <Content Include="Views\Home\Sent.cshtml" />
     <Content Include="Views\Section\Bodas\Vero_y_Lau.cshtml" />
     <Content Include="Views\Section\Bodas\Karina_y_German.cshtml" />
-    <Content Include="Views\Section\Fifteen\Abril.cshtml" />
-    <Content Include="Views\Section\Fifteen\Cati.cshtml" />
-    <Content Include="Views\Section\Fifteen\Martina_Campos_Perez.cshtml" />
-    <Content Include="Views\Section\Fifteen\Martina_Isabella.cshtml" />
-    <Content Include="Views\Section\Fifteen\Sofia.cshtml" />
-    <Content Include="Views\Section\Fifteen\Mica.cshtml" />
-    <Content Include="Views\Section\Fifteen\Zoe.cshtml" />
-    <Content Include="Views\Section\Fifteen\Martina_Poveda.cshtml" />
-    <Content Include="Views\Section\Fifteen\Sofia_Peluso.cshtml" />
-    <Content Include="Views\Section\Fifteen\Giuli.cshtml" />
-    <Content Include="Views\Section\Fifteen\Cielo.cshtml" />
     <Content Include="Views\Shared\_SocialLinks.cshtml" />
     <Content Include="Views\Shared\_BodyEvent.cshtml" />
     <Content Include="Views\Shared\_BodySection.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

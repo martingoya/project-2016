@@ -5,12 +5,14 @@ using Model.Models;
 using System.Linq;
 using System.Data.Entity;
 using Oh_lala_Web.Models;
+using System;
 
 namespace Oh_lala_Web.Controllers
 {
     public class HomeController : Controller
     {
         private ohlalaEntities db = new ohlalaEntities();
+        private int elementsForView = 5;
 
         public ActionResult Index()
         {
@@ -61,6 +63,48 @@ namespace Oh_lala_Web.Controllers
             {
                 return RedirectToAction("Index");
             }
+            return View();
+        }
+
+        public ActionResult Fifteen(string identifier)
+        {
+            var events = db.Event
+                        .Include(x => x.Image)
+                        .Include(y => y.TypeEvent)
+                        .Where(l => l.TypeEvent.Name == "Fifteen")
+                        .Include(z => z.Service)
+                        .Include(k => k.Service.Select(j => j.TypeServices)).ToList();
+            events.Take(elementsForView);
+
+            if (identifier != null)
+            {
+                int num;
+                if (Int32.TryParse(identifier, out num))
+                {
+                    events.Skip(elementsForView * (num + 1)).Take(elementsForView);
+                }
+                else
+                {
+                    var eventFifteen = db.Event.FirstOrDefault(x => x.Action == identifier);
+                    return View("~/Views/Home/Gallery.cshtml", eventFifteen);
+                }
+            }
+
+            return View(events.ToList());
+        }
+
+        public ActionResult Bodas()
+        {
+            return View();
+        }
+
+        public ActionResult Infantiles()
+        {
+            return View();
+        }
+
+        public ActionResult Newborn()
+        {
             return View();
         }
     }

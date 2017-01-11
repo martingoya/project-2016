@@ -15,8 +15,8 @@ namespace Oh_lala_Web
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{action}/{identifier}",
+                defaults: new { controller = "Home", action = "Index", identifier = UrlParameter.Optional }
             );
         }
     }
