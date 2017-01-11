@@ -23,7 +23,6 @@ namespace Model.Models
             : base("name=" + name)
         {
         }
-    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -34,5 +33,6 @@ namespace Model.Models
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<TypeEvent> TypeEvent { get; set; }
         public virtual DbSet<TypeService> TypeService { get; set; }
+        public virtual DbSet<Video> Video { get; set; }
     }
 }

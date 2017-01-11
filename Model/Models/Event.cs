@@ -11,8 +11,7 @@ namespace Model.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,25 +19,27 @@ namespace Model.Models
         {
             this.Images = new HashSet<Image>();
             this.Service = new HashSet<Service>();
+            this.Videos = new HashSet<Video>();
         }
     
         public int ID { get; set; }
         public string Title { get; set; }
         public int TypeEventID { get; set; }
-        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public System.DateTime Date { get; set; }
         public string Text { get; set; }
-        public Nullable<int> ImageID { get; set; }
-        public string VideoLink { get; set; }
-        public bool IsImage { get; set; }
+        public int CoverImageID { get; set; }
         public string Controller { get; set; }
         public string Action { get; set; }
+        public string CoverVideoID { get; set; }
     
-        public virtual Image Image { get; set; }
+        public virtual Image CoverImage { get; set; }
         public virtual TypeEvent TypeEvent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Image> Images { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Service> Service { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Video> Videos { get; set; }
+        public virtual Video CoverVideo { get; set; }
     }
 }

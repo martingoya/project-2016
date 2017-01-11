@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/07/2017 18:14:24
+-- Date Created: 01/10/2017 22:52:27
 -- Generated from EDMX file: C:\Users\marti\Source\Repos\project-2016\Model\Models\Model.edmx
 -- --------------------------------------------------
 
@@ -38,6 +38,15 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_EventService_Service]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[EventService] DROP CONSTRAINT [FK_EventService_Service];
 GO
+IF OBJECT_ID(N'[dbo].[FK_EventVideo_Event]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EventVideo] DROP CONSTRAINT [FK_EventVideo_Event];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EventVideo_Video]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EventVideo] DROP CONSTRAINT [FK_EventVideo_Video];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EventCoverVideo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Event] DROP CONSTRAINT [FK_EventCoverVideo];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -58,11 +67,17 @@ GO
 IF OBJECT_ID(N'[dbo].[TypeService]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TypeService];
 GO
+IF OBJECT_ID(N'[dbo].[Video]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Video];
+GO
 IF OBJECT_ID(N'[dbo].[EventImage]', 'U') IS NOT NULL
     DROP TABLE [dbo].[EventImage];
 GO
 IF OBJECT_ID(N'[dbo].[EventService]', 'U') IS NOT NULL
     DROP TABLE [dbo].[EventService];
+GO
+IF OBJECT_ID(N'[dbo].[EventVideo]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EventVideo];
 GO
 
 -- --------------------------------------------------
@@ -76,11 +91,11 @@ CREATE TABLE [dbo].[Event] (
     [TypeEventID] int  NOT NULL,
     [Date] datetime  NOT NULL,
     [Text] varchar(2048)  NULL,
-    [ImageID] int  NULL,
-    [VideoLink] varchar(255)  NULL,
-    [IsImage] bit  NOT NULL,
+    [CoverImageID] int  NOT NULL,
     [Controller] varchar(50)  NOT NULL,
-    [Action] varchar(50)  NOT NULL
+    [Action] varchar(50)  NOT NULL,
+    [CoverVideoID] nvarchar(max)  NOT NULL,
+    [CoverVideo_ID] int  NULL
 );
 GO
 
@@ -115,6 +130,14 @@ CREATE TABLE [dbo].[TypeService] (
 );
 GO
 
+-- Creating table 'Video'
+CREATE TABLE [dbo].[Video] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Title] nvarchar(max)  NULL,
+    [VideoLink] nvarchar(512)  NOT NULL
+);
+GO
+
 -- Creating table 'EventImage'
 CREATE TABLE [dbo].[EventImage] (
     [Events_ID] int  NOT NULL,
@@ -126,6 +149,13 @@ GO
 CREATE TABLE [dbo].[EventService] (
     [Event_ID] int  NOT NULL,
     [Service_ID] int  NOT NULL
+);
+GO
+
+-- Creating table 'EventVideo'
+CREATE TABLE [dbo].[EventVideo] (
+    [Events_ID] int  NOT NULL,
+    [Videos_ID] int  NOT NULL
 );
 GO
 
@@ -163,6 +193,12 @@ ADD CONSTRAINT [PK_TypeService]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
+-- Creating primary key on [ID] in table 'Video'
+ALTER TABLE [dbo].[Video]
+ADD CONSTRAINT [PK_Video]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
 -- Creating primary key on [Events_ID], [Images_ID] in table 'EventImage'
 ALTER TABLE [dbo].[EventImage]
 ADD CONSTRAINT [PK_EventImage]
@@ -175,14 +211,20 @@ ADD CONSTRAINT [PK_EventService]
     PRIMARY KEY CLUSTERED ([Event_ID], [Service_ID] ASC);
 GO
 
+-- Creating primary key on [Events_ID], [Videos_ID] in table 'EventVideo'
+ALTER TABLE [dbo].[EventVideo]
+ADD CONSTRAINT [PK_EventVideo]
+    PRIMARY KEY CLUSTERED ([Events_ID], [Videos_ID] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [ImageID] in table 'Event'
+-- Creating foreign key on [CoverImageID] in table 'Event'
 ALTER TABLE [dbo].[Event]
 ADD CONSTRAINT [FK_Event_Image]
-    FOREIGN KEY ([ImageID])
+    FOREIGN KEY ([CoverImageID])
     REFERENCES [dbo].[Image]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -191,7 +233,7 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_Event_Image'
 CREATE INDEX [IX_FK_Event_Image]
 ON [dbo].[Event]
-    ([ImageID]);
+    ([CoverImageID]);
 GO
 
 -- Creating foreign key on [TypeEventID] in table 'Event'
@@ -270,6 +312,45 @@ GO
 CREATE INDEX [IX_FK_EventService_Service]
 ON [dbo].[EventService]
     ([Service_ID]);
+GO
+
+-- Creating foreign key on [Events_ID] in table 'EventVideo'
+ALTER TABLE [dbo].[EventVideo]
+ADD CONSTRAINT [FK_EventVideo_Event]
+    FOREIGN KEY ([Events_ID])
+    REFERENCES [dbo].[Event]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Videos_ID] in table 'EventVideo'
+ALTER TABLE [dbo].[EventVideo]
+ADD CONSTRAINT [FK_EventVideo_Video]
+    FOREIGN KEY ([Videos_ID])
+    REFERENCES [dbo].[Video]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EventVideo_Video'
+CREATE INDEX [IX_FK_EventVideo_Video]
+ON [dbo].[EventVideo]
+    ([Videos_ID]);
+GO
+
+-- Creating foreign key on [CoverVideo_ID] in table 'Event'
+ALTER TABLE [dbo].[Event]
+ADD CONSTRAINT [FK_EventCoverVideo]
+    FOREIGN KEY ([CoverVideo_ID])
+    REFERENCES [dbo].[Video]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EventCoverVideo'
+CREATE INDEX [IX_FK_EventCoverVideo]
+ON [dbo].[Event]
+    ([CoverVideo_ID]);
 GO
 
 -- --------------------------------------------------
