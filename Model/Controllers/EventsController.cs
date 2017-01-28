@@ -68,19 +68,19 @@ namespace Model.Controllers
                 {
                     serviceSession = (List<ServiceView>)Session["ListService"];
                 }
-                if (@eventView.ServiceID != null)
-                {
-                    if (!serviceSession.Any(x => x.ID == @eventView.ServiceID))
-                    {
-                        var serviceDB = db.Service.Include(y => y.TypeServices).FirstOrDefault(x => x.ID == @eventView.ServiceID);
-                        ServiceView service = new ServiceView();
-                        service.ID = serviceDB.ID;
-                        service.Name = serviceDB.Name;
-                        service.TypeService = serviceDB.TypeServices.Name;
-                        serviceSession.Add(service);
-                        Session["ListService"] = serviceSession;
-                    }
-                }   
+                //if (@eventView.ServiceID != null)
+                //{
+                //    if (!serviceSession.Any(x => x.ID == @eventView.ServiceID))
+                //    {
+                //        var serviceDB = db.Service.Include(y => y.TypeServices).FirstOrDefault(x => x.ID == @eventView.ServiceID);
+                //        ServiceView service = new ServiceView();
+                //        service.ID = serviceDB.ID;
+                //        service.Name = serviceDB.Name;
+                //        service.TypeService = serviceDB.TypeServices.Name;
+                //        serviceSession.Add(service);
+                //        Session["ListService"] = serviceSession;
+                //    }
+                //}   
             }
             else
             {
@@ -100,26 +100,26 @@ namespace Model.Controllers
                             x.CreateMap<EventView, Event>();
                         });
                         //Cover or Video
-                        if (@eventView.IsImage)
-                        {
-                            eventView.VideoLink = string.Empty;
-                            if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
-                            {
-                                var fullPathCover = path + eventView.CoverFile.FileName;
-                                var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
-                                if (imageCoverExist != null)
-                                {
-                                    eventView.Image = imageCoverExist;
-                                }
-                                else
-                                {
-                                    var newImage = new Image();
-                                    newImage.Title = eventView.Title;
-                                    newImage.ImagePath = fullPathCover;
-                                    eventView.Image = newImage;
-                                }
-                            }
-                        }
+                        //if (@eventView.IsImage)
+                        //{
+                        //    eventView.VideoLink = string.Empty;
+                        //    if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
+                        //    {
+                        //        var fullPathCover = path + eventView.CoverFile.FileName;
+                        //        var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
+                        //        if (imageCoverExist != null)
+                        //        {
+                        //            eventView.Image = imageCoverExist;
+                        //        }
+                        //        else
+                        //        {
+                        //            var newImage = new Image();
+                        //            newImage.Title = eventView.Title;
+                        //            newImage.ImagePath = fullPathCover;
+                        //            eventView.Image = newImage;
+                        //        }
+                        //    }
+                        //}
                         //Services
                         serviceSession = (List<ServiceView>)Session["ListService"];
                         if (serviceSession != null)
@@ -174,7 +174,7 @@ namespace Model.Controllers
                     ModelState.Clear();
                 }
             }
-            ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @eventView.ImageID);
+            //ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @eventView.ImageID);
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @eventView.TypeEventID);
             var serviceSessionIDs = serviceSession.Select(k => k.ID).ToList();
             var services = db.Service
@@ -186,7 +186,7 @@ namespace Model.Controllers
                     ServiceID = x.ID,
                     Data = string.Format("({0}) - {1}", x.TypeServices.Name, x.Name)
                 });
-            ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data", @eventView.ServiceID);
+            //ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data", @eventView.ServiceID);
             return View(@eventView);
         }
 

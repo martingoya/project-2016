@@ -1,8 +1,8 @@
-﻿@model Model.Models.Event
+﻿@model IEnumerable<Model.Models.Event>
 
 <div class="container">
     <div class="rowSectionImages">
-        <p>
+        @*<p>
             @Model.Date.ToShortDateString()
         </p>
         <p>
@@ -40,6 +40,6 @@
                     <figure><img class="imagesSection" src="~/@image.ImagePath"></figure>
                 </div>
             </div>
-        }
+        }*@
     </div>
 </div>
