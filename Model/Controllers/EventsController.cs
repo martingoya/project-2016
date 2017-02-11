@@ -62,28 +62,7 @@ namespace Model.Controllers
         public ActionResult Create(EventView @eventView, FormCollection fc, string Command)
         {
             List<ServiceView> serviceSession = new List<ServiceView>();
-            if (Request.Form["addService"] != null)
-            {
-                if (Session["ListService"] != null)
-                {
-                    serviceSession = (List<ServiceView>)Session["ListService"];
-                }
-                //if (@eventView.ServiceID != null)
-                //{
-                //    if (!serviceSession.Any(x => x.ID == @eventView.ServiceID))
-                //    {
-                //        var serviceDB = db.Service.Include(y => y.TypeServices).FirstOrDefault(x => x.ID == @eventView.ServiceID);
-                //        ServiceView service = new ServiceView();
-                //        service.ID = serviceDB.ID;
-                //        service.Name = serviceDB.Name;
-                //        service.TypeService = serviceDB.TypeServices.Name;
-                //        serviceSession.Add(service);
-                //        Session["ListService"] = serviceSession;
-                //    }
-                //}   
-            }
-            else
-            {
+
                 if (Request.Form["createEvent"] != null)
                 {
                     if (ModelState.IsValid)
@@ -99,60 +78,44 @@ namespace Model.Controllers
                         {
                             x.CreateMap<EventView, Event>();
                         });
-                        //Cover or Video
-                        //if (@eventView.IsImage)
-                        //{
-                        //    eventView.VideoLink = string.Empty;
-                        //    if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
-                        //    {
-                        //        var fullPathCover = path + eventView.CoverFile.FileName;
-                        //        var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
-                        //        if (imageCoverExist != null)
-                        //        {
-                        //            eventView.Image = imageCoverExist;
-                        //        }
-                        //        else
-                        //        {
-                        //            var newImage = new Image();
-                        //            newImage.Title = eventView.Title;
-                        //            newImage.ImagePath = fullPathCover;
-                        //            eventView.Image = newImage;
-                        //        }
-                        //    }
-                        //}
-                        //Services
-                        serviceSession = (List<ServiceView>)Session["ListService"];
-                        if (serviceSession != null)
+                    //Cover or Video
+                    if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
+                    {
+                        var fullPathCover = path + eventView.CoverFile.FileName;
+                        var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
+                        if (imageCoverExist != null)
                         {
-                            var serviceIDs = serviceSession.Select(k => k.ID).ToList();
-                            var servicesToAdd = db.Service.Join(serviceIDs, x => x.ID, y => y, (x, y) => x);
-                            foreach (var item in servicesToAdd)
-                            {
-                                @eventView.Service.Add(item);
-                            }
+                            eventView.CoverImage = imageCoverExist;
                         }
-                        //Images
-                        if (eventView.Files.First() != null) {
-                            foreach (var file in eventView.Files)
-                            {
-                                if (file.ContentLength < 0)
-                                    continue;
-                                var fullPath = path + file.FileName;
-                                var image = db.Image.FirstOrDefault(x => x.ImagePath == fullPath);
-                                if (image == null)
-                                {
-                                    image = new Image();
-                                    image.ImagePath = fullPath;
-                                    image.Title = @eventView.Title;
-                                }
-                                @eventView.Images.Add(image);
-                            }
+                        else
+                        {
+                            var newImage = new Image();
+                            newImage.Title = eventView.Title;
+                            newImage.ImagePath = fullPathCover;
+                            eventView.CoverImage = newImage;
                         }
-                        //Save changes
-                        db.Event.Add(AutoMapper.Mapper.Map<Event>(@eventView));
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
                     }
+                    //Images
+                    if (eventView.Files.First() != null) {
+                        foreach (var file in eventView.Files)
+                        {
+                            if (file.ContentLength < 0)
+                                continue;
+                            var fullPath = path + file.FileName;
+                            var image = db.Image.FirstOrDefault(x => x.ImagePath == fullPath);
+                            if (image == null)
+                            {
+                                image = new Image();
+                                image.ImagePath = fullPath;
+                                image.Title = @eventView.Title;
+                            }
+                            @eventView.Images.Add(image);
+                        }
+                    }
+                    //Save changes
+                    db.Event.Add(AutoMapper.Mapper.Map<Event>(@eventView));
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
                 else
                 {

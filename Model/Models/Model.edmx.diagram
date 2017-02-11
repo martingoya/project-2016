@@ -7,18 +7,11 @@
       <Diagram DiagramId="9df9793d412c4befa4d3ceda2abb84e4" Name="Diagram1">
         <EntityTypeShape EntityType="ohlalaModel.Event" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="ohlalaModel.Image" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ohlalaModel.Service" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ohlalaModel.TypeEvent" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="ohlalaModel.TypeService" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="ohlalaModel.FK_Event_Image" ManuallyRouted="false" />
         <AssociationConnector Association="ohlalaModel.FK_Event_TypeEvent" ManuallyRouted="false" />
-        <AssociationConnector Association="ohlalaModel.FK_Service_TypeService" ManuallyRouted="false" />
         <AssociationConnector Association="ohlalaModel.EventImage" ManuallyRouted="false" />
-        <AssociationConnector Association="ohlalaModel.EventService" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ohlalaModel.Video" Width="1.5" PointX="5.25" PointY="6.125" />
-        <AssociationConnector Association="ohlalaModel.EventVideo" />
-        <AssociationConnector Association="ohlalaModel.EventCoverVideo" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

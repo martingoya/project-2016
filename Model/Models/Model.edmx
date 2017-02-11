@@ -8,13 +8,8 @@
   <EntityContainer Name="ohlalaModelStoreContainer">
     <EntitySet Name="Event" EntityType="ohlalaModel.Store.Event" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Image" EntityType="ohlalaModel.Store.Image" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Service" EntityType="ohlalaModel.Store.Service" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TypeEvent" EntityType="ohlalaModel.Store.TypeEvent" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TypeService" EntityType="ohlalaModel.Store.TypeService" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Video" EntityType="ohlalaModel.Store.Video" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EventImage" EntityType="ohlalaModel.Store.EventImage" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EventService" EntityType="ohlalaModel.Store.EventService" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EventVideo" EntityType="ohlalaModel.Store.EventVideo" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_Event_Image" Association="ohlalaModel.Store.FK_Event_Image">
       <End Role="Image" EntitySet="Image" />
       <End Role="Event" EntitySet="Event" />
@@ -23,10 +18,6 @@
       <End Role="TypeEvent" EntitySet="TypeEvent" />
       <End Role="Event" EntitySet="Event" />
     </AssociationSet>
-    <AssociationSet Name="FK_Service_TypeService" Association="ohlalaModel.Store.FK_Service_TypeService">
-      <End Role="TypeService" EntitySet="TypeService" />
-      <End Role="Service" EntitySet="Service" />
-    </AssociationSet>
     <AssociationSet Name="FK_EventImage_Event" Association="ohlalaModel.Store.FK_EventImage_Event">
       <End Role="Event" EntitySet="Event" />
       <End Role="EventImage" EntitySet="EventImage" />
@@ -34,26 +25,6 @@
     <AssociationSet Name="FK_EventImage_Image" Association="ohlalaModel.Store.FK_EventImage_Image">
       <End Role="Image" EntitySet="Image" />
       <End Role="EventImage" EntitySet="EventImage" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EventService_Event" Association="ohlalaModel.Store.FK_EventService_Event">
-      <End Role="Event" EntitySet="Event" />
-      <End Role="EventService" EntitySet="EventService" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EventService_Service" Association="ohlalaModel.Store.FK_EventService_Service">
-      <End Role="Service" EntitySet="Service" />
-      <End Role="EventService" EntitySet="EventService" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EventVideo_Event" Association="ohlalaModel.Store.FK_EventVideo_Event">
-      <End Role="Event" EntitySet="Event" />
-      <End Role="EventVideo" EntitySet="EventVideo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EventVideo_Video" Association="ohlalaModel.Store.FK_EventVideo_Video">
-      <End Role="Video" EntitySet="Video" />
-      <End Role="EventVideo" EntitySet="EventVideo" />
-    </AssociationSet>
-    <AssociationSet Name="EventCoverVideo" Association="ohlalaModel.Store.EventCoverVideo">
-      <End Role="Event" EntitySet="Event" />
-      <End Role="Video" EntitySet="Video" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Event">
@@ -66,10 +37,6 @@
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Text" Type="varchar" Nullable="true" MaxLength="2048" />
     <Property Name="CoverImageID" Type="int" Nullable="false" />
-    <Property Name="Controller" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="Action" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="CoverVideoID" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CoverVideo_ID" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Image">
     <Key>
@@ -79,36 +46,12 @@
     <Property Name="Title" Type="varchar" Nullable="true" MaxLength="50" />
     <Property Name="ImagePath" Type="varchar" Nullable="false" MaxLength="255" />
   </EntityType>
-  <EntityType Name="Service">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="TypeService" Type="int" Nullable="false" />
-    <Property Name="ServiceLink" Type="varchar" Nullable="true" MaxLength="255" />
-  </EntityType>
   <EntityType Name="TypeEvent">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="TypeService">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Video">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="VideoLink" Type="nvarchar" Nullable="false" MaxLength="512" />
   </EntityType>
   <EntityType Name="EventImage">
     <Key>
@@ -117,22 +60,6 @@
     </Key>
     <Property Name="Events_ID" Type="int" Nullable="false" />
     <Property Name="Images_ID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="EventService">
-    <Key>
-      <PropertyRef Name="Event_ID" />
-      <PropertyRef Name="Service_ID" />
-    </Key>
-    <Property Name="Event_ID" Type="int" Nullable="false" />
-    <Property Name="Service_ID" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="EventVideo">
-    <Key>
-      <PropertyRef Name="Events_ID" />
-      <PropertyRef Name="Videos_ID" />
-    </Key>
-    <Property Name="Events_ID" Type="int" Nullable="false" />
-    <Property Name="Videos_ID" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Event_Image">
     <End Role="Image" Type="ohlalaModel.Store.Image" Multiplicity="1" />
@@ -155,30 +82,6 @@
       </Principal>
       <Dependent Role="Event">
         <PropertyRef Name="TypeEventID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Service_TypeService">
-    <End Role="TypeService" Type="ohlalaModel.Store.TypeService" Multiplicity="1" />
-    <End Role="Service" Type="ohlalaModel.Store.Service" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TypeService">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Service">
-        <PropertyRef Name="TypeService" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EventCoverVideo">
-    <End Role="Event" Type="ohlalaModel.Store.Event" Multiplicity="*" />
-    <End Role="Video" Type="ohlalaModel.Store.Video" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Video">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="CoverVideo_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -206,54 +109,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EventService_Event">
-    <End Role="Event" Type="ohlalaModel.Store.Event" Multiplicity="1" />
-    <End Role="EventService" Type="ohlalaModel.Store.EventService" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Event">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EventService">
-        <PropertyRef Name="Event_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EventService_Service">
-    <End Role="EventService" Type="ohlalaModel.Store.EventService" Multiplicity="*" />
-    <End Role="Service" Type="ohlalaModel.Store.Service" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Service">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EventService">
-        <PropertyRef Name="Service_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EventVideo_Event">
-    <End Role="Event" Type="ohlalaModel.Store.Event" Multiplicity="1" />
-    <End Role="EventVideo" Type="ohlalaModel.Store.EventVideo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Event">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EventVideo">
-        <PropertyRef Name="Events_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EventVideo_Video">
-    <End Role="EventVideo" Type="ohlalaModel.Store.EventVideo" Multiplicity="*" />
-    <End Role="Video" Type="ohlalaModel.Store.Video" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Video">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EventVideo">
-        <PropertyRef Name="Videos_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -266,17 +121,11 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TypeEventID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Text" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Text" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" Nullable="true" />
           <Property Name="CoverImageID" Type="Int32" Nullable="false" />
-          <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CoverImage" Relationship="Self.FK_Event_Image" FromRole="Event" ToRole="Image" />
           <NavigationProperty Name="TypeEvent" Relationship="Self.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
           <NavigationProperty Name="Images" Relationship="Self.EventImage" FromRole="Event" ToRole="Image" />
-          <NavigationProperty Name="Service" Relationship="Self.EventService" FromRole="Event" ToRole="Service" />
-          <Property Name="CoverVideoID" Type="String" Nullable="false" />
-          <NavigationProperty Name="Videos" Relationship="ohlalaModel.EventVideo" FromRole="Event" ToRole="Video" />
-          <NavigationProperty Name="CoverVideo" Relationship="ohlalaModel.EventCoverVideo" FromRole="Event" ToRole="Video" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -287,17 +136,6 @@
           <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Events" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
         </EntityType>
-        <EntityType Name="Service">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TypeService" Type="Int32" Nullable="false" />
-          <Property Name="ServiceLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TypeServices" Relationship="Self.FK_Service_TypeService" FromRole="Service" ToRole="TypeService" />
-          <NavigationProperty Name="Event" Relationship="Self.EventService" FromRole="Service" ToRole="Event" />
-        </EntityType>
         <EntityType Name="TypeEvent">
           <Key>
             <PropertyRef Name="ID" />
@@ -305,14 +143,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Event" Relationship="Self.FK_Event_TypeEvent" FromRole="TypeEvent" ToRole="Event" />
-        </EntityType>
-        <EntityType Name="TypeService">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Service" Relationship="Self.FK_Service_TypeService" FromRole="TypeService" ToRole="Service" />
         </EntityType>
         <Association Name="FK_Event_Image">
           <End Role="Image" Type="Self.Image" Multiplicity="1" />
@@ -338,32 +168,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Service_TypeService">
-          <End Role="TypeService" Type="Self.TypeService" Multiplicity="1" />
-          <End Role="Service" Type="Self.Service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeService">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Service">
-              <PropertyRef Name="TypeService" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="EventImage">
           <End Role="Event" Type="Self.Event" Multiplicity="*" />
           <End Role="Image" Type="Self.Image" Multiplicity="*" />
         </Association>
-        <Association Name="EventService">
-          <End Role="Event" Type="Self.Event" Multiplicity="*" />
-          <End Role="Service" Type="Self.Service" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="ohlalaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Event" EntityType="Self.Event" />
           <EntitySet Name="Image" EntityType="Self.Image" />
-          <EntitySet Name="Service" EntityType="Self.Service" />
           <EntitySet Name="TypeEvent" EntityType="Self.TypeEvent" />
-          <EntitySet Name="TypeService" EntityType="Self.TypeService" />
           <AssociationSet Name="FK_Event_Image" Association="Self.FK_Event_Image">
             <End Role="Image" EntitySet="Image" />
             <End Role="Event" EntitySet="Event" />
@@ -372,46 +184,12 @@
             <End Role="TypeEvent" EntitySet="TypeEvent" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="FK_Service_TypeService" Association="Self.FK_Service_TypeService">
-            <End Role="TypeService" EntitySet="TypeService" />
-            <End Role="Service" EntitySet="Service" />
-          </AssociationSet>
           <AssociationSet Name="EventImage" Association="Self.EventImage">
             <End Role="Event" EntitySet="Event" />
             <End Role="Image" EntitySet="Image" />
           </AssociationSet>
-          <AssociationSet Name="EventService" Association="Self.EventService">
-            <End Role="Event" EntitySet="Event" />
-            <End Role="Service" EntitySet="Service" />
-          </AssociationSet>
-          <EntitySet Name="Video" EntityType="ohlalaModel.Video" />
-          <AssociationSet Name="EventVideo" Association="ohlalaModel.EventVideo">
-            <End Role="Event" EntitySet="Event" />
-            <End Role="Video" EntitySet="Video" />
-          </AssociationSet>
-          <AssociationSet Name="EventCoverVideo" Association="ohlalaModel.EventCoverVideo">
-            <End Role="Event" EntitySet="Event" />
-            <End Role="Video" EntitySet="Video" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Video">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" Nullable="true" />
-          <Property Name="VideoLink" Type="String" Nullable="false" MaxLength="512" />
-          <NavigationProperty Name="Events" Relationship="ohlalaModel.EventVideo" FromRole="Video" ToRole="Event" />
-        </EntityType>
-        <Association Name="EventVideo">
-          <End Type="ohlalaModel.Event" Role="Event" Multiplicity="*" />
-          <End Type="ohlalaModel.Video" Role="Video" Multiplicity="*" />
-        </Association>
-        <Association Name="EventCoverVideo">
-          <End Type="ohlalaModel.Event" Role="Event" Multiplicity="*" />
-          <End Type="ohlalaModel.Video" Role="Video" Multiplicity="0..1" />
-        </Association>
-      </Schema>
+          </EntityContainer>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -426,9 +204,6 @@
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Text" ColumnName="Text" />
           <ScalarProperty Name="CoverImageID" ColumnName="CoverImageID" />
-          <ScalarProperty Name="Controller" ColumnName="Controller" />
-          <ScalarProperty Name="Action" ColumnName="Action" />
-          <ScalarProperty Name="CoverVideoID" ColumnName="CoverVideoID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -441,38 +216,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Service">
-      <EntityTypeMapping TypeName="IsTypeOf(ohlalaModel.Service)">
-        <MappingFragment StoreEntitySet="Service">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="TypeService" ColumnName="TypeService" />
-          <ScalarProperty Name="ServiceLink" ColumnName="ServiceLink" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TypeEvent">
       <EntityTypeMapping TypeName="IsTypeOf(ohlalaModel.TypeEvent)">
         <MappingFragment StoreEntitySet="TypeEvent">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TypeService">
-      <EntityTypeMapping TypeName="IsTypeOf(ohlalaModel.TypeService)">
-        <MappingFragment StoreEntitySet="TypeService">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Video">
-      <EntityTypeMapping TypeName="IsTypeOf(ohlalaModel.Video)">
-        <MappingFragment StoreEntitySet="Video">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -483,31 +231,6 @@
       <EndProperty Name="Image">
         <ScalarProperty Name="ID" ColumnName="Images_ID" />
       </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="EventService" TypeName="ohlalaModel.EventService" StoreEntitySet="EventService">
-      <EndProperty Name="Event">
-        <ScalarProperty Name="ID" ColumnName="Event_ID" />
-      </EndProperty>
-      <EndProperty Name="Service">
-        <ScalarProperty Name="ID" ColumnName="Service_ID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="EventVideo" TypeName="ohlalaModel.EventVideo" StoreEntitySet="EventVideo">
-      <EndProperty Name="Event">
-        <ScalarProperty Name="ID" ColumnName="Events_ID" />
-      </EndProperty>
-      <EndProperty Name="Video">
-        <ScalarProperty Name="ID" ColumnName="Videos_ID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="EventCoverVideo" TypeName="ohlalaModel.EventCoverVideo" StoreEntitySet="Event">
-      <EndProperty Name="Video">
-        <ScalarProperty Name="ID" ColumnName="CoverVideo_ID" />
-      </EndProperty>
-      <EndProperty Name="Event">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-      <Condition ColumnName="CoverVideo_ID" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
