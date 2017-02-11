@@ -19,9 +19,7 @@ namespace Oh_lala_Web.Controllers
             var events = db.Event
                         .Include(x => x.CoverImage)
                         .Include(y => y.TypeEvent)
-                        .Where(l => l.TypeEvent.Name == "Fifteen")
-                        .Include(z => z.Service)
-                        .Include(k => k.Service.Select(j => j.TypeServices)).ToList();
+                        .Where(l => l.TypeEvent.Name == "Fifteen").ToList();
             events.Take(elementsForView);
 
             if (identifier != null)
@@ -33,7 +31,7 @@ namespace Oh_lala_Web.Controllers
                 }
                 else
                 {
-                    var eventFifteen = db.Event.Where(x => x.Action == identifier).ToList();
+                    var eventFifteen = db.Event.Where(x => x.Path == identifier).ToList();
                 }
             }
 

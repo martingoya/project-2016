@@ -37,6 +37,8 @@
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Text" Type="varchar" Nullable="true" MaxLength="2048" />
     <Property Name="CoverImageID" Type="int" Nullable="false" />
+    <Property Name="Introduction" Type="varchar" Nullable="true" MaxLength="512" />
+    <Property Name="Path" Type="varchar" Nullable="false" MaxLength="128" />
   </EntityType>
   <EntityType Name="Image">
     <Key>
@@ -126,6 +128,8 @@
           <NavigationProperty Name="CoverImage" Relationship="Self.FK_Event_Image" FromRole="Event" ToRole="Image" />
           <NavigationProperty Name="TypeEvent" Relationship="Self.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
           <NavigationProperty Name="Images" Relationship="Self.EventImage" FromRole="Event" ToRole="Image" />
+          <Property Name="Introduction" Type="String" Nullable="true" MaxLength="512" Unicode="false" FixedLength="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -204,6 +208,8 @@
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Text" ColumnName="Text" />
           <ScalarProperty Name="CoverImageID" ColumnName="CoverImageID" />
+          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

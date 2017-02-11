@@ -41,16 +41,7 @@ namespace Model.Controllers
         public ActionResult Create()
         {
             ViewBag.ImageID = new SelectList(db.Image, "ID", "Title");
-            ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name");
-            var services = db.Service
-                .Include(y => y.TypeServices)
-                .ToList()
-                .Select(x => new
-                {
-                    ServiceID = x.ID,
-                    Data = string.Format("({0}) - {1}", x.TypeServices.Name, x.Name)
-                });
-            ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data");          
+            ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name");         
             return View(new EventView());
         }
 
@@ -61,24 +52,20 @@ namespace Model.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EventView @eventView, FormCollection fc, string Command)
         {
-            List<ServiceView> serviceSession = new List<ServiceView>();
-
-                if (Request.Form["createEvent"] != null)
+            if (Request.Form["createEvent"] != null)
+            {
+                if (ModelState.IsValid)
                 {
-                    if (ModelState.IsValid)
-                    {
-                        //Controller
-                        @eventView.Controller = db.TypeEvent.First(x => x.ID == eventView.TypeEventID).Name;
-                        //Action
-                        @eventView.Action = eventView.Title.Replace(" ", "_");
+                    //Action
+                    @eventView.Path = eventView.Title.Replace(" ", "_");
 
-                        var typeEvent = db.TypeEvent.FirstOrDefault(x => x.ID == @eventView.TypeEventID);
-                        var path = "Content/Fotos/" + typeEvent.Name + "/" + @eventView.Action + "/";
-                        AutoMapper.Mapper.Initialize(x =>
-                        {
-                            x.CreateMap<EventView, Event>();
-                        });
-                    //Cover or Video
+                    var typeEvent = db.TypeEvent.FirstOrDefault(x => x.ID == @eventView.TypeEventID);
+                    var path = "Content/Fotos/" + typeEvent.Name + "/" + @eventView.Path + "/";
+                    AutoMapper.Mapper.Initialize(x =>
+                    {
+                        x.CreateMap<EventView, Event>();
+                    });
+                    //Cover
                     if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
                     {
                         var fullPathCover = path + eventView.CoverFile.FileName;
@@ -96,7 +83,8 @@ namespace Model.Controllers
                         }
                     }
                     //Images
-                    if (eventView.Files.First() != null) {
+                    if (eventView.Files.First() != null)
+                    {
                         foreach (var file in eventView.Files)
                         {
                             if (file.ContentLength < 0)
@@ -117,39 +105,8 @@ namespace Model.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                else
-                {
-                    int indexService = -1;
-                    //Boton para borrar de la lista 
-                    foreach (string item in fc.AllKeys)
-                    {
-                        if (item.Contains("deleteService "))
-                        {
-                            indexService = int.Parse(item.Remove(0, 14));
-                        }
-                    }
-                    if (indexService != -1)
-                    {
-                        serviceSession = (List<ServiceView>)Session["ListService"];
-                        serviceSession.RemoveAt(indexService);
-                        Session["ListVuelo"] = serviceSession;
-                    }
-                    ModelState.Clear();
-                }
             }
-            //ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @eventView.ImageID);
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @eventView.TypeEventID);
-            var serviceSessionIDs = serviceSession.Select(k => k.ID).ToList();
-            var services = db.Service
-                .Where(z => !serviceSessionIDs.Contains(z.ID))
-                .Include(y => y.TypeServices)
-                .ToList()
-                .Select(x => new
-                {
-                    ServiceID = x.ID,
-                    Data = string.Format("({0}) - {1}", x.TypeServices.Name, x.Name)
-                });
-            //ViewBag.ServiceID = new SelectList(services, "ServiceID", "Data", @eventView.ServiceID);
             return View(@eventView);
         }
 
@@ -167,7 +124,6 @@ namespace Model.Controllers
             }
             ViewBag.ImageID = new SelectList(db.Image, "ID", "Title", @event.CoverImageID);
             ViewBag.TypeEventID = new SelectList(db.TypeEvent, "ID", "Name", @event.TypeEventID);
-            ViewBag.Services = new SelectList(db.Service, "ID", "Name", @event.Service);
             return View(@event);
         }
 
@@ -180,8 +136,6 @@ namespace Model.Controllers
         {
             if (ModelState.IsValid)
             {
-                var services = db.Service.ToList();
-                @event.Service.Add(services.First());
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -219,12 +173,6 @@ namespace Model.Controllers
                 @event.Images.Remove(image);
             }
             db.SaveChanges();
-            //Services
-            var services = new List<Service>(@event.Service);
-            foreach (var service in services)
-            {
-                @event.Service.Remove(service);
-            }
             db.SaveChanges();
             //Delete Event
             db.Event.Remove(@event);
