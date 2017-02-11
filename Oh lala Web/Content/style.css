@@ -1898,7 +1898,9 @@ audio {
 .navbar-default .navbar-nav > li > a {
     color: #c1c1c1;
     font-family: 'Bromello';
-    font-size: 25px;
+    font-size: x-large;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -1981,4 +1983,73 @@ input[type="checkbox"].input-validation-error {
     width: 783pX;
     max-width: 100%;
     margin: 0 auto;
+}
+
+/*New Styles*/
+
+.alignCenter{ 
+	margin: 0 auto;
+    text-align: center;
+}
+
+.width{
+  	max-width:1000px; 
+}
+    
+.widthHeader{
+  	max-width:950px; 
+}
+      
+.style{
+   	background-color:transparent;
+    border-color:transparent;
+}
+
+@media (min-width: 768px){
+    .logo{
+        padding-top: 10px;
+        float: none;     
+    }
+}
+
+@media (max-width: 768px){
+    .logo{
+        float: left;
+        padding-bottom: 10px;
+    }
+}
+
+@media (min-width: 768px){
+    .mobileNav{
+        float: right;     
+    }
+}
+
+@media (max-width: 768px){
+    .mobileNav{
+        width: 50%;
+        float: right;
+    }
+}
+        
+@media (min-width: 768px){
+    .secondaryNav{
+        display:block;     
+    }
+}   
+@media (max-width: 768px){
+    .secondaryNav{
+        display:none;     
+    }
+}
+
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+#footer{
+  background-color:black;	
 }
