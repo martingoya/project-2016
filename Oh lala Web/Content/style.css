@@ -1929,7 +1929,6 @@ audio {
 .imagesSection {
     display: block;
     margin: 0 auto;
-    margin-bottom: 20px !important;
 }
 
 /* styles for validation helpers */
@@ -2004,14 +2003,14 @@ input[type="checkbox"].input-validation-error {
     padding-top: 10px;
 }
 
-@media (min-width: 768px){
+@media (min-width: 767px){
     .logo{
         padding-top: 10px;
         float: none;     
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     .logo{
         float: left;
         padding-bottom: 10px;
@@ -2019,24 +2018,24 @@ input[type="checkbox"].input-validation-error {
     }
 }
 
-@media (min-width: 768px){
+@media (min-width: 767px){
     .mobileNav{
         float: right;     
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     .mobileNav{
         float: right;
     }
 }
         
-@media (min-width: 768px){
+@media (min-width: 767px){
     .secondaryNav{
         display:block;     
     }
 }   
-@media (max-width: 768px){
+@media (max-width: 767px){
     .secondaryNav{
         display:none;     
     }
@@ -2075,4 +2074,61 @@ input[type="checkbox"].input-validation-error {
 .eventDate{
     padding-bottom: 15px;
     color: #888888;
+}
+
+@media only screen and (min-width: 991px) {
+    .textSection {
+        background: white;
+        align-self: center;
+        padding: 2rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .textSection {
+        background: white;
+        align-self: center;
+        padding: 2rem;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+
+@media only screen and (min-width: 991px) {
+    .entrySection {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .entrySection {
+        display: block;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}
+
+.eventTitleSection {
+    font-size: 32px;
+}
+
+.eventIntrodutionSection {
+    color: gray;
+}
+
+.eventImages {
+    padding-bottom: 20px;
+}
+
+.socialDivs {
+    max-width: 340px !important;
+    min-width: 340px !important;
+    margin: 0 auto;
+}
+
+.textSocialDivs {
+    text-align:left;
 }

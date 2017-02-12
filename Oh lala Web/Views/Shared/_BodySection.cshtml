@@ -1,26 +1,59 @@
 ﻿@model IEnumerable<Model.Models.Event>
 
-<div class="container">
-    <div class="rowSectionImages">
-        @foreach (var item in Model)
-        {
-            <p>
-                @item.Date.ToShortDateString()
-            </p>
-            <p>
-                @item.Title
-            </p>
-            <div id="wrapper">
-                <div class="element">
+<div class="widthHeader container-fluid alignCenter eventContainer">
+    @{
+        var intercalation = true;
+    }
+    @foreach (var item in Model)
+    {
+        <div class="row entrySection">
+            @if (intercalation)
+            {
+                <div class="col-lg-8 col-md-8">
                     <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
                         <figure><img class="imagesSection" alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.CoverImage.ImagePath)"></figure>
-                        <span></span>
                     </a>
                 </div>
-            </div>
-            <p>
-                @item.Introduction
-            </p>
-        }
-    </div>
+                <div class="col-lg-4 col-md-4 textSection">
+                    <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
+                        <p class="eventTitleSection">
+                            @item.Title
+                        </p>
+                    </a>
+                    <p class="eventIntrodutionSection">
+                        @item.Introduction
+                    </p>
+                    <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
+                        <p>
+                            Leer más
+                        </p>
+                    </a>
+                </div>
+                intercalation = false;
+            }
+            else
+            {
+                <div class="col-lg-4 col-md-4 textSection">
+                    <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
+                        <p class="eventTitleSection">
+                            @item.Title
+                        </p>
+                    </a>
+                    <p class="eventIntrodutionSection">
+                        @item.Introduction
+                    </p>
+                    <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
+                        <p>
+                            Leer más
+                        </p>
+                    </a>
+                </div>
+                <div class="col-lg-8 col-md-8">
+                    <figure><img class="imagesSection" alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.CoverImage.ImagePath)"></figure>
+                </div>
+                intercalation = true;
+            }
+        </div>
+    }
 </div>
+

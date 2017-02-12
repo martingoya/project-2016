@@ -22,43 +22,41 @@
         <p class="eventDate">
             @Model.Date.Day de @month de @Model.Date.Year
         </p>
-        <div class="col-lg-9 col-md-9">
-            <div id="wrapper">
-                <div class="element">
-                    <figure><img class="imagesSection" src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
-                </div>
+        <div class="col-lg-9">
+            <div class="eventImages">
+                <figure><img src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
             </div>
             <p class="descriptionText">
                 @Model.Text
             </p>
             @foreach (var image in Model.Images)
             {
-                <div id="wrapper">
-                    <div class="element">
-                        <figure><img class="imagesSection" src="~/@image.ImagePath"></figure>
-                    </div>
+                <div class="eventImages">
+                    <figure><img src="~/@image.ImagePath"></figure>
                 </div>
             }
         </div>
-        <div class = "col-lg-3 col-md-3 alignCenter">
-            <p>
+        <div class = "col-lg-3">
+            <p class="textSocialDivs">
                 Facebook
             </p>
             <p>
-                <div class="fb-page"
+                <div class="fb-page alignCenter socialDivs"
                      data-href="https://www.facebook.com/OhLalaPH"
                      data-width="340"
                      data-hide-cover="false"
                      data-show-facepile="true">
                 </div>
             </p>
-            <p>
+            <p class="textSocialDivs">
                 Instagram
             </p>
             <p>
                 <!-- SnapWidget -->
                 <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                <iframe src="https://snapwidget.com/embed/334352" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
+                <div class="socialDivs">
+                    <iframe src="https://snapwidget.com/embed/334352" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; max-width: 400px; "></iframe>
+                </div>
             </p>
         </div>
     </div>
