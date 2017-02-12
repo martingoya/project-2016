@@ -45,7 +45,6 @@
     </head>
     <body>
 <!--==============================header=================================-->
-    <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="http://staticxx.facebook.com/connect/xd_arbiter/r/Sh-3BhStODe.js?version=42#channel=f39b1530dcb698c&amp;origin=http%3A%2F%2Fwww.bootply.com" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/Sh-3BhStODe.js?version=42#channel=f39b1530dcb698c&amp;origin=http%3A%2F%2Fwww.bootply.com" style="border: none;"></iframe></div></div></div>
     <div class="widthHeader container-fluid alignCenter">
         <div class="row">
             <div class="col-sm-4">
@@ -61,7 +60,7 @@
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("Último", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Fifteen", "Fifteen", "Home")</li>
+                            <li>@Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, null)</li>
                             <li class="hidden-lg hidden-md hidden-sm">@Html.ActionLink("Bodas", "Bodas", "Home")</li>
                             <li class="hidden-lg hidden-md hidden-sm">@Html.ActionLink("Newborn", "NewBorn", "Home")</li>
                             <li class="hidden-lg hidden-md hidden-sm">@Html.ActionLink("Contacto", "Contact", "Home")</li>
@@ -74,7 +73,7 @@
             </div>
             <div class="col-sm-4 secondaryNav">
                 <div class="navbar navbar-default navbar-top style">
-                    <div class="navbar-collapse collapse">
+                    <div class="navbar-collapse collapse" style="float: left;">
                         <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Bodas", "Bodas", "Home")</li>
                             <li>@Html.ActionLink("Newborn", "NewBorn", "Home")</li>
@@ -102,11 +101,11 @@
                     <span>/</span>
                     @Html.ActionLink("Último", "Index", "Home")
                     <span>/</span>
-                    @Html.ActionLink("Fifteen", "Fifteen", "Home")
+                    @Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, null)
                     <span>/</span>
                     @Html.ActionLink("Bodas", "Bodas", "Home")
                     <span>/</span>
-                    @Html.ActionLink("Newborn", "NewBorn", "Home")
+                    @Html.ActionLink("NewBorn", "NewBorn", "Home")
                     <span>/</span>
                     @Html.ActionLink("Contacto", "Contact", "Home")
                 </div>
@@ -118,14 +117,14 @@
             </div>
             <div class="row">
                 <div class="col-md-12 alignCenter">
-                    <a class="btn btn-social-icon btn-facebook">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
                     <a class="btn btn-social-icon btn-instagram">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
                     </a>
                     <a class="btn btn-social-icon btn-vimeo">
                         <i class="fa fa-vimeo" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-social-icon btn-facebook">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
                     </a>
                 </div>
                 <p></p>

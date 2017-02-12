@@ -992,7 +992,6 @@ hr.line2 {
 	/*margin-left: -30px;*/
 }
 .element {
-    width: 783pX;
     max-width: 100%;
 	height: auto !important;
 	display: block;
@@ -1928,7 +1927,6 @@ audio {
 }
 
 .imagesSection {
-    width: 785px;
     display: block;
     margin: 0 auto;
     margin-bottom: 20px !important;
@@ -1993,11 +1991,11 @@ input[type="checkbox"].input-validation-error {
 }
 
 .width{
-  	max-width:1000px; 
+  	max-width:1100px; 
 }
     
 .widthHeader{
-  	max-width:950px; 
+  	max-width:1100px;
 }
       
 .style{
@@ -2052,5 +2050,29 @@ input[type="checkbox"].input-validation-error {
 }
 
 #footer{
-  background-color:black;	
+  background-color:#1e1e1e;	
+}
+
+@media only screen and (max-width: 640px) {
+    .descriptionText {
+        font-size: 13px !important;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .eventContainer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.eventTitle{
+    font-size:40px;
+    padding-top: 50px;
+    padding-bottom: 15px;
+}
+
+.eventDate{
+    padding-bottom: 15px;
+    color: #888888;
 }
