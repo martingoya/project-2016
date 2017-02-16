@@ -1,5 +1,4 @@
 ﻿@model Model.Models.Event
-
 <div id="fb-root"></div>
 <script>
     (function(d, s, id) {
@@ -10,18 +9,24 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="widthHeader container-fluid alignCenter eventContainer">
+<div class="rowSectionText">
+    <div class="container alignCenter">
+        <div class="row">
+            <p class="eventTitle">
+                @Model.Title
+            </p>
+            @{
+                System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
+                var month = dtinfo.GetMonthName(Model.Date.Month);
+            }
+            <p class="eventDate">
+                @Model.Date.Day de @month de @Model.Date.Year
+            </p>
+        </div>
+    </div>
+</div>
+<div class="container alignCenter eventSection">
     <div class="row">
-        <p class="eventTitle">
-            @Model.Title
-        </p>
-        @{
-            System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
-            var month = dtinfo.GetMonthName(Model.Date.Month);
-        }
-        <p class="eventDate">
-            @Model.Date.Day de @month de @Model.Date.Year
-        </p>
         <div class="col-lg-9">
             <div class="eventImages">
                 <figure><img src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
@@ -36,7 +41,7 @@
                 </div>
             }
         </div>
-        <div class = "col-lg-3">
+        <div class="col-lg-3">
             <p class="textSocialDivs">
                 Facebook
             </p>
@@ -61,3 +66,4 @@
         </div>
     </div>
 </div>
+

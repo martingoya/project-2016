@@ -569,6 +569,7 @@
     <Content Include="Content\images\preloader-back-white.gif" />
     <Content Include="Content\images\small-logo-footer-completo.png" />
     <Content Include="Content\images\small-logo-footer.png" />
+    <Content Include="Content\images\small-logo-white.png" />
     <Content Include="Content\images\small-logo.png" />
     <Content Include="Content\images\sprite-social-icons.png" />
     <Content Include="Content\images\vimeo_32.png" />
