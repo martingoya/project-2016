@@ -11,12 +11,12 @@
         <div id="intercalationItemOne">
             <div class="container alignCenter">
                 <div class="row entrySection">
-                    <div class="col-lg-8 col-md-8 imagesSection">
+                    <div class="col-lg-8 col-md-8">
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
                             <figure><img alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.CoverImage.ImagePath)"></figure>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-4 textSection">
+                    <div class="col-lg-4 col-md-4">
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
                             <p class="eventTitleSection">
                                 @item.Title
@@ -41,7 +41,7 @@
         <div id="intercalationItemTwo">
             <div class="container alignCenter">
                 <div class="row entrySection">
-                    <div class="col-lg-4 col-md-4 textSection">
+                    <div class="col-lg-4 col-md-4">
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
                             <p class="eventTitleSection">
                                 @item.Title
@@ -56,8 +56,10 @@
                             </p>
                         </a>
                     </div>
-                    <div class="col-lg-8 col-md-8 imagesSection">
-                        <figure><img alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.CoverImage.ImagePath)"></figure>
+                    <div class="col-lg-8 col-md-8">
+                        <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
+                            <figure><img alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.CoverImage.ImagePath)"></figure>
+                        </a>
                     </div>
                 </div>
             </div>

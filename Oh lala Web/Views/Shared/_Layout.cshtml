@@ -42,18 +42,20 @@
         <link href="~/Content/style.css" rel="stylesheet" />
         <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
         <link href="~/Content/font-awesome-animation.min.css" rel="stylesheet" />
+
+        <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
     </head>
     <body>
 <!--==============================header=================================-->
     <header id="layoutHeader">
-        <div class="container alignCenter">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="col-sm-4">
-                        <p><img src="~/Content/images/small-logo-white.png" class="img-responsive alignCenter logo"></p>
+                    <div class="col-sm-4 navLogo">
+                        <p><img src="~/Content/images/small-logo-white.png"></p>
                     </div>
                     <div class="col-sm-8">
-                        <div class="navbar navbar-default navbar-top mobileNav">
+                        <div class="navbar navbar-default navbar-top alignCenter">
                             <div class="navbar-header">
                                 <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="icon-bar"></span>
@@ -61,7 +63,7 @@
                                     <span class="icon-bar"></span>
                                 </a>
                             </div>
-                            <div class="navbar-collapse collapse principalNav">
+                            <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                     <li>@Html.ActionLink("Último", "Index", "Home")</li>
@@ -90,17 +92,17 @@
             </div>
             <div class="row">
                 <div class="col-md-12 alignCenter">                   
-                    @Html.ActionLink("Home", "Index", "Home")
+                    @Html.ActionLink("Home", "Index", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Último", "Index", "Home")
+                    @Html.ActionLink("Último", "Index", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, null)
+                    @Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Bodas", "Bodas", "Home")
+                    @Html.ActionLink("Bodas", "Bodas", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("NewBorn", "NewBorn", "Home")
+                    @Html.ActionLink("NewBorn", "NewBorn", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Contacto", "Contact", "Home")
+                    @Html.ActionLink("Contacto", "Contact", "Home", new object { }, new { @class = "footerLink" })
                 </div>
             </div>
             <div class="row">

@@ -97,7 +97,10 @@ namespace Model.Controllers
                                 image.ImagePath = fullPath;
                                 image.Title = @eventView.Title;
                             }
-                            @eventView.Images.Add(image);
+                            if (eventView.CoverImage.ImagePath != image.ImagePath)
+                            {
+                                @eventView.Images.Add(image);
+                            }                        
                         }
                     }
                     //Save changes
