@@ -10,25 +10,23 @@
     {
         <div id="intercalationItemOne">
             <div class="container alignCenter">
-                <div class="row entrySection">
-                    <div class="col-lg-8 col-md-8">
+                <div class="row entryEventSection">
+                    <div class="col-lg-7 col-md-7 eventImageSection">
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
                             <figure><img alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.CoverImage.ImagePath)"></figure>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-5 col-md-5 eventTitleSection">
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
-                            <p class="eventTitleSection">
+                            <p>
                                 @item.Title
                             </p>
                         </a>
-                        <p class="eventIntrodutionSection">
+                        <p>
                             @item.Introduction
                         </p>
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
-                            <p>
-                                Leer más
-                            </p>
+                            Leer más
                         </a>
                     </div>
                 </div>
@@ -40,10 +38,10 @@
     {
         <div id="intercalationItemTwo">
             <div class="container alignCenter">
-                <div class="row entrySection">
-                    <div class="col-lg-4 col-md-4">
+                <div class="row entryEventSection">
+                    <div class="col-lg-5 col-md-5 eventTitleSection">
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
-                            <p class="eventTitleSection">
+                            <p>
                                 @item.Title
                             </p>
                         </a>
@@ -51,12 +49,10 @@
                             @item.Introduction
                         </p>
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
-                            <p>
-                                Leer más
-                            </p>
+                            Leer más
                         </a>
                     </div>
-                    <div class="col-lg-8 col-md-8">
+                    <div class="col-lg-7 col-md-7 eventImageSection">
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
                             <figure><img alt=@Html.DisplayFor(modelItem => item.Title) src="~/@Html.DisplayFor(modelItem => item.CoverImage.ImagePath)"></figure>
                         </a>

@@ -8,6 +8,9 @@
     src: url('../Content/fonts/HelloBestDay.ttf');
 }
 
+.body {
+    background: #1e1e1e;
+}
 /*------ content ------- */
 .title1 {
 	color: #ffffff;
@@ -152,8 +155,10 @@ footer {
 
 @media only screen and (min-width: 991px) {
     .entrySection {
-        display: flex;
         justify-content: center;
+        flex-flow: column;
+        align-items: flex-end;
+        display: flex;
     }
 }
 
@@ -164,8 +169,53 @@ footer {
     }
 }
 
-.eventTitleSection {
-    font-size: 32px;
+@media only screen and (min-width: 991px) {
+    .entryEventSection {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .entryEventSection {
+        justify-content: center;
+        flex-flow: column;
+        align-items: flex-end;
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .eventImageSection {
+        order: 1;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .eventTitleSection {
+        order: 2;
+        width: 100%;
+    }
+}
+
+.eventTitleSection > a > p {
+    font-size: xx-large;
+}
+
+.eventTitleSection > p {
+    font-size: x-large;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 500;
+}
+
+.eventTitleSection > a {
+    font-size: large;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 500;
 }
 
 .eventSection {
@@ -285,16 +335,38 @@ footer {
 #intercalationItemOne {
     padding-top: 20px;
     padding-bottom: 20px;
-    background: #f1ef98;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#intercalationItemOne > div {
+    background: #ececec;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 #intercalationItemTwo {
     padding-top: 20px;
     padding-bottom: 20px;
-    background: #0094ff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#intercalationItemTwo > div {
+    background: #ececec;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .footerLink {
     font-family: 'Shadows Into Light', cursive;
     font-size: large;
+}
+
+.rowSectionText {
+    font-size: x-large;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px;
 }
