@@ -114,12 +114,6 @@ footer {
   background-color:#1e1e1e;	
 }
 
-@media only screen and (max-width: 640px) {
-    .descriptionText {
-        font-size: 13px !important;
-    }
-}
-
 @media only screen and (max-width: 1100px) {
     .eventContainer {
         padding-left: 20px;
@@ -234,10 +228,6 @@ footer {
     max-width: 340px !important;
     min-width: 340px !important;
     margin: 0 auto;
-}
-
-.textSocialDivs {
-    text-align:left;
 }
 
 #layoutHeader {
@@ -370,3 +360,47 @@ footer {
     text-align: center;
     margin-top: 25px;
 }
+
+.rowEventImages {
+    background: #ececec;
+    padding-top: 15px;
+}
+
+.descriptionText {
+    font-size: large;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 640px) {
+    .descriptionText {
+        font-size: medium;
+    }
+}
+
+.textSocialDivs {
+    text-align:left;
+    font-size: x-large;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bolder;
+}
+
+/* Index */
+/*--------------------------------------------------*/
+
+.rowSectionIndexText {
+    font-size: x-large;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 640px) {
+    .rowSectionIndexText {
+        font-size: large;
+    }
+}
+
+/*--------------------------------------------------*/

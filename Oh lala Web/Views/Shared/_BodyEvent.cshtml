@@ -27,7 +27,7 @@
 </div>
 <div class="container alignCenter eventSection">
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-9 rowEventImages">
             <div class="eventImages">
                 <figure><img src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
             </div>
@@ -35,7 +35,7 @@
                 @Model.Text
             </p>
             @foreach (var image in Model.Images)
-            {
+        {
                 <div class="eventImages">
                     <figure><img src="~/@image.ImagePath"></figure>
                 </div>
@@ -59,9 +59,7 @@
             <p>
                 <!-- SnapWidget -->
                 <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                <div class="socialDivs">
-                    <iframe src="https://snapwidget.com/embed/334352" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; max-width: 400px; "></iframe>
-                </div>
+                <iframe src="https://snapwidget.com/embed/339442" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
             </p>
         </div>
     </div>
