@@ -224,12 +224,6 @@ footer {
     padding-bottom: 20px;
 }
 
-.socialDivs {
-    max-width: 340px !important;
-    min-width: 340px !important;
-    margin: 0 auto;
-}
-
 #layoutHeader {
     background: #1e1e1e;
 }
