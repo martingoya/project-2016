@@ -21,15 +21,12 @@ using System.Data.Entity.Infrastructure;
 public partial class ohlalaEntities : DbContext
 {
     public ohlalaEntities()
-        : base("name=prod")
+        : base("name=ohlalaEntities")
     {
-    }
-    public ohlalaEntities(string name)
-        : base("name=" + name)
-    {
+
     }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
         throw new UnintentionalCodeFirstException();
     }

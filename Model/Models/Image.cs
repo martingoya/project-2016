@@ -22,7 +22,7 @@ public partial class Image
     public Image()
     {
 
-        this.Events = new HashSet<Event>();
+        this.EventData = new HashSet<Event>();
 
     }
 
@@ -37,7 +37,7 @@ public partial class Image
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<Event> Events { get; set; }
+    public virtual ICollection<Event> EventData { get; set; }
 
 }
 

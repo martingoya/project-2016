@@ -57,10 +57,10 @@
   </EntityType>
   <EntityType Name="EventImage">
     <Key>
-      <PropertyRef Name="Events_ID" />
+      <PropertyRef Name="EventData_ID" />
       <PropertyRef Name="Images_ID" />
     </Key>
-    <Property Name="Events_ID" Type="int" Nullable="false" />
+    <Property Name="EventData_ID" Type="int" Nullable="false" />
     <Property Name="Images_ID" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Event_Image">
@@ -95,7 +95,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="EventImage">
-        <PropertyRef Name="Events_ID" />
+        <PropertyRef Name="EventData_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -138,7 +138,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Events" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
+          <NavigationProperty Name="EventData" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
         </EntityType>
         <EntityType Name="TypeEvent">
           <Key>
@@ -232,7 +232,7 @@
     </EntitySetMapping>
     <AssociationSetMapping Name="EventImage" TypeName="ohlalaModel.EventImage" StoreEntitySet="EventImage">
       <EndProperty Name="Event">
-        <ScalarProperty Name="ID" ColumnName="Events_ID" />
+        <ScalarProperty Name="ID" ColumnName="EventData_ID" />
       </EndProperty>
       <EndProperty Name="Image">
         <ScalarProperty Name="ID" ColumnName="Images_ID" />

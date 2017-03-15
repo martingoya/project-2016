@@ -140,7 +140,7 @@ namespace Model.Controllers
             if (ModelState.IsValid)
             {
                 @event = db.Event.Find(@event.ID);
-                db.Entry(@event).State = EntityState.Modified;
+                db.Entry(@event).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/11/2017 18:16:52
--- Generated from EDMX file: C:\Users\Notebook\Source\Repos\project-2016\Model\Models\Model.edmx
+-- Date Created: 03/14/2017 22:51:10
+-- Generated from EDMX file: C:\Users\Esquilax\Source\Repos\project-2016\Model\Models\Model.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -81,7 +81,7 @@ GO
 
 -- Creating table 'EventImage'
 CREATE TABLE [dbo].[EventImage] (
-    [Events_ID] int  NOT NULL,
+    [EventData_ID] int  NOT NULL,
     [Images_ID] int  NOT NULL
 );
 GO
@@ -108,10 +108,10 @@ ADD CONSTRAINT [PK_TypeEvent]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [Events_ID], [Images_ID] in table 'EventImage'
+-- Creating primary key on [EventData_ID], [Images_ID] in table 'EventImage'
 ALTER TABLE [dbo].[EventImage]
 ADD CONSTRAINT [PK_EventImage]
-    PRIMARY KEY CLUSTERED ([Events_ID], [Images_ID] ASC);
+    PRIMARY KEY CLUSTERED ([EventData_ID], [Images_ID] ASC);
 GO
 
 -- --------------------------------------------------
@@ -148,10 +148,10 @@ ON [dbo].[Event]
     ([TypeEventID]);
 GO
 
--- Creating foreign key on [Events_ID] in table 'EventImage'
+-- Creating foreign key on [EventData_ID] in table 'EventImage'
 ALTER TABLE [dbo].[EventImage]
 ADD CONSTRAINT [FK_EventImage_Event]
-    FOREIGN KEY ([Events_ID])
+    FOREIGN KEY ([EventData_ID])
     REFERENCES [dbo].[Event]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;

@@ -85,7 +85,7 @@ namespace Model.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(typeEvent).State = EntityState.Modified;
+                db.Entry(typeEvent).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
