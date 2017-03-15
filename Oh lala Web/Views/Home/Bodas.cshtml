@@ -1,56 +1,13 @@
-﻿@{
+﻿@model IEnumerable<Model.Models.Event>
+@{
     ViewBag.Title = "Bodas";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title></title>
-</head>
+<div class="rowSectionText">
+    <div class="container">
+        <p>En Oh Lalá queremos contar tu historia de la manera más romantica y simple. El amor habla por si solo en las imágenes de la ceremonia, previa y fiesta.</p>
+        <p>La familia, los amigos y los niños cumplen un rol preponderante en estos eventos. Nosotras prestamos atención a los detalles sin perder la impronta de la pareja.</p>
+    </div>
+</div>
 
-<body>
-    <div id="content">
-        <div class="row_1_Section">
-            <div class="container">
-                <p class="title2" style="margin-bottom: 10px; padding-top:25px">
-                    En Oh Lalá queremos contar tu historia de la manera más romantica y simple.<br />
-                    El amor habla por si solo en las imágenes de la ceremonia, previa y fiesta.
-                </p>
-                <p class="title2">
-                    La familia, los amigos y los niños cumplen un rol preponderante en estos eventos.<br />
-                    Nosotras prestamos atención a los detalles sin perder la impronta de la pareja.
-                </p>
-                @*<a href="#" class="btn btn-default btn-lg btn1">more</a>*@
-            </div>
-        </div>
-        <!--==============================row6=================================-->
-        <div class="row_6">
-            <div class="container">
-                <div class="row">
-                    <div class="containerExtra">
-                        <div id="container" class="clearfix">
-                            @*Karina y German*@
-                            <div id="wrapper">
-                                <div class="element">
-                                    <a href='@Url.Action("Karina_y_German", "Bodas")'>
-                                        <figure><img class="imagesSection" alt="Karina y Germán" src="~/Content/Fotos/Bodas/_Portadas/Karina_German.jpg"></figure>
-                                    </a>
-                                    <span>Karina y Germán</span>
-                                </div>
-                            </div>
-                            @*Vero y Lau*@
-                            <div id="wrapper">
-                                <div class="element">
-                                    <a href='@Url.Action("Vero_y_Lau", "Bodas")'>
-                                        <figure><img class="imagesSection" alt="Veo y Lau" src="~/Content/Fotos/Bodas/_Portadas/Vero_Lau.jpg"></figure>
-                                    </a>
-                                    <span>Vero y Lau</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</body>
-</html>
+@Html.Partial("~/Views/Shared/_BodySection.cshtml", Model)

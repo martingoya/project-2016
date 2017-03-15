@@ -19,7 +19,7 @@ namespace Oh_lala_Web.Controllers
             var events = db.Event
                         .Include(x => x.CoverImage)
                         .Include(y => y.TypeEvent)
-                        .Where(l => l.TypeEvent.Name == "Fifteen").ToList();
+                        .Where(l => l.TypeEvent.Name == Constants.Events.Fifteen.ToString()).ToList();
             events.Take(elementsForView);
 
             if (identifier != null)
@@ -38,9 +38,28 @@ namespace Oh_lala_Web.Controllers
             return View(events.ToList());
         }
 
-        public ActionResult Bodas()
+        public ActionResult Bodas(string identifier)
         {
-            return View();
+            var events = db.Event
+                        .Include(x => x.CoverImage)
+                        .Include(y => y.TypeEvent)
+                        .Where(l => l.TypeEvent.Name == Constants.Events.Bodas.ToString()).ToList();
+            events.Take(elementsForView);
+
+            if (identifier != null)
+            {
+                int num;
+                if (Int32.TryParse(identifier, out num))
+                {
+                    events.Skip(elementsForView * (num + 1)).Take(elementsForView);
+                }
+                else
+                {
+                    var eventFifteen = db.Event.Where(x => x.Path == identifier).ToList();
+                }
+            }
+
+            return View(events.ToList());
         }
 
         public ActionResult Infantiles()

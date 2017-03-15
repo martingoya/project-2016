@@ -68,7 +68,7 @@
                                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                     <li>@*@Html.ActionLink("Último", "Index", "Home")*@</li>
                                     <li>@Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, null)</li>
-                                    <li>@*@Html.ActionLink("Bodas", "Bodas", "Home")*@</li>
+                                    <li>@Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, null)</li>
                                     <li>@*@Html.ActionLink("Newborn", "NewBorn", "Home")*@</li>
                                     <li>@*@Html.ActionLink("Contacto", "Contact", "Home")*@</li>
                                 </ul>
@@ -94,20 +94,20 @@
                 <div class="col-md-12 alignCenter">                   
                     @Html.ActionLink("Home", "Index", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Último", "Index", "Home", new object { }, new { @class = "footerLink" })
-                    <span>/</span>
+                    @*@Html.ActionLink("Último", "Index", "Home", new object { }, new { @class = "footerLink" })
+                    <span>/</span>*@
                     @Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Bodas", "Bodas", "Home", new object { }, new { @class = "footerLink" })
-                    <span>/</span>
+                    @Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
+                    @*<span>/</span>
                     @Html.ActionLink("NewBorn", "NewBorn", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Contacto", "Contact", "Home", new object { }, new { @class = "footerLink" })
+                    @Html.ActionLink("Contacto", "Contact", "Home", new object { }, new { @class = "footerLink" })*@
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 alignCenter">
-                    <p style="color:white">COPYRIGHT © 2017 OH LALÁ PHOTOGRAPHY</p>
+                    <p style="font-size: x-small; color:white">COPYRIGHT © 2017 OH LALÁ PRODUCCIONES FOTOGRÁFICAS</p>
                 </div>
             </div>
             <div class="row">
