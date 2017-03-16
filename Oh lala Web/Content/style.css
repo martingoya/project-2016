@@ -398,3 +398,27 @@ footer {
 }
 
 /*--------------------------------------------------*/
+/*Contact Form*/
+
+.contactForm {
+    background: gainsboro;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.contactForm fieldset {
+    padding-bottom:15px;
+}
+
+.contactForm fieldset button {
+    background: black;
+    color: white;
+    border-color:black;
+}
+
+.contactForm fieldset button:hover {
+    background: #f8ff85;
+    color: black;
+    border-color:black;
+}
+/*--------------------------------------------------*/

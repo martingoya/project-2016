@@ -70,7 +70,7 @@
                                     <li>@Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, null)</li>
                                     <li>@Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, null)</li>
                                     <li>@*@Html.ActionLink("Newborn", "NewBorn", "Home")*@</li>
-                                    <li>@*@Html.ActionLink("Contacto", "Contact", "Home")*@</li>
+                                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                                 </ul>
                             </div>
                         </div>
@@ -100,9 +100,9 @@
                     <span>/</span>
                     @Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
                     @*<span>/</span>
-                    @Html.ActionLink("NewBorn", "NewBorn", "Home", new object { }, new { @class = "footerLink" })
+                    @Html.ActionLink("NewBorn", "NewBorn", "Home", new object { }, new { @class = "footerLink" })*@
                     <span>/</span>
-                    @Html.ActionLink("Contacto", "Contact", "Home", new object { }, new { @class = "footerLink" })*@
+                    @Html.ActionLink("Contacto", "Contact", "Home", new object { }, new { @class = "footerLink" })
                 </div>
             </div>
             <div class="row">

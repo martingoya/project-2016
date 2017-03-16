@@ -40,7 +40,6 @@ namespace Oh_lala_Web.Controllers
                 var message = new MailMessage();
                 message.To.Add("postmaster@ohlalaph.com");  // replace with valid value 
                 message.From = new MailAddress("tincho.592@gmail.com", "Admin");  // replace with valid value
-                message.Subject = model.Subject;
                 message.SubjectEncoding = System.Text.Encoding.UTF8;
                 message.Body = string.Format(body, model.FromName, model.FromEmail, model.Phone, model.Message);
                 message.BodyEncoding = System.Text.Encoding.UTF8;

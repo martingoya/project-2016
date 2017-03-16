@@ -7,18 +7,36 @@
 <html lang="en">
 
 <body>
-    <div id="content">
-        <!--==============================row1=================================-->
-        <div class="row_1">
-            <div class="container">
-                <p class="title2" style="margin-bottom: 10px">No dudes en consultar por las promociones vigentes. </p>
-                <p class="title2"></p>
-            </div>
-        </div>
-        <!--==============================row2=================================-->
-    </div>
-    <div class="row_2">
+    <div class="rowSectionText">
         <div class="container">
+            <p>Formulario de Contacto</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4 contactForm">
+            @using (Html.BeginForm("Contact", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <h3>Contacto</h3>
+                <fieldset>
+                    @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", @placeholder = "Nombre", required = "required" })
+                </fieldset>
+                <fieldset>
+                    @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", type = "email", @placeholder = "Mail", required = "required" })
+                </fieldset>
+                <fieldset>
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Teléfono (Opcional)" })
+                </fieldset>
+                <fieldset>
+                    @Html.TextAreaFor(m => m.Message, new { @class = "form-control textAreaForm", @placeholder = "Mensaje", @style = "resize: none;", @rows = 8, required = "required" })
+                </fieldset>
+                <fieldset>
+                    <button name="submit" class="btn btn-primary buttonForm btn-lg" type="submit" id="contact-submit" data-submit="...Enviando">Enviar</button>
+                </fieldset>
+            }
+        </div>
+    </div>
+        @*<div class="container">
             <div class="row">
                 <div class="col-md-12 formContact">
                     <div class="well well-sm">
@@ -71,6 +89,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </body>
 </html>
