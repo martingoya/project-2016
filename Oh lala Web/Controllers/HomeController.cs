@@ -17,8 +17,7 @@ namespace Oh_lala_Web.Controllers
 
         public ActionResult Index()
         {
-            var events = db.Event;// = db.Event.Include(x => x.CoverImage).Include(y => y.TypeEvent).Include(z => z.Service).Include(k => k.Service.Select(j => j.TypeServices));
-            return View(events.ToList());
+            return View();
         }
 
         public ActionResult About()
