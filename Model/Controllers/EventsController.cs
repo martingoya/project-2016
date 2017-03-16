@@ -56,6 +56,7 @@ namespace Model.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    eventView.Path = eventView.Title.Replace(" ", "_") + "_" + eventView.Date.ToShortDateString().Replace("/", "_");
                     var typeEvent = db.TypeEvent.FirstOrDefault(x => x.ID == @eventView.TypeEventID);
                     AutoMapper.Mapper.Initialize(x =>
                     {

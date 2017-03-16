@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/14/2017 22:51:10
+-- Date Created: 03/15/2017 21:49:47
 -- Generated from EDMX file: C:\Users\Esquilax\Source\Repos\project-2016\Model\Models\Model.edmx
 -- --------------------------------------------------
 
@@ -59,8 +59,8 @@ CREATE TABLE [dbo].[Event] (
     [Date] datetime  NOT NULL,
     [Text] varchar(2048)  NULL,
     [CoverImageID] int  NOT NULL,
-    [Introduction] varchar(512)  NULL,
-    [Path] varchar(128)  NOT NULL
+    [Introduction] nvarchar(512)  NULL,
+    [Path] nvarchar(256)  NOT NULL
 );
 GO
 
