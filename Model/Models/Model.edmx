@@ -129,14 +129,13 @@
           <NavigationProperty Name="TypeEvent" Relationship="Self.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
           <NavigationProperty Name="Images" Relationship="Self.EventImage" FromRole="Event" ToRole="Image" />
           <Property Name="Introduction" Type="String" Nullable="true" MaxLength="512" Unicode="false" FixedLength="false" />
-          <Property Name="Path" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
           <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="EventData" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
         </EntityType>
@@ -209,7 +208,6 @@
           <ScalarProperty Name="Text" ColumnName="Text" />
           <ScalarProperty Name="CoverImageID" ColumnName="CoverImageID" />
           <ScalarProperty Name="Introduction" ColumnName="Introduction" />
-          <ScalarProperty Name="Path" ColumnName="Path" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -21,7 +21,7 @@ using System.Data.Entity.Infrastructure;
 public partial class ohlalaEntities : DbContext
 {
     public ohlalaEntities()
-        : base("name=ohlalaEntities")
+        : base("name=prod")
     {
 
     }

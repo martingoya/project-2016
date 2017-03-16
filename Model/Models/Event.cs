@@ -41,8 +41,6 @@ public partial class Event
 
     public string Introduction { get; set; }
 
-    public string Path { get; set; }
-
 
 
     public virtual Image CoverImage { get; set; }

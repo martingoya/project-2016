@@ -85,10 +85,11 @@ namespace Oh_lala_Web.Controllers
                 else
                 {
                     var eventFifteen = db.Event.FirstOrDefault(x => x.Path == identifier);
+                    Constants.setFullPathAllImages(eventFifteen);
                     return View("~/Views/Home/Gallery.cshtml", eventFifteen);
                 }
             }
-
+            Constants.setFullPathAllImagesForAllEvents(events);
             return View(events.ToList());
         }
 
@@ -109,11 +110,12 @@ namespace Oh_lala_Web.Controllers
                 }
                 else
                 {
-                    var eventFifteen = db.Event.FirstOrDefault(x => x.Path == identifier);
-                    return View("~/Views/Home/Gallery.cshtml", eventFifteen);
+                    var eventBodas = db.Event.FirstOrDefault(x => x.Path == identifier);
+                    Constants.setFullPathAllImages(eventBodas);
+                    return View("~/Views/Home/Gallery.cshtml", eventBodas);
                 }
             }
-
+            Constants.setFullPathAllImagesForAllEvents(events);
             return View(events.ToList());
         }
 

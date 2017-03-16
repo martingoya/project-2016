@@ -324,7 +324,7 @@ footer {
 }
 
 #intercalationItemOne > div {
-    background: #ececec;
+    /*background: #ececec;*/
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -337,7 +337,7 @@ footer {
 }
 
 #intercalationItemTwo > div {
-    background: #ececec;
+    /*background: #ececec;*/
     padding-top: 15px;
     padding-bottom: 15px;
 }

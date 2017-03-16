@@ -56,11 +56,7 @@ namespace Model.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //Action
-                    @eventView.Path = eventView.Title.Replace(" ", "_");
-
                     var typeEvent = db.TypeEvent.FirstOrDefault(x => x.ID == @eventView.TypeEventID);
-                    var path = "Content/Fotos/" + typeEvent.Name + "/" + @eventView.Path + "/";
                     AutoMapper.Mapper.Initialize(x =>
                     {
                         x.CreateMap<EventView, Event>();
@@ -68,7 +64,7 @@ namespace Model.Controllers
                     //Cover
                     if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
                     {
-                        var fullPathCover = path + eventView.CoverFile.FileName;
+                        var fullPathCover = eventView.CoverFile.FileName;
                         var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
                         if (imageCoverExist != null)
                         {
@@ -89,14 +85,10 @@ namespace Model.Controllers
                         {
                             if (file.ContentLength < 0)
                                 continue;
-                            var fullPath = path + file.FileName;
-                            var image = db.Image.FirstOrDefault(x => x.ImagePath == fullPath);
-                            if (image == null)
-                            {
-                                image = new Image();
-                                image.ImagePath = fullPath;
-                                image.Title = @eventView.Title;
-                            }
+                            var fullPath = file.FileName;
+                            var image = new Image();
+                            image.ImagePath = fullPath;
+                            image.Title = @eventView.Title;
                             if (eventView.CoverImage.ImagePath != image.ImagePath)
                             {
                                 @eventView.Images.Add(image);
@@ -176,7 +168,6 @@ namespace Model.Controllers
             {
                 @event.Images.Remove(image);
             }
-            db.SaveChanges();
             db.SaveChanges();
             //Delete Event
             db.Event.Remove(@event);

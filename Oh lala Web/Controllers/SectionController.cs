@@ -34,7 +34,7 @@ namespace Oh_lala_Web.Controllers
                     var eventFifteen = db.Event.Where(x => x.Path == identifier).ToList();
                 }
             }
-
+            Constants.setFullPathOnlyCoverImageForAllEvents(events);
             return View(events.ToList());
         }
 
@@ -58,7 +58,7 @@ namespace Oh_lala_Web.Controllers
                     var eventFifteen = db.Event.Where(x => x.Path == identifier).ToList();
                 }
             }
-
+            Constants.setFullPathOnlyCoverImageForAllEvents(events);
             return View(events.ToList());
         }
 
