@@ -710,6 +710,7 @@
     <Content Include="Views\Shared\_BodyEvent.cshtml" />
     <Content Include="Views\Shared\_BodySection.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\Ultimo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

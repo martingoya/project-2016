@@ -128,5 +128,17 @@ namespace Oh_lala_Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Ultimo()
+        {
+            var events = db.Event
+            .Include(x => x.CoverImage)
+            .Include(y => y.TypeEvent)
+            .OrderByDescending(z => z.Date).ToList();
+            events.Take(elementsForView);
+
+            Constants.setFullPathOnlyCoverImageForAllEvents(events);
+            return View(events.ToList());
+        }
     }
 }

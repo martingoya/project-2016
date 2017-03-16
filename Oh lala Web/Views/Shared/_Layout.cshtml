@@ -66,7 +66,7 @@
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
                                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                    <li>@*@Html.ActionLink("Último", "Index", "Home")*@</li>
+                                    <li>@Html.ActionLink("Último", "Ultimo", "Home")</li>
                                     <li>@Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, null)</li>
                                     <li>@Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, null)</li>
                                     <li>@*@Html.ActionLink("Newborn", "NewBorn", "Home")*@</li>
@@ -94,8 +94,8 @@
                 <div class="col-md-12 alignCenter">                   
                     @Html.ActionLink("Home", "Index", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @*@Html.ActionLink("Último", "Index", "Home", new object { }, new { @class = "footerLink" })
-                    <span>/</span>*@
+                    @Html.ActionLink("Último", "Ultimo", "Home", new object { }, new { @class = "footerLink" })
+                    <span>/</span>
                     @Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
                     <span>/</span>
                     @Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
