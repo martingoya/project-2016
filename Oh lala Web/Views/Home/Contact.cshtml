@@ -3,8 +3,7 @@
     ViewBag.Title = "Contacto";
 }
 
-<!DOCTYPE html>
-<html lang="en">
+<script src="https://www.google.com/recaptcha/api.js"></script>  
 
 <body>
     <div class="rowSectionText">
@@ -31,64 +30,13 @@
                     @Html.TextAreaFor(m => m.Message, new { @class = "form-control textAreaForm", @placeholder = "Mensaje", @style = "resize: none;", @rows = 8, required = "required" })
                 </fieldset>
                 <fieldset>
+                    <div class="g-recaptcha" data-sitekey="6LdWdBkUAAAAADQwXUYuvgDEnUbpRFx8QQmN5C0x"></div>
+                </fieldset>
+                <fieldset>
                     <button name="submit" class="btn btn-primary buttonForm btn-lg" type="submit" id="contact-submit" data-submit="...Enviando">Enviar</button>
                 </fieldset>
-            }
+                }
         </div>
     </div>
-        @*<div class="container">
-            <div class="row">
-                <div class="col-md-12 formContact">
-                    <div class="well well-sm">
-                        @using (Html.BeginForm("Contact", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <fieldset style="margin-top: 20px;">
-                                <div class="form-group">
-                                    <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-user bigicon"></i></span>
-                                    <div class="col-md-9 textboxPaddingFixed">
-                                        @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", @placeholder = "Nombre" })
-                                        @Html.ValidationMessageFor(m => m.FromName)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-envelope-o bigicon"></i></span>
-                                    <div class="col-md-9 textboxPaddingFixed">
-                                        @Html.TextBoxFor(m => m.FromEmail, new { @class = "form-control", @placeholder = "Mail" })
-                                        @Html.ValidationMessageFor(m => m.FromEmail)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-mobile bigicon"></i></span>
-                                    <div class="col-md-9 textboxPaddingFixed">
-                                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Teléfono (Opcional)" })
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-tag bigicon"></i></span>
-                                    <div class="col-md-9 textboxPaddingFixed">
-                                        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", @placeholder = "Asunto" })
-                                        @Html.ValidationMessageFor(m => m.Subject)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <span class="col-md-1 col-md-offset-1 text-center iconPaddingFixed"><i class="fa fa-pencil-square-o bigicon"></i></span>
-                                    <div class="col-md-9 textboxPaddingFixed">
-                                        @Html.TextAreaFor(m => m.Message, new { @class = "form-control textAreaForm", @placeholder = "Mensaje" })
-                                        @Html.ValidationMessageFor(m => m.Message)
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary buttonForm btn-lg">Enviar</button>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
 </body>
 </html>

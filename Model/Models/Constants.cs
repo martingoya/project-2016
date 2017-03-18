@@ -17,6 +17,8 @@ namespace Model.Models
 
         public const string projectName = "Oh Lala Web";
 
+        public const string secretKeyReCaptcha = "6LdWdBkUAAAAAOmlC4NjdDoQLZnakI3ddZBvKYDM";
+
         public static string getFullPathImage(Event eventData, string fileName)
         {
             var path = "Content/Photos/" + eventData.TypeEvent.Name + "/" + fileName;
