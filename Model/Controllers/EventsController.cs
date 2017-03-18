@@ -86,9 +86,22 @@ namespace Model.Controllers
                         {
                             if (file.ContentLength < 0)
                                 continue;
-                            var fullPath = file.FileName;
+
+                            //Upload Image
+                            var imgName = file.FileName.ToString();
+                            var path = Server.MapPath("~/Content/Photos/" + typeEvent.Name);
+
+                            //Check if directory exist
+                            if (!Directory.Exists(path))
+                            {
+                                Directory.CreateDirectory(path); //Create directory if it doesn't exist
+                            }
+
+                            var imgPath = Path.Combine(path, imgName);
+                            file.SaveAs(Server.MapPath(imgPath));
+
                             var image = new Image();
-                            image.ImagePath = fullPath;
+                            image.ImagePath = imgPath;
                             image.Title = @eventView.Title;
                             if (eventView.CoverImage.ImagePath != image.ImagePath)
                             {

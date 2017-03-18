@@ -577,45 +577,9 @@
     <Content Include="Content\images\sprite-social-icons.png" />
     <Content Include="Content\images\vimeo_32.png" />
     <Content Include="Content\images\vimeo_32_b.png" />
-    <Content Include="Content\music\Ed Sheeran - Thinking Out Loud.mp3" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\photos\page1_img1.jpg" />
-    <Content Include="Content\photos\page1_img2.jpg" />
-    <Content Include="Content\photos\page1_img3.jpg" />
-    <Content Include="Content\photos\page1_img4.jpg" />
-    <Content Include="Content\photos\page1_img5.jpg" />
-    <Content Include="Content\photos\page1_img6.jpg" />
-    <Content Include="Content\photos\page1_img7.jpg" />
-    <Content Include="Content\photos\page1_img8.jpg" />
-    <Content Include="Content\photos\page2_img1.jpg" />
-    <Content Include="Content\photos\page3_bigimg1.jpg" />
-    <Content Include="Content\photos\page3_bigimg10.jpg" />
-    <Content Include="Content\photos\page3_bigimg11.jpg" />
-    <Content Include="Content\photos\page3_bigimg2.jpg" />
-    <Content Include="Content\photos\page3_bigimg3.jpg" />
-    <Content Include="Content\photos\page3_bigimg4.jpg" />
-    <Content Include="Content\photos\page3_bigimg5.jpg" />
-    <Content Include="Content\photos\page3_bigimg6.jpg" />
-    <Content Include="Content\photos\page3_bigimg7.jpg" />
-    <Content Include="Content\photos\page3_bigimg8.jpg" />
-    <Content Include="Content\photos\page3_bigimg9.jpg" />
-    <Content Include="Content\photos\page3_img1.jpg" />
-    <Content Include="Content\photos\page3_img10.jpg" />
-    <Content Include="Content\photos\page3_img11.jpg" />
-    <Content Include="Content\photos\page3_img2.jpg" />
-    <Content Include="Content\photos\page3_img3.jpg" />
-    <Content Include="Content\photos\page3_img4.jpg" />
-    <Content Include="Content\photos\page3_img5.jpg" />
-    <Content Include="Content\photos\page3_img6.jpg" />
-    <Content Include="Content\photos\page3_img7.jpg" />
-    <Content Include="Content\photos\page3_img8.jpg" />
-    <Content Include="Content\photos\page3_img9.jpg" />
     <Content Include="Content\images\pattern2.jpg" />
     <Content Include="Content\images\patternsubmenu2.jpg" />
-    <Content Include="Content\photos\picture1.jpg" />
-    <Content Include="Content\photos\picture2.jpg" />
-    <Content Include="Content\photos\picture3.jpg" />
-    <Content Include="Content\photos\picture4.jpg" />
     <Content Include="Content\images\preloader.gif" />
     <Content Include="Content\images\searchimg.png" />
     <Content Include="Content\images\smalllogo1.png" />
@@ -779,6 +743,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Photos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
