@@ -76,7 +76,7 @@ namespace Oh_lala_Web.Controllers
                         }
                     };
                 var content = new System.Net.Http.FormUrlEncodedContent(values);
-                var Response = hc.PostAsync("https: //www.google.com/recaptcha/api/siteverify", content).Result;
+                var Response = hc.PostAsync("https://www.google.com/recaptcha/api/siteverify", content).Result;
                 var responseString = Response.Content.ReadAsStringAsync().Result;
                 if (!string.IsNullOrWhiteSpace(responseString))
                 {
