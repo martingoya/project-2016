@@ -15,9 +15,11 @@ namespace Model.Models
             NewBorn
         }
 
+        public const string projectName = "Oh Lala Web";
+
         public static string getFullPathImage(Event eventData, string fileName)
         {
-            var path = "Content/Fotos/" + eventData.TypeEvent.Name + "/" + eventData.ID + "/" + fileName;
+            var path = "Content/Photos/" + eventData.TypeEvent.Name + "/" + fileName;
             return path;
         }
 

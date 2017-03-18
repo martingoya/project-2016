@@ -65,17 +65,29 @@ namespace Model.Controllers
                     //Cover
                     if (eventView.CoverFile != null && eventView.CoverFile.ContentLength > 0)
                     {
-                        var fullPathCover = eventView.CoverFile.FileName;
-                        var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == fullPathCover);
+                        var coverName = eventView.CoverFile.FileName;
+                        var imageCoverExist = db.Image.FirstOrDefault(x => x.ImagePath == coverName);
                         if (imageCoverExist != null)
                         {
                             eventView.CoverImage = imageCoverExist;
                         }
                         else
                         {
+                            var path = Server.MapPath("~/Content/Photos/" + typeEvent.Name);
+                            path = path.Replace("Model", Constants.projectName);
+
+                            //Check if directory exist
+                            if (!Directory.Exists(path))
+                            {
+                                Directory.CreateDirectory(path); //Create directory if it doesn't exist
+                            }
+
+                            var coverPath = Path.Combine(path, coverName);
+                            eventView.CoverFile.SaveAs(coverPath);
+
                             var newImage = new Image();
                             newImage.Title = eventView.Title;
-                            newImage.ImagePath = fullPathCover;
+                            newImage.ImagePath = coverName;
                             eventView.CoverImage = newImage;
                         }
                     }
@@ -90,7 +102,7 @@ namespace Model.Controllers
                             //Upload Image
                             var imgName = file.FileName.ToString();
                             var path = Server.MapPath("~/Content/Photos/" + typeEvent.Name);
-
+                            path = path.Replace("Model", Constants.projectName);
                             //Check if directory exist
                             if (!Directory.Exists(path))
                             {
@@ -98,10 +110,10 @@ namespace Model.Controllers
                             }
 
                             var imgPath = Path.Combine(path, imgName);
-                            file.SaveAs(Server.MapPath(imgPath));
+                            file.SaveAs(imgPath);
 
                             var image = new Image();
-                            image.ImagePath = imgPath;
+                            image.ImagePath = imgName;
                             image.Title = @eventView.Title;
                             if (eventView.CoverImage.ImagePath != image.ImagePath)
                             {
@@ -177,14 +189,18 @@ namespace Model.Controllers
         {
             Event @event = db.Event.Find(id);
             //Images
+            var coverImage = @event.CoverImage;
             var images = new List<Image>(@event.Images);
             foreach (var image in images)
             {
                 @event.Images.Remove(image);
+                db.Image.Remove(image);
             }
             db.SaveChanges();
             //Delete Event
             db.Event.Remove(@event);
+            //Cover Image
+            db.Image.Remove(coverImage);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
