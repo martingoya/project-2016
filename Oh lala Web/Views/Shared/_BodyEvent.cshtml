@@ -32,7 +32,7 @@
                     @Model.Date.Day de @month de @Model.Date.Year
                 </p>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="col-md-2 col-sm-2">
                 @if (ViewBag.nextEvent != null)
                 {
                     <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = ViewBag.nextEvent })'>
