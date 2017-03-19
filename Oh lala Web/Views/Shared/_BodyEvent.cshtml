@@ -12,7 +12,7 @@
 <div class="rowSectionText">
     <div class="container alignCenter">
         <div class="row">
-            <div class="col-md-2 col-sm-2">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 @if (ViewBag.previousEvent != null)
                 {
                     <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = ViewBag.previousEvent })'>
@@ -20,7 +20,7 @@
                     </a>
                 }
             </div>
-            <div class="col-md-8 col-sm-8">
+            <div class="col-md-8 col-sm-8 col-xs-8">
                 <p class="eventTitle">
                     @Model.Title
                 </p>
@@ -32,7 +32,7 @@
                     @Model.Date.Day de @month de @Model.Date.Year
                 </p>
             </div>
-            <div class="col-md-2 col-sm-2">
+            <div class="col-md-2 col-sm-2 col-xs-2">
                 @if (ViewBag.nextEvent != null)
                 {
                     <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = ViewBag.nextEvent })'>
