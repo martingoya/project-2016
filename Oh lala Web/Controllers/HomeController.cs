@@ -124,56 +124,58 @@ namespace Oh_lala_Web.Controllers
             return View();
         }
 
-        public ActionResult Fifteen(string identifier)
+        public ActionResult Fifteen(string identifier = "0")
         {
             var events = db.Event
                         .Include(x => x.CoverImage)
                         .Include(y => y.TypeEvent)
-                        .Where(l => l.TypeEvent.Name == Constants.Events.Fifteen.ToString()).ToList();
-            events.Take(elementsForView);
+                        .Where(l => l.TypeEvent.Name == Constants.Events.Fifteen.ToString())
+                        .OrderByDescending(z => z.Date).ToList();
 
-            if (identifier != null)
+            var eventsPaginated = setPagination(events, identifier);
+            if (eventsPaginated != null)
             {
-                int num;
-                if (Int32.TryParse(identifier, out num))
+                return View(eventsPaginated.ToList());
+            }
+            else
+            {
+                var eventSelected = searchEvent(identifier);
+                if (eventSelected != null)
                 {
-                    events.Skip(elementsForView * (num + 1)).Take(elementsForView);
+                    return View("~/Views/Home/Gallery.cshtml", eventSelected);
                 }
                 else
                 {
-                    var eventFifteen = db.Event.FirstOrDefault(x => x.Path == identifier);
-                    Constants.setFullPathAllImages(eventFifteen);
-                    return View("~/Views/Home/Gallery.cshtml", eventFifteen);
+                    return View("Index");
                 }
             }
-            Constants.setFullPathAllImagesForAllEvents(events);
-            return View(events.ToList());
         }
 
-        public ActionResult Bodas(string identifier)
+        public ActionResult Bodas(string identifier = "0")
         {
             var events = db.Event
-            .Include(x => x.CoverImage)
-            .Include(y => y.TypeEvent)
-            .Where(l => l.TypeEvent.Name == Constants.Events.Bodas.ToString()).ToList();
-            events.Take(elementsForView);
+                        .Include(x => x.CoverImage)
+                        .Include(y => y.TypeEvent)
+                        .Where(l => l.TypeEvent.Name == Constants.Events.Bodas.ToString())
+                        .OrderByDescending(z => z.Date).ToList();
 
-            if (identifier != null)
+            var eventsPaginated = setPagination(events, identifier);
+            if (eventsPaginated != null)
             {
-                int num;
-                if (Int32.TryParse(identifier, out num))
+                return View(eventsPaginated.ToList());
+            }
+            else
+            {
+                var eventSelected = searchEvent(identifier);
+                if (eventSelected != null)
                 {
-                    events.Skip(elementsForView * (num + 1)).Take(elementsForView);
+                    return View("~/Views/Home/Gallery.cshtml", eventSelected);
                 }
                 else
                 {
-                    var eventBodas = db.Event.FirstOrDefault(x => x.Path == identifier);
-                    Constants.setFullPathAllImages(eventBodas);
-                    return View("~/Views/Home/Gallery.cshtml", eventBodas);
+                    return View("Index");
                 }
             }
-            Constants.setFullPathAllImagesForAllEvents(events);
-            return View(events.ToList());
         }
 
         public ActionResult Infantiles()
@@ -186,16 +188,63 @@ namespace Oh_lala_Web.Controllers
             return View();
         }
 
-        public ActionResult Ultimo()
+        public ActionResult Ultimo(string identifier = "0")
         {
             var events = db.Event
             .Include(x => x.CoverImage)
             .Include(y => y.TypeEvent)
             .OrderByDescending(z => z.Date).ToList();
-            events.Take(elementsForView);
 
-            Constants.setFullPathOnlyCoverImageForAllEvents(events);
-            return View(events.ToList());
+            var eventsPaginated = setPagination(events, identifier);
+            if (eventsPaginated != null)
+            {
+                return View(eventsPaginated.ToList());
+            }
+            else
+            {
+                var eventSelected = searchEvent(identifier);
+                if (eventSelected != null)
+                {
+                    return View("~/Views/Home/Gallery.cshtml", eventSelected);
+                }
+                else
+                {
+                    return View("Index");
+                }
+            }
+        }
+
+        public List<Event> setPagination(List<Event> events, string identifier)
+        {
+            var totalPages = Math.Ceiling((double)events.Count() / elementsForView);
+
+            if (identifier != null)
+            {
+                int num;
+                if (Int32.TryParse(identifier, out num))
+                {
+                    events = events.Skip(elementsForView * (num)).Take(elementsForView).ToList();
+                    ViewBag.previousPage = (num < totalPages - 1) ? (num + 1) : (int?)null;
+                    ViewBag.nextPage = (num > 0) ? (num - 1) : (int?)null;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            Constants.setFullPathAllImagesForAllEvents(events);
+            return events;
+        }
+
+        public Event searchEvent(string identifier)
+        {
+            var eventSelected = db.Event.FirstOrDefault(x => x.Path == identifier);
+            if (eventSelected == null)
+            {
+                return null;
+            }
+            Constants.setFullPathAllImages(eventSelected);
+            return eventSelected;
         }
     }
 }

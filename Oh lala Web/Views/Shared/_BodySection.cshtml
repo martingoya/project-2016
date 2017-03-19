@@ -63,4 +63,26 @@
         intercalation = true;
     }
 }
+@{     
+    <div class="container alignCenter">
+        <div class="row entryEventSection">
+            <div class="col-md-2 col-sm-2">
+                @if (ViewBag.previousPage != null)
+                {
+                    <a href='@Url.Action(ViewBag.Title, "Home", new { identifier = ViewBag.previousPage })'>
+                        <p><<<</p>
+                    </a>
+                }
+            </div>
+            <div class="col-md-2 col-sm-2 col-md-offset-8 col-sm-offset-8">
+                @if (ViewBag.nextPage != null)
+                {
+                    <a href='@Url.Action(ViewBag.Title, "Home", new { identifier = ViewBag.nextPage })'>
+                        <p>>>></p>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+}
 
