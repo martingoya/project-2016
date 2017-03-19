@@ -142,6 +142,7 @@ namespace Oh_lala_Web.Controllers
                 var eventSelected = searchEvent(identifier);
                 if (eventSelected != null)
                 {
+                    setPreviousAndNextEvent(events, eventSelected);
                     return View("~/Views/Home/Gallery.cshtml", eventSelected);
                 }
                 else
@@ -169,6 +170,7 @@ namespace Oh_lala_Web.Controllers
                 var eventSelected = searchEvent(identifier);
                 if (eventSelected != null)
                 {
+                    setPreviousAndNextEvent(events, eventSelected);
                     return View("~/Views/Home/Gallery.cshtml", eventSelected);
                 }
                 else
@@ -205,6 +207,7 @@ namespace Oh_lala_Web.Controllers
                 var eventSelected = searchEvent(identifier);
                 if (eventSelected != null)
                 {
+                    setPreviousAndNextEvent(events, eventSelected);
                     return View("~/Views/Home/Gallery.cshtml", eventSelected);
                 }
                 else
@@ -245,6 +248,15 @@ namespace Oh_lala_Web.Controllers
             }
             Constants.setFullPathAllImages(eventSelected);
             return eventSelected;
+        }
+
+        public void setPreviousAndNextEvent(List<Event> events, Event eventSelected)
+        {
+            var linkedEvent = new LinkedList<Event>(events);
+            var node = linkedEvent.Find(eventSelected);
+
+            ViewBag.previousEvent = node.Next != null ? node.Next.Value.Path : null;
+            ViewBag.nextEvent = node.Previous != null ? node.Previous.Value.Path : null;
         }
     }
 }

@@ -12,16 +12,34 @@
 <div class="rowSectionText">
     <div class="container alignCenter">
         <div class="row">
-            <p class="eventTitle">
-                @Model.Title
-            </p>
-            @{
-                System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
-                var month = dtinfo.GetMonthName(Model.Date.Month);
-            }
-            <p class="eventDate">
-                @Model.Date.Day de @month de @Model.Date.Year
-            </p>
+            <div class="col-md-2 col-sm-2">
+                @if (ViewBag.previousEvent != null)
+                {
+                    <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = ViewBag.previousEvent })'>
+                        <p><<<</p>
+                    </a>
+                }
+            </div>
+            <div class="col-md-8 col-sm-8">
+                <p class="eventTitle">
+                    @Model.Title
+                </p>
+                @{
+                    System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
+                    var month = dtinfo.GetMonthName(Model.Date.Month);
+                }
+                <p class="eventDate">
+                    @Model.Date.Day de @month de @Model.Date.Year
+                </p>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                @if (ViewBag.nextEvent != null)
+                {
+                    <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = ViewBag.nextEvent })'>
+                        <p>>>></p>
+                    </a>
+                }
+            </div>
         </div>
     </div>
 </div>
