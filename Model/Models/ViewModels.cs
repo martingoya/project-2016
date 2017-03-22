@@ -73,5 +73,8 @@ namespace Model.Models
         public virtual ICollection<Image> Images { get; set; }
         public ICollection<HttpPostedFileBase> Files { get; set; }
         public HttpPostedFileBase CoverFile { get; set; }
+        public List<Event> RelativeEvents { get; set; } 
+        public string PreviousEvent { get; set; }
+        public string NextEvent { get; set; }
     }
 }

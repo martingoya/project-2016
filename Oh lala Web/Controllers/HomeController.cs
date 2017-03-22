@@ -8,13 +8,13 @@ using Oh_lala_Web.Models;
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using AutoMapper;
 
 namespace Oh_lala_Web.Controllers
 {
     public class HomeController : Controller
     {
         private ohlalaEntities db = new ohlalaEntities();
-        private int elementsForView = 5;
 
         public ActionResult Index()
         {
@@ -142,8 +142,13 @@ namespace Oh_lala_Web.Controllers
                 var eventSelected = searchEvent(identifier);
                 if (eventSelected != null)
                 {
-                    setPreviousAndNextEvent(events, eventSelected);
-                    return View("~/Views/Home/Gallery.cshtml", eventSelected);
+                    Mapper.Initialize(cfg =>
+                    {
+                        cfg.CreateMap<Event, EventView>();
+                    });
+                    var eventSelectedVM = Mapper.Map<Event, EventView>(eventSelected);
+                    setNavigationToOtherEvents(events, eventSelected, eventSelectedVM);
+                    return View("~/Views/Home/Gallery.cshtml", eventSelectedVM);
                 }
                 else
                 {
@@ -170,8 +175,13 @@ namespace Oh_lala_Web.Controllers
                 var eventSelected = searchEvent(identifier);
                 if (eventSelected != null)
                 {
-                    setPreviousAndNextEvent(events, eventSelected);
-                    return View("~/Views/Home/Gallery.cshtml", eventSelected);
+                    Mapper.Initialize(cfg =>
+                    {
+                        cfg.CreateMap<Event, EventView>();
+                    });
+                    var eventSelectedVM = Mapper.Map<Event, EventView>(eventSelected);
+                    setNavigationToOtherEvents(events, eventSelected, eventSelectedVM);
+                    return View("~/Views/Home/Gallery.cshtml", eventSelectedVM);
                 }
                 else
                 {
@@ -207,8 +217,13 @@ namespace Oh_lala_Web.Controllers
                 var eventSelected = searchEvent(identifier);
                 if (eventSelected != null)
                 {
-                    setPreviousAndNextEvent(events, eventSelected);
-                    return View("~/Views/Home/Gallery.cshtml", eventSelected);
+                    Mapper.Initialize(cfg =>
+                    {
+                        cfg.CreateMap<Event, EventView>();
+                    });
+                    var eventSelectedVM = Mapper.Map<Event, EventView>(eventSelected);
+                    setNavigationToOtherEvents(events, eventSelected, eventSelectedVM);
+                    return View("~/Views/Home/Gallery.cshtml", eventSelectedVM);
                 }
                 else
                 {
@@ -219,14 +234,14 @@ namespace Oh_lala_Web.Controllers
 
         public List<Event> setPagination(List<Event> events, string identifier)
         {
-            var totalPages = Math.Ceiling((double)events.Count() / elementsForView);
+            var totalPages = Math.Ceiling((double)events.Count() / Constants.elementsForView);
 
             if (identifier != null)
             {
                 int num;
                 if (Int32.TryParse(identifier, out num))
                 {
-                    events = events.Skip(elementsForView * (num)).Take(elementsForView).ToList();
+                    events = events.Skip(Constants.elementsForView * (num)).Take(Constants.elementsForView).ToList();
                     ViewBag.previousPage = (num < totalPages - 1) ? (num + 1) : (int?)null;
                     ViewBag.nextPage = (num > 0) ? (num - 1) : (int?)null;
                 }
@@ -250,13 +265,42 @@ namespace Oh_lala_Web.Controllers
             return eventSelected;
         }
 
-        public void setPreviousAndNextEvent(List<Event> events, Event eventSelected)
+        public void setPreviousAndNextEvent(LinkedList<Event> linkedEvents, Event eventSelected, EventView eventSelectedVM)
         {
-            var linkedEvent = new LinkedList<Event>(events);
-            var node = linkedEvent.Find(eventSelected);
+            var node = linkedEvents.Find(eventSelected);
+            eventSelectedVM.PreviousEvent = node.Next != null ? node.Next.Value.Path : null;
+            eventSelectedVM.NextEvent = node.Previous != null ? node.Previous.Value.Path : null;
+        }
 
-            ViewBag.previousEvent = node.Next != null ? node.Next.Value.Path : null;
-            ViewBag.nextEvent = node.Previous != null ? node.Previous.Value.Path : null;
+        public void setRelativeEvents(LinkedList<Event> linkedEvents, Event eventSelected, EventView eventSelectedVM)
+        {
+            if (linkedEvents.Count > Constants.relativesEventsForView)
+            {
+                var relativeEvents = new List<Event>();
+                var node = linkedEvents.First;
+                for (int i = 0; i < Constants.relativesEventsForView; i++)
+                {
+                    while (node.Value.ID == eventSelected.ID)
+                    {
+                        node = node.Next;
+                        if (node == null)
+                        {
+                            return;
+                        }
+                    }
+                    relativeEvents.Add(node.Value);
+                    node = node.Next;
+                }
+                Constants.setFullPathOnlyCoverImageForAllEvents(relativeEvents);
+                eventSelectedVM.RelativeEvents = relativeEvents;
+            }
+        }
+
+        public void setNavigationToOtherEvents(List<Event> events, Event eventSelected, EventView eventSelectedVM)
+        {
+            var linkedEvents = new LinkedList<Event>(events);
+            setPreviousAndNextEvent(linkedEvents, eventSelected, eventSelectedVM);
+            setRelativeEvents(linkedEvents, eventSelected, eventSelectedVM);
         }
     }
 }
