@@ -100,7 +100,6 @@ namespace Model.Controllers
                                 continue;
 
                             //Upload Image
-                            var imgName = file.FileName.ToString();
                             var path = Server.MapPath("~/Content/Photos/" + typeEvent.Name);
                             path = path.Replace("Model", Constants.projectName);
                             //Check if directory exist
@@ -109,6 +108,7 @@ namespace Model.Controllers
                                 Directory.CreateDirectory(path); //Create directory if it doesn't exist
                             }
 
+                            var imgName = file.FileName;
                             var imgPath = Path.Combine(path, imgName);
                             file.SaveAs(imgPath);
 

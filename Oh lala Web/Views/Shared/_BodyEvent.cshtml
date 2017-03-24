@@ -10,95 +10,91 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 <div class="container alignCenter">
-    <div class="row">
-        <div class="rowSectionText">
-            <div class="col-md-2 col-sm-2 col-xs-2">
-                @if (Model.PreviousEvent != null)
-                {
-                    <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.PreviousEvent })'>
-                        <p><<<</p>
-                    </a>
-                }
-            </div>
-            <div class="col-md-8 col-sm-8 col-xs-8">
-                <p class="eventTitle">
-                    @Model.Title
-                </p>
-                @{
-                    System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
-                    var month = dtinfo.GetMonthName(Model.Date.Month);
-                }
-                <p class="eventDate">
-                    @Model.Date.Day de @month de @Model.Date.Year
-                </p>
-            </div>
-            <div class="col-md-2 col-sm-2">
-                @if (Model.NextEvent != null)
-                {
-                    <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.NextEvent })'>
-                        <p>>>></p>
-                    </a>
-                }
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="eventSection">
-            <div class="col-lg-9 rowEventImages">
-                <div class="eventImages">
-                    <figure><img src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
-                </div>
-                <p class="descriptionText">
-                    @Model.Text
-                </p>
-                @foreach (var image in Model.Images)
-                {
-                    <div class="eventImages">
-                        <figure><img src="~/@image.ImagePath"></figure>
-                    </div>
-                }
-            </div>
-            <div class="col-lg-3">
-                <p class="textSocialDivs">
-                    Facebook
-                </p>
-                <p>
-                    <div class="fb-page"
-                         data-href="https://www.facebook.com/OhLalaPH"
-                         data-adapt-container-width="true"
-                         data-hide-cover="false"
-                         data-show-facepile="true">
-                    </div>
-                </p>
-                <p class="textSocialDivs">
-                    Instagram
-                </p>
-                <p>
-                    <!-- SnapWidget -->
-                    <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                    <iframe src="https://snapwidget.com/embed/339447" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="rowRelativeEvents">
-            @if (Model.RelativeEvents.Count == 3)
+    <div class="row rowSectionText">
+        <div class="col-md-2 col-sm-2 col-xs-2">
+            @if (Model.PreviousEvent != null)
             {
-                foreach (var relativeEvent in Model.RelativeEvents)
-                {
-                    <div class="col-md-4">
-                        <div>
-                            <figure><img src="~/@relativeEvent.CoverImage.ImagePath"></figure>
-                        </div>
-                        <div>
-                            @relativeEvent.Title
-                        </div>
-                    </div>
-                }
+                <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.PreviousEvent })'>
+                    <p><<<</p>
+                </a>
             }
-            
         </div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+            <p class="eventTitle">
+                @Model.Title
+            </p>
+            @{
+                System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
+                var month = dtinfo.GetMonthName(Model.Date.Month);
+            }
+            <p class="eventDate">
+                @Model.Date.Day de @month de @Model.Date.Year
+            </p>
+        </div>
+        <div class="col-md-2 col-sm-2">
+            @if (Model.NextEvent != null)
+            {
+                <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.NextEvent })'>
+                    <p>>>></p>
+                </a>
+            }
+        </div>
+    </div>
+    <div class="row eventSection">
+        <div class="col-lg-9 rowEventImages">
+            <div class="eventImages">
+                <figure><img src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
+            </div>
+            <p class="descriptionText">
+                @Model.Text
+            </p>
+            @foreach (var image in Model.Images)
+            {
+                <div class="eventImages">
+                    <figure><img src="~/@image.ImagePath"></figure>
+                </div>
+            }
+        </div>
+        <div class="col-lg-3">
+            <p class="textSocialDivs">
+                Facebook
+            </p>
+            <p>
+                <div class="fb-page"
+                        data-href="https://www.facebook.com/OhLalaPH"
+                        data-adapt-container-width="true"
+                        data-hide-cover="false"
+                        data-show-facepile="true">
+                </div>
+            </p>
+            <p class="textSocialDivs">
+                Instagram
+            </p>
+            <p>
+                <!-- SnapWidget -->
+                <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                <iframe src="https://snapwidget.com/embed/339447" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
+            </p>
+        </div>
+    </div>
+    <div class="row rowRelativeEvents">
+        @if (Model.RelativeEvents != null && Model.RelativeEvents.Count == 3)
+        {
+            <p>
+                También te puede interesar...
+            </p>
+            foreach (var relativeEvent in Model.RelativeEvents)
+            {
+                <div class="col-md-4">
+                    <div>@{/* TODO: Add links to events*/}
+                        <figure><img src="~/@relativeEvent.CoverImage.ImagePath"></figure>
+                    </div>
+                    <p>
+                        @relativeEvent.Title
+                    </p>
+                </div>
+            }
+        }      
     </div>
 </div>
 

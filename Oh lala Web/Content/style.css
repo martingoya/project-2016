@@ -434,3 +434,19 @@ footer {
     margin-bottom: 25px;
 }
 /*--------------------------------------------------*/
+
+/*Relative Events*/
+
+.rowRelativeEvents {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.rowRelativeEvents p {
+    font-size: x-large;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+/*--------------------------------------------------*/

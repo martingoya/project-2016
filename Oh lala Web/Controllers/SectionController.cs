@@ -13,7 +13,7 @@ namespace Oh_lala_Web.Controllers
     public class SectionController : Controller
     {
         private int elementsForView = 5;
-        private ohlalaEntities db = new ohlalaEntities();
+        private ohlalaEntities db = new ohlalaEntities("local");
         public ActionResult Fifteen(string identifier)
         {
             var events = db.Event
