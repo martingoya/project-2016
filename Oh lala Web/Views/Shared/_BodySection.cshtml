@@ -26,7 +26,7 @@
                             @item.Introduction
                         </p>
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
-                            Leer más
+                            Ver más
                         </a>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                             @item.Introduction
                         </p>
                         <a href='@Url.Action(Html.DisplayFor(modelItem => item.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => item.Path).ToHtmlString() })'>
-                            Leer más
+                            Ver más
                         </a>
                     </div>
                     <div class="col-lg-7 col-md-7 eventImageSection">
@@ -70,7 +70,7 @@
                 <div class="col-md-2 col-sm-2 col-xs-2">
                     @if (ViewBag.previousPage != null)
                     {
-                        <a href='@Url.Action(ViewBag.Title, "Home", new { identifier = ViewBag.previousPage })'>
+                        <a href='@Url.Action(ViewBag.Title, "Home", new { identifier = ViewBag.previousPage })' title="Página anterior">
                             <p><<<</p>
                         </a>
                     }
@@ -78,7 +78,7 @@
                 <div class="col-md-2 col-sm-2 col-md-offset-8 col-sm-offset-8" style="float:right">
                     @if (ViewBag.nextPage != null)
                     {
-                        <a href='@Url.Action(ViewBag.Title, "Home", new { identifier = ViewBag.nextPage })'>
+                        <a href='@Url.Action(ViewBag.Title, "Home", new { identifier = ViewBag.nextPage })' title="Página siguiente">
                             <p>>>></p>
                         </a>
                     }
@@ -87,4 +87,44 @@
         </div>
     </div>
 }
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.entryEventSection').each(function (i) {
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* If the object is completely visible in the window, fade it it */
+            if (bottom_of_window > bottom_of_object - 100) {
+
+                $(this).animate({ 'opacity': '1' }, 500);
+
+            }
+
+        });
+        /* Every time the window is scrolled ... */
+        $(window).scroll(function () {
+
+            /* Check the location of each desired element */
+            $('.entryEventSection').each(function (i) {
+
+                var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                /* If the object is completely visible in the window, fade it it */
+                if (bottom_of_window > bottom_of_object - 100) {
+
+                    $(this).animate({ 'opacity': '1' }, 500);
+
+                }
+
+            });
+
+        });
+
+    });
+</script>
 

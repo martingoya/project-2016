@@ -97,7 +97,7 @@ footer {
 }
 /**************** footer end ***************/
 /**************************************************/
-/**************** New Styles ***************/
+/**************** Layout ***************/
 
 .alignCenter {
     text-align: center;
@@ -110,9 +110,20 @@ footer {
     margin-top: 10px;
 }
 
+.navLogo img {
+    width: 150px;
+}
+
+
 #footer{
   background-color:#1e1e1e;	
 }
+
+#footer img {
+  width: 300px
+}
+
+/**************************************************/
 
 @media only screen and (max-width: 1100px) {
     .eventContainer {
@@ -182,6 +193,10 @@ footer {
     }
 }
 
+.entryEventSection {
+    opacity: 0;
+}
+
 @media only screen and (max-width: 991px) {
     .eventImageSection {
         order: 1;
@@ -222,6 +237,7 @@ footer {
 
 .eventImages {
     padding-bottom: 20px;
+    opacity: 0;
 }
 
 #layoutHeader {

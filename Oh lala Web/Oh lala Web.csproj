@@ -286,8 +286,8 @@
     <Content Include="Content\images\linefooter.jpg" />
     <Content Include="Content\images\logo-completo-blanco.png" />
     <Content Include="Content\images\logo-completo-negro.png" />
+    <Content Include="Content\images\logo-nav.png" />
     <Content Include="Content\images\logo.png" />
-    <Content Include="Content\images\LogoBlanco.png" />
     <Content Include="Content\images\logofooter.png" />
     <Content Include="Content\images\patternbg.jpg" />
     <Content Include="Content\images\preloader-back-white.gif" />

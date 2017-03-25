@@ -12,9 +12,10 @@
 <div class="container alignCenter">
     <div class="row rowSectionText">
         <div class="col-md-2 col-sm-2 col-xs-2">
+            @{/* TODO: Add Tooltip to navigation buttons*/}
             @if (Model.PreviousEvent != null)
             {
-                <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.PreviousEvent })'>
+                <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.PreviousEvent })' title="Anterior evento">
                     <p><<<</p>
                 </a>
             }
@@ -34,7 +35,7 @@
         <div class="col-md-2 col-sm-2">
             @if (Model.NextEvent != null)
             {
-                <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.NextEvent })'>
+                <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.NextEvent })' title="Siguiente evento">
                     <p>>>></p>
                 </a>
             }
@@ -86,15 +87,58 @@
             foreach (var relativeEvent in Model.RelativeEvents)
             {
                 <div class="col-md-4">
-                    <div>@{/* TODO: Add links to events*/}
-                        <figure><img src="~/@relativeEvent.CoverImage.ImagePath"></figure>
+                    <div>
+                        <a href='@Url.Action(Html.DisplayFor(modelItem => relativeEvent.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => relativeEvent.Path).ToHtmlString() })'>
+                            <figure><img src="~/@relativeEvent.CoverImage.ImagePath"></figure>
+                        </a>
                     </div>
-                    <p>
-                        @relativeEvent.Title
-                    </p>
+                    <a href='@Url.Action(Html.DisplayFor(modelItem => relativeEvent.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => relativeEvent.Path).ToHtmlString() })'>
+                        <p>
+                            @relativeEvent.Title
+                        </p>
+                    </a>
                 </div>
             }
         }      
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        $('.eventImages').each(function (i) {
+
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+            /* If the object is completely visible in the window, fade it it */
+            if (bottom_of_window > bottom_of_object - 100) {
+
+                $(this).animate({ 'opacity': '1' }, 500);
+
+            }
+
+        });
+        /* Every time the window is scrolled ... */
+        $(window).scroll(function () {
+
+            /* Check the location of each desired element */
+            $('.eventImages').each(function (i) {
+
+                var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                /* If the object is completely visible in the window, fade it it */
+                if (bottom_of_window > bottom_of_object - 100) {
+
+                    $(this).animate({ 'opacity': '1' }, 500);
+
+                }
+
+            });
+
+        });
+
+    });
+</script>
 
