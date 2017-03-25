@@ -8,6 +8,14 @@
     src: url('../Content/fonts/HelloBestDay.ttf');
 }
 
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
 .body {
     background: #1e1e1e;
 }

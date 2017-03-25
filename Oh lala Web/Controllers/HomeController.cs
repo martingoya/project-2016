@@ -300,6 +300,8 @@ namespace Oh_lala_Web.Controllers
         {
             var linkedEvents = new LinkedList<Event>(events);
             setPreviousAndNextEvent(linkedEvents, eventSelected, eventSelectedVM);
+            //Shuffle list
+            linkedEvents = new LinkedList<Event>(events.OrderBy(a => Guid.NewGuid()).ToList());
             setRelativeEvents(linkedEvents, eventSelected, eventSelectedVM);
         }
     }
