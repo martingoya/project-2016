@@ -10,29 +10,18 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 <div class="container alignCenter">
-    <div class="row rowSectionText">
+    <div class="row rowSectionEventNavigation">
         <div class="col-md-2 col-sm-2 col-xs-2">
             @{/* TODO: Add Tooltip to navigation buttons*/}
             @if (Model.PreviousEvent != null)
-            {
+        {
                 <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.PreviousEvent })' title="Anterior evento">
                     <i class="fa fa-long-arrow-left fa-2x"></i>
                 </a>
             }
         </div>
-        <div class="col-md-8 col-sm-8 col-xs-8">
-            <p class="eventTitle">
-                @Model.Title
-            </p>
-            @{
-                System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
-                var month = dtinfo.GetMonthName(Model.Date.Month);
-            }
-            <p class="eventDate">
-                @Model.Date.Day de @month de @Model.Date.Year
-            </p>
-        </div>
-        <div class="col-md-2 col-sm-2">
+
+        <div class="col-md-2 col-sm-2 col-md-offset-8 col-sm-offset-8" style="float:right">
             @if (Model.NextEvent != null)
             {
                 <a href='@Url.Action(Model.TypeEvent.Name, "Home", new { identifier = Model.NextEvent })' title="Siguiente evento">
@@ -41,67 +30,79 @@
             }
         </div>
     </div>
-    <div class="row eventSection">
-        <div class="col-lg-9 rowEventImages">
-            <div class="eventImages">
-                <figure><img src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
-            </div>
-            <p class="descriptionText">
-                @Model.Text
-            </p>
-            @foreach (var image in Model.Images)
-            {
-                <div class="eventImages">
-                    <figure><img src="~/@image.ImagePath"></figure>
-                </div>
-            }
-        </div>
-        <div class="col-lg-3">
-            <p class="textSocialDivs">
-                Facebook
-            </p>
-            <p>
-                <div class="fb-page"
-                        data-href="https://www.facebook.com/OhLalaPH"
-                        data-adapt-container-width="true"
-                        data-hide-cover="false"
-                        data-show-facepile="true">
-                </div>
-            </p>
-            <p class="textSocialDivs">
-                Instagram
-            </p>
-            <p>
-                <!-- SnapWidget -->
-                <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                <iframe src="https://snapwidget.com/embed/339447" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
-            </p>
-        </div>
+    <div class="row rowSectionText">
+        <p class="eventTitle">
+            @Model.Title
+        </p>
+        @{
+            System.Globalization.DateTimeFormatInfo dtinfo = new System.Globalization.CultureInfo("es-ES", false).DateTimeFormat;
+            var month = dtinfo.GetMonthName(Model.Date.Month);
+        }
+        <p class="eventDate">
+            @Model.Date.Day de @month de @Model.Date.Year
+        </p>
     </div>
-    <div class="row rowRelativeEvents">
-        @if (Model.RelativeEvents != null && Model.RelativeEvents.Count == 3)
-        {
-            <p>
-                También te puede interesar...
-            </p>
-            foreach (var relativeEvent in Model.RelativeEvents)
+        <div class="row eventSection">
+            <div class="col-lg-9 rowEventImages">
+                <div class="eventImages">
+                    <figure><img src="~/@Html.DisplayFor(modelItem => Model.CoverImage.ImagePath)"></figure>
+                </div>
+                <p class="descriptionText">
+                    @Model.Text
+                </p>
+                @foreach (var image in Model.Images)
             {
-                <div class="col-md-4">
-                    <div>
+                    <div class="eventImages">
+                        <figure><img src="~/@image.ImagePath"></figure>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-3">
+                <p class="textSocialDivs">
+                    Facebook
+                </p>
+                <p>
+                    <div class="fb-page"
+                         data-href="https://www.facebook.com/OhLalaPH"
+                         data-adapt-container-width="true"
+                         data-hide-cover="false"
+                         data-show-facepile="true">
+                    </div>
+                </p>
+                <p class="textSocialDivs">
+                    Instagram
+                </p>
+                <p>
+                    <!-- SnapWidget -->
+                    <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                    <iframe src="https://snapwidget.com/embed/339447" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
+                </p>
+            </div>
+        </div>
+        <div class="row rowRelativeEvents">
+            @if (Model.RelativeEvents != null && Model.RelativeEvents.Count == 3)
+            {
+                <p>
+                    También te puede interesar...
+                </p>
+                foreach (var relativeEvent in Model.RelativeEvents)
+                {
+                    <div class="col-md-4">
+                        <div>
+                            <a href='@Url.Action(Html.DisplayFor(modelItem => relativeEvent.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => relativeEvent.Path).ToHtmlString() })'>
+                                <figure><img src="~/@relativeEvent.CoverImage.ImagePath"></figure>
+                            </a>
+                        </div>
                         <a href='@Url.Action(Html.DisplayFor(modelItem => relativeEvent.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => relativeEvent.Path).ToHtmlString() })'>
-                            <figure><img src="~/@relativeEvent.CoverImage.ImagePath"></figure>
+                            <p>
+                                @relativeEvent.Title
+                            </p>
                         </a>
                     </div>
-                    <a href='@Url.Action(Html.DisplayFor(modelItem => relativeEvent.TypeEvent.Name).ToHtmlString(), "Home", new { identifier = Html.DisplayFor(modelItem => relativeEvent.Path).ToHtmlString() })'>
-                        <p>
-                            @relativeEvent.Title
-                        </p>
-                    </a>
-                </div>
+                }
             }
-        }      
+        </div>
     </div>
-</div>
 
 <script>
     $(document).ready(function () {
