@@ -82,6 +82,7 @@
         </div>
     </header>
 <!--==============================content=================================-->
+    <div id="preloader"></div>
     @RenderBody()
 <!--==============================footer=================================-->
     <footer id="footer">
@@ -130,3 +131,8 @@
     </body>
 </html>
 
+<script>
+    jQuery(document).ready(function ($) {
+        $('#preloader').fadeOut('slow', function () { $(this).remove(); });
+    });
+</script>
