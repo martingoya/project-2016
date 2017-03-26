@@ -371,6 +371,8 @@ footer {
     font-size: large;
 }
 
+/*********** Text header section in Events****************/
+
 .rowSectionText {
     font-size: x-large;
     font-family: 'Shadows Into Light', cursive;
@@ -378,6 +380,36 @@ footer {
     text-align: center;
     margin-top: 25px;
 }
+
+.rowSectionText a {
+    color:#1e1e1e;
+    display:block;
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    font-size:20px;
+    line-height:100px;
+    text-align:center;
+    text-decoration:none;
+    background:#FFFFFF;
+}
+
+.rowSectionText a:hover {
+    color:#f8ff85;
+    text-decoration:none;
+    background:#1e1e1e;
+    -webkit-transition: background-color 200ms linear;
+   -moz-transition: background-color 200ms linear;
+   -o-transition: background-color 200ms linear;
+   -ms-transition: background-color 200ms linear; 
+    transition: background-color 200ms linear;
+}
+
+.rowSectionText a i {
+    vertical-align: middle;
+}
+    
+/*******************************************************/
 
 .rowEventImages {
     /*background: #ececec;*/
@@ -457,6 +489,35 @@ footer {
     margin-top: 25px;
     margin-bottom: 25px;
 }
+
+.rowSectionPageNavigation a {
+    color:#1e1e1e;
+    display:block;
+    width:100px;
+    height:100px;
+    border-radius:50px;
+    font-size:30px;
+    line-height:100px;
+    text-align:center;
+    text-decoration:none;
+    background:#FFFFFF;
+}
+
+.rowSectionPageNavigation a:hover {
+    color:#f8ff85;
+    text-decoration:none;
+    background:#1e1e1e;
+    -webkit-transition: background-color 200ms linear;
+   -moz-transition: background-color 200ms linear;
+   -o-transition: background-color 200ms linear;
+   -ms-transition: background-color 200ms linear; 
+    transition: background-color 200ms linear;
+}
+
+.rowSectionPageNavigation a i {
+    vertical-align:middle;
+}
+
 /*--------------------------------------------------*/
 
 /*Relative Events*/
@@ -471,6 +532,27 @@ footer {
     font-family: 'Shadows Into Light', cursive;
     font-weight: bold;
     padding-top: 5px;
+}
+
+.rowRelativeEvents a figure {
+    -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.rowRelativeEvents a figure:hover {
+    opacity: .75;
+}
+
+.rowRelativeEvents a {
+    color:#1e1e1e;
+}
+
+.rowRelativeEvents a {
+    color:#1e1e1e;
+}
+
+.rowRelativeEvents a:hover {
+    text-decoration:none;
 }
 
 /*--------------------------------------------------*/
