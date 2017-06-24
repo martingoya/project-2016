@@ -1,11 +1,16 @@
-/*Fonts*/
 @font-face {
-    font-family: 'Bromello';
-    src: url('../Content/fonts/bromello.ttf');
+    font-family: 'bromello';
+    src: url('fonts/bromello.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'HelloBestDay';
-    src: url('../Content/fonts/HelloBestDay.ttf');
+    src: url('fonts/HelloBestDay.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RotisSansSerifStd';
+    src: url('fonts/RotisSansSerifStd.otf') format('opentype');
 }
 
 html {
@@ -21,21 +26,21 @@ body {
 }
 /*------ content ------- */
 .title1 {
-	color: #ffffff;
-	font-family: 'Georgia', serif;
-	font-size: 36px;
-	line-height: 38px;
-	font-weight: normal;
-	margin-bottom: 24px;
+    color: #ffffff;
+    font-family: 'RotisSansSerifStd', serif;
+    font-size: 36px;
+    line-height: 38px;
+    font-weight: normal;
+    margin-bottom: 24px;
 }
 .title2 {
-	letter-spacing: 0;
-	color: black;
-	font-family: 'HelloBestDay', serif;
+    letter-spacing: 0;
+    color: black;
+    font-family: 'RotisSansSerifStd', serif;
     font-size: 26px;
-	line-height: 26px;
-	font-weight: bolder;
-	margin-bottom: 28px;
+    line-height: 26px;
+    font-weight: bolder;
+    margin-bottom: 28px;
 }
 /*--------- footer --------- */
 footer {
@@ -209,19 +214,29 @@ footer {
     }
 }
 
+.eventTitleSection {
+    margin-top: 10px;
+}
+
 .eventTitleSection > a > p {
+    color: #000000;
     font-size: xx-large;
 }
 
+.eventTitleSection > a {
+    color: #000000;
+}
+
 .eventTitleSection > p {
+    color: #000000;
     font-size: x-large;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-weight: 500;
 }
 
 .eventTitleSection > a {
     font-size: large;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-weight: 500;
 }
 
@@ -280,16 +295,19 @@ footer {
 }
 
 .navbar-default .navbar-nav > li > a {
-    font-weight: 600;
+    font-weight: 100;
     color: #000000;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-size: x-large;
     padding-left: 6px;
     padding-right: 6px;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a.active {
+    color: #f8ff85;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #f8ff85;
 }
 
@@ -396,7 +414,7 @@ footer {
 }
 
 .footerLink {
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-size: large;
 }
 
@@ -404,8 +422,8 @@ footer {
 
 .rowSectionText {
     font-size: x-large;
-    font-family: 'Shadows Into Light', cursive;
-    font-weight: bold;
+    font-family: 'RotisSansSerifStd', cursive;
+    font-weight: 100;
     text-align: center;
     margin-top: 25px;
 }
@@ -465,7 +483,7 @@ footer {
 
 .descriptionText {
     font-size: large;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-weight: bolder;
 }
 
@@ -476,9 +494,9 @@ footer {
 }
 
 .textSocialDivs {
-    text-align:left;
+    text-align: left;
     font-size: x-large;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-weight: bolder;
 }
 
@@ -487,7 +505,7 @@ footer {
 
 .rowSectionIndexText {
     font-size: x-large;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-weight: bold;
     text-align: center;
     margin-top: 25px;
@@ -503,10 +521,15 @@ footer {
 /*--------------------------------------------------*/
 /*Contact Form*/
 
+#contactFormTitle {
+    margin-top: 0px;
+}
+
 .contactForm {
     background: gainsboro;
     margin-bottom: 20px;
     margin-top: 20px;
+    padding-top: 15px;
 }
 
 .contactForm fieldset {
@@ -530,7 +553,7 @@ footer {
 
 .rowSectionPageNavigation {
     font-size: xx-large;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'RotisSansSerifStd', cursive;
     font-weight: bold;
     text-align: center;
     margin-top: 25px;

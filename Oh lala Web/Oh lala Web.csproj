@@ -610,6 +610,7 @@
     <Content Include="Content\fonts\bromello.otf" />
     <Content Include="Content\fonts\bromello.ttf" />
     <Content Include="Content\fonts\HelloBestDay.ttf" />
+    <Content Include="Content\fonts\RotisSansSerifStd.otf" />
     <None Include="Properties\PublishProfiles\Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\OhlalaPH.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />

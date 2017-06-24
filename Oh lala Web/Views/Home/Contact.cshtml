@@ -16,7 +16,7 @@
             @using (Html.BeginForm("Contact", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
             {
                 @Html.AntiForgeryToken()
-                <h3>Contacto</h3>
+                <h3 id="contactFormTitle">Contacto</h3>
                 <fieldset>
                     @Html.TextBoxFor(m => m.FromName, new { @class = "form-control", @placeholder = "Nombre", required = "required" })
                 </fieldset>
