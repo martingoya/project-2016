@@ -19,7 +19,7 @@ namespace Model.Models
         public const int elementsForView = 5;
         public const int relativesEventsForView = 3;
 
-        public const string secretKeyReCaptcha = "6LdWdBkUAAAAAOmlC4NjdDoQLZnakI3ddZBvKYDM";
+        public const string secretKeyReCaptcha = "6LcYsiYUAAAAAKemhvAsgcxU8tqN37jGgNXjCVJQ";
 
         public static string getFullPathImage(Event eventData, string fileName)
         {
