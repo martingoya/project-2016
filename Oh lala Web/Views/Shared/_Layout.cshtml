@@ -52,12 +52,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="col-sm-4 navLogo">
-                        <a href='@Url.Action("Index", "Home", null)'>
-                            <img src="~/Content/images/logo-nav.png" />
-                        </a>
-                    </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-12">
                         <div class="navbar navbar-default navbar-top alignCenter">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -70,13 +65,18 @@
                                 <ul class="nav navbar-nav">
                                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                     <li>@Html.ActionLink("Último", "Ultimo", "Home")</li>
-                                    <li>@Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, null)</li>
+                                    <li>@Html.ActionLink("Quince", "Fifteen", "Home", new { identifier = string.Empty }, null)</li>
                                     <li>@Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, null)</li>
                                     <li>@*@Html.ActionLink("Newborn", "NewBorn", "Home")*@</li>
                                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-sm-12 navLogo">
+                        <a href='@Url.Action("Index", "Home", null)'>
+                            <img src="~/Content/images/logo-completo-negro.png" />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <span>/</span>
                     @Html.ActionLink("Último", "Ultimo", "Home", new object { }, new { @class = "footerLink" })
                     <span>/</span>
-                    @Html.ActionLink("Fifteen", "Fifteen", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
+                    @Html.ActionLink("Quince", "Fifteen", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
                     <span>/</span>
                     @Html.ActionLink("Bodas", "Bodas", "Home", new { identifier = string.Empty }, new { @class = "footerLink" })
                     @*<span>/</span>

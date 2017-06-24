@@ -116,10 +116,11 @@ footer {
     float: left;
     z-index: 9999;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .navLogo img {
-    width: 150px;
+    width: 250px;
 }
 
 
@@ -238,17 +239,17 @@ footer {
 }
 
 #layoutHeader {
-    background: #1e1e1e;
+    background: white;
+    width: 100%;
+    text-align: center;
 }
 
 /*NavBar styles*/
 
 .navbar-default {
-    background-color: #1e1e1e;
-    border-color: #1e1e1e;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    float: right;
+    background-color: white;
+    border-color: white;
+    display: inline-block;
 }
 @media (max-width: 767px) {
     .navbar-default {
@@ -268,7 +269,7 @@ footer {
   color: #ecf0f1;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #ecf0f1;
+  color: black;
   font-family: 'Shadows Into Light', cursive;
   font-size: x-large;
   padding-left: 6px;
