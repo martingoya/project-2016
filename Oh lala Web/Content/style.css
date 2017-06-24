@@ -547,6 +547,15 @@ footer {
     color: black;
     border-color:black;
 }
+
+@media screen and (max-height: 575px) {
+    #rc-imageselect, .g-recaptcha {
+        transform: scale(0.85);
+        -webkit-transform: scale(0.85);
+        transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+    }
+}
 /*--------------------------------------------------*/
 
 /*Page Navigation*/
@@ -560,33 +569,33 @@ footer {
     margin-bottom: 25px;
 }
 
-.rowSectionPageNavigation a {
-    color:#1e1e1e;
-    display:block;
-    width:100px;
-    height:100px;
-    border-radius:50px;
-    font-size:30px;
-    line-height:100px;
-    text-align:center;
-    text-decoration:none;
-    background:#FFFFFF;
-}
+    .rowSectionPageNavigation a {
+        color: #1e1e1e;
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        font-size: 30px;
+        line-height: 100px;
+        text-align: center;
+        text-decoration: none;
+        background: #FFFFFF;
+    }
 
-.rowSectionPageNavigation a:hover {
-    color:#f8ff85;
-    text-decoration:none;
-    background:#1e1e1e;
-    -webkit-transition: background-color 200ms linear;
-   -moz-transition: background-color 200ms linear;
-   -o-transition: background-color 200ms linear;
-   -ms-transition: background-color 200ms linear; 
-    transition: background-color 200ms linear;
-}
+        .rowSectionPageNavigation a:hover {
+            color: #f8ff85;
+            text-decoration: none;
+            background: #1e1e1e;
+            -webkit-transition: background-color 200ms linear;
+            -moz-transition: background-color 200ms linear;
+            -o-transition: background-color 200ms linear;
+            -ms-transition: background-color 200ms linear;
+            transition: background-color 200ms linear;
+        }
 
-.rowSectionPageNavigation a i {
-    vertical-align:middle;
-}
+        .rowSectionPageNavigation a i {
+            vertical-align: middle;
+        }
 
 /*--------------------------------------------------*/
 
@@ -597,47 +606,47 @@ footer {
     margin-bottom: 25px;
 }
 
-.rowRelativeEvents p {
-    font-size: x-large;
-    font-family: 'Shadows Into Light', cursive;
-    font-weight: bold;
-    padding-top: 5px;
-}
+    .rowRelativeEvents p {
+        font-size: x-large;
+        font-family: 'Shadows Into Light', cursive;
+        font-weight: bold;
+        padding-top: 5px;
+    }
 
-.rowRelativeEvents a figure {
-    -webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
+    .rowRelativeEvents a figure {
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }
 
-.rowRelativeEvents a figure:hover {
-    opacity: .75;
-}
+        .rowRelativeEvents a figure:hover {
+            opacity: .75;
+        }
 
-.rowRelativeEvents a {
-    color:#1e1e1e;
-}
+    .rowRelativeEvents a {
+        color: #1e1e1e;
+    }
 
-.rowRelativeEvents a {
-    color:#1e1e1e;
-}
+    .rowRelativeEvents a {
+        color: #1e1e1e;
+    }
 
-.rowRelativeEvents a:hover {
-    text-decoration:none;
-}
+        .rowRelativeEvents a:hover {
+            text-decoration: none;
+        }
 
 /*--------------------------------------------------*/
 
 /***************Preloader**************/
 
-#preloader { 
-    position: fixed; 
-    left: 0; 
-    top: 0; 
-    z-index: 999; 
-    width: 100%; 
-    height: 100%; 
-    overflow: visible; 
-    background: #1e1e1e url('../Content/images/preloader.gif') no-repeat center center; 
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #1e1e1e url('../Content/images/preloader.gif') no-repeat center center;
 }
 
 /*--------------------------------------------------*/
