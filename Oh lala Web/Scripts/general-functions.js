@@ -1,121 +1,33 @@
-﻿function initGallery(cantImagesForRow) {
-    var $container = $('#container');
-    //Run to initialise column sizes
-    updateSize();
+﻿function iterateAllEventImages() {
+    /* Check the location of each desired element */
+    $('.eventImages').each(function (i) {
 
-    //Load masonry when images all loaded
-    $container.imagesLoaded(function () {
+        var height_of_object = $(this).outerHeight();
+        var top_of_object = $(this).position().top;
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-        $container.isotope({
-            // options
-            itemSelector: '.element',
-            layoutMode: 'masonry',
-            transformsEnabled: true,
-            columnWidth: function (containerWidth) {
-                containerWidth = $browserWidth;
-                return Math.floor(containerWidth / $cols);
-            }
-        });
-    });
+        var position_to_display = top_of_object + height_of_object / 3;
 
-    // update columnWidth on window resize
-    $(window).smartresize(function () {
-        updateSize();
-        $container.isotope('reLayout');
-    });
-
-    $('.transition').css('visibility', 'visible');
-    $('#loading').css('visibility', 'hidden');
-    //Set item size
-    function updateSize() {
-        $browserWidth = $container.width();
-        if ($browserWidth < 523) {
-            $cols = 1;
+        /* If the object is completely visible in the window, fade it */
+        if (bottom_of_window > position_to_display) {
+            $(this).animate({ 'opacity': '1' }, 500);
         }
-        else {
-            $cols = parseInt(cantImagesForRow);
+    });
+}
+
+function iterateAllEntryEventSections() {
+    /* Check the location of each desired element */
+    $('.entryEventSection').each(function (i) {
+
+        var height_of_object = $(this).outerHeight();
+        var top_of_object = $(this).position().top;
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+        var position_to_display = top_of_object + height_of_object / 3;
+
+        /* If the object is completely visible in the window, fade it */
+        if (bottom_of_window > position_to_display) {
+            $(this).animate({ 'opacity': '1' }, 500);
         }
-        //switch(cantImagesForRow) {
-        //    case 0:
-        //    case 1:
-        //    case 2:
-        //    case 3:
-        //    case 4:
-        //        $cols = 2;
-        //        break;
-        //    default:
-        //        $cols = 3;
-
-        //        if ($browserWidth >= 1000) {
-        //            $cols = 3;
-        //        }
-        //        else if ($browserWidth >= 523 && $browserWidth < 1000) {
-        //            $cols = 2;
-        //        }
-        //        else if ($browserWidth < 523) {
-        //            $cols = 1;
-        //        }
-        //        break;
-        //}
-
-        //$cols = 4;
-
-        //if ($browserWidth >= 1170) {
-        //    $cols = 4;
-        //}
-        //else if ($browserWidth >= 800 && $browserWidth < 1170) {
-        //    $cols = 3;
-        //}
-        //else if ($browserWidth >= 480 && $browserWidth < 800) {
-        //    $cols = 2;
-        //}
-        //else if ($browserWidth >= 320 && $browserWidth < 480) {
-        //    $cols = 1;
-        //}
-        //else if ($browserWidth < 401) {
-        //    $cols = 1;
-        //}
-        //console.log("Browser width is:" + $browserWidth);
-        //console.log("Cols is:" + $cols);
-
-        // $gutterTotal = $cols * 20;
-        $browserWidth = $browserWidth; // - $gutterTotal;
-        $itemWidth = $browserWidth / $cols;
-        $itemWidth = Math.floor($itemWidth);
-
-        $(".element").each(function (index) {
-            $(this).css({ "width": $itemWidth + "px" });
-        });
-
-        var $optionSets = $('#options .option-set'),
-            $optionLinks = $optionSets.find('a');
-
-        $optionLinks.click(function () {
-            var $this = $(this);
-            // don't proceed if already selected
-            if ($this.hasClass('selected')) {
-                return false;
-            }
-            var $optionSet = $this.parents('.option-set');
-            $optionSet.find('.selected').removeClass('selected');
-            $this.addClass('selected');
-
-            // make option object dynamically, i.e. { filter: '.my-filter-class' }
-            var options = {},
-                key = $optionSet.attr('data-option-key'),
-                value = $this.attr('data-option-value');
-            // parse 'false' as false boolean
-            value = value === 'false' ? false : value;
-            options[key] = value;
-            if (key === 'layoutMode' && typeof changeLayoutMode === 'function') {
-                // changes in layout modes need extra logic
-                changeLayoutMode($this, options)
-            } else {
-                // otherwise, apply new options
-                $container.isotope(options);
-            }
-
-            return false;
-        });
-    };
+    });
 }

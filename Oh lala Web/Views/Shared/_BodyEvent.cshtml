@@ -58,25 +58,29 @@
                 }
             </div>
             <div class="col-lg-3">
-                <p class="textSocialDivs">
-                    Facebook
-                </p>
-                <p>
-                    <div class="fb-page"
-                         data-href="https://www.facebook.com/OhLalaPH"
-                         data-adapt-container-width="true"
-                         data-hide-cover="false"
-                         data-show-facepile="true">
-                    </div>
-                </p>
-                <p class="textSocialDivs">
-                    Instagram
-                </p>
-                <p>
-                    <!-- SnapWidget -->
-                    <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                    <iframe src="https://snapwidget.com/embed/339447" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
-                </p>
+                <div class="col-md-6 col-sm-6">
+                    <p class="textSocialDivs">
+                        Facebook
+                    </p>
+                    <p>
+                        <div class="fb-page"
+                             data-href="https://www.facebook.com/OhLalaPH"
+                             data-adapt-container-width="true"
+                             data-hide-cover="false"
+                             data-show-facepile="true">
+                        </div>
+                    </p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <p class="textSocialDivs">
+                        Instagram
+                    </p>
+                    <p>
+                        <!-- SnapWidget -->
+                        <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                        <iframe src="https://snapwidget.com/embed/339447" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; "></iframe>
+                    </p>
+                </div>
             </div>
         </div>
         <div class="row rowRelativeEvents">
@@ -106,40 +110,11 @@
 
 <script>
     $(document).ready(function () {
-
-        $('.eventImages').each(function (i) {
-
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-            /* If the object is completely visible in the window, fade it it */
-            if (bottom_of_window > bottom_of_object - 100) {
-
-                $(this).animate({ 'opacity': '1' }, 500);
-
-            }
-
-        });
+        iterateAllEventImages();
         /* Every time the window is scrolled ... */
         $(window).scroll(function () {
-
-            /* Check the location of each desired element */
-            $('.eventImages').each(function (i) {
-
-                var bottom_of_object = $(this).position().top + $(this).outerHeight();
-                var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-                /* If the object is completely visible in the window, fade it it */
-                if (bottom_of_window > bottom_of_object - 100) {
-
-                    $(this).animate({ 'opacity': '1' }, 500);
-
-                }
-
-            });
-
+            iterateAllEventImages();
         });
-
     });
 </script>
 
