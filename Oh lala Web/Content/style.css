@@ -48,37 +48,10 @@ footer {
 	/*background: url("images/linefooter.jpg") top center repeat-x;*/
 }
 /*--------------social----------------*/
-.social_icons {
-	overflow: hidden;
-	padding: 0;
-	list-style: none;
-	white-space: nowrap;
-	position: relative;
-	margin: 28px 0 0;
-	z-index: 10;
+.socialIcon {
+    font-size: 25px
 }
-.social_icons > li {
-	float: left;
-	cursor: pointer;
-	width: 32px;
-	height: 32px;
-	overflow: hidden;
-	margin-right: 14px;
-}
-.social_icons > li a {
-	width: 32px;
-	height: 32px;
-	overflow: hidden;
-    position: absolute;
-}
-.social_icons > li a img {
-	position: relative;
-	top: 0;
-}
-.social_icons > li a:hover img {
-	position: relative;
-	/*top: -32px;*/
-}
+
 .footerlogo {
 	text-align: center;
 }
@@ -120,7 +93,7 @@ footer {
 .navLogo {
     float: left;
     z-index: 100;
-    margin-top: 10px;
+    margin-top: 25px;
     margin-bottom: 10px;
 }
 
@@ -198,6 +171,17 @@ footer {
 
 .entryEventSection {
     opacity: 0;
+}
+
+.eventImageSection {
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.eventImageSection:hover {
+    opacity: 0.5;
 }
 
 @media only screen and (max-width: 991px) {

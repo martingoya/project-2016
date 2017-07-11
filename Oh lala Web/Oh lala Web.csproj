@@ -269,6 +269,7 @@
     <Content Include="Content\images\fancybox_img\fancy_title_right.png" />
     <Content Include="Content\images\fancybox_img\image-blank.png" />
     <Content Include="Content\images\fancybox_img\preloader.gif" />
+    <Content Include="Content\images\favicon-32x32.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\follow_icon1.png" />
     <Content Include="Content\images\follow_icon1_y.png" />

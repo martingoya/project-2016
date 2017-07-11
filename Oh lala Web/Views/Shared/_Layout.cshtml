@@ -13,8 +13,7 @@
         <meta property="og:description" content="Espacio creado para que tus momentos sean realmente inolvidables" />
         <meta property="og:image" content="http://ohlalaph.com/Content/images/small-logo.png" />
 
-        <link rel="icon" href="~/Content/images/favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" href="~/Content/images/favicon.ico" type="image/x-icon" /> 
+        <link rel="icon" type="image/png" href="~/Content/images/favicon-32x32.png" sizes="32x32" /> 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -29,14 +28,6 @@
             ga('create', 'UA-88192911-1', 'auto');
             ga('send', 'pageview');
 
-            $(function () {
-                var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
-                $('ul li a').each(function () {
-                    var hrefli = $(this).attr("href").substr($(this).attr("href").lastIndexOf("/") + 1);
-                    if (hrefli == pgurl)
-                        $(this).closest('a').addClass("active");
-                })
-            });
         </script>
 
         <link href="~/Content/bootstrap.css" rel="stylesheet" />
@@ -110,19 +101,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 alignCenter">
-                    <p style="font-size: x-small; color:white">COPYRIGHT © 2017 OH LALÁ PRODUCCIONES FOTOGRÁFICAS</p>
+                <div class="col-md-12 alignCenter" style="margin-top:10px">
+                    <p style="font-size: x-small; color:white">COPYRIGHT © @DateTime.Now.Year OH LALÁ PRODUCCIONES FOTOGRÁFICAS</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 alignCenter">
-                    <a href="https://www.instagram.com/ohlalaph/" class="btn btn-social-icon btn-instagram" target="_blank">
+                    <a href="https://www.instagram.com/ohlalaph/" class="socialIcon btn btn-social-icon btn-instagram" target="_blank">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
                     </a>
-                    <a href="https://vimeo.com/user42415580" class="btn btn-social-icon btn-vimeo" target="_blank">
+                    <a href="https://vimeo.com/user42415580" class="socialIcon btn btn-social-icon btn-vimeo" target="_blank">
                         <i class="fa fa-vimeo" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.facebook.com/OhLalaPH" class="btn btn-social-icon btn-facebook" target="_blank">
+                    <a href="https://www.facebook.com/OhLalaPH" class="socialIcon btn btn-social-icon btn-facebook" target="_blank">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                     </a>
                 </div>
