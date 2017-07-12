@@ -124,12 +124,12 @@ namespace Oh_lala_Web.Controllers
             return View();
         }
 
-        public ActionResult Fifteen(string identifier = "0")
+        public ActionResult Quince(string identifier = "0")
         {
             var events = db.Event
                         .Include(x => x.CoverImage)
                         .Include(y => y.TypeEvent)
-                        .Where(l => l.TypeEvent.Name == Constants.Events.Fifteen.ToString())
+                        .Where(l => l.TypeEvent.Name == Constants.Events.Quince.ToString())
                         .OrderByDescending(z => z.Date).ToList();
 
             var eventsPaginated = setPagination(events, identifier);

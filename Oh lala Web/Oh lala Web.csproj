@@ -674,7 +674,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\Fifteen.cshtml" />
+    <Content Include="Views\Home\Quince.cshtml" />
     <Content Include="Views\Home\NewBorn.cshtml" />
     <Content Include="Views\Home\Bodas.cshtml" />
     <Content Include="Views\Home\Infantiles.cshtml" />

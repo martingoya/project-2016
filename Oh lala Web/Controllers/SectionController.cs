@@ -14,12 +14,12 @@ namespace Oh_lala_Web.Controllers
     {
         private int elementsForView = 5;
         private ohlalaEntities db = new ohlalaEntities("local");
-        public ActionResult Fifteen(string identifier)
+        public ActionResult Quince(string identifier)
         {
             var events = db.Event
                         .Include(x => x.CoverImage)
                         .Include(y => y.TypeEvent)
-                        .Where(l => l.TypeEvent.Name == Constants.Events.Fifteen.ToString()).ToList();
+                        .Where(l => l.TypeEvent.Name == Constants.Events.Quince.ToString()).ToList();
             events.Take(elementsForView);
 
             if (identifier != null)
@@ -31,7 +31,7 @@ namespace Oh_lala_Web.Controllers
                 }
                 else
                 {
-                    var eventFifteen = db.Event.Where(x => x.Path == identifier).ToList();
+                    var eventQuince = db.Event.Where(x => x.Path == identifier).ToList();
                 }
             }
             Constants.setFullPathOnlyCoverImageForAllEvents(events);
@@ -55,7 +55,7 @@ namespace Oh_lala_Web.Controllers
                 }
                 else
                 {
-                    var eventFifteen = db.Event.Where(x => x.Path == identifier).ToList();
+                    var eventQuince = db.Event.Where(x => x.Path == identifier).ToList();
                 }
             }
             Constants.setFullPathOnlyCoverImageForAllEvents(events);
