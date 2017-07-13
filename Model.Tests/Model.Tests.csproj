@@ -96,6 +96,10 @@
       <Project>{964978C8-F741-4F25-B676-59B75ABCF014}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Oh lala Web\Oh lala Web.csproj">
+      <Project>{A87AC81A-F1B9-4880-88AD-263C97B78CDB}</Project>
+      <Name>Oh lala Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

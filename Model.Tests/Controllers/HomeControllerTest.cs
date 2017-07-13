@@ -5,7 +5,7 @@ using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
-using Model.Controllers;
+using Oh_lala_Web.Controllers;
 
 namespace Model.Tests.Controllers
 {

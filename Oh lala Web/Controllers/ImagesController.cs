@@ -12,7 +12,7 @@ namespace Model.Controllers
 {
     public class ImagesController : Controller
     {
-        private ohlalaEntities db = new ohlalaEntities();
+        private ohlalaEntities db = new ohlalaEntities("local");
 
         // GET: Images
         public ActionResult Index()

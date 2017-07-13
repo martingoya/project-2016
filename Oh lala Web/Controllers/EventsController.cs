@@ -13,7 +13,7 @@ namespace Model.Controllers
 {
     public class EventsController : Controller
     {
-        private ohlalaEntities db = new ohlalaEntities();
+        private ohlalaEntities db = new ohlalaEntities("local");
 
         // GET: Events
         public ActionResult Index()

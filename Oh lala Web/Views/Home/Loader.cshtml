@@ -1,0 +1,18 @@
+﻿@model Model.Models.EventView
+@{
+    ViewBag.Title = "Loader";
+}
+
+<div class="jumbotron">
+    <h1>Carga de Datos</h1>
+    <p class="lead">Aplicacion que permitirá cargar la base de datos de la página ohlalaph.com</p>
+    <ul class="nav navbar-nav">
+        <li>
+            <a href='@Url.Action("Index", "Events", null)'>
+                Eventos
+            </a>
+            @Html.ActionLink("Index", "Index", "Events")
+            @Html.ActionLink("Loader", "Loader", "Home")
+        </li>
+    </ul>
+</div>

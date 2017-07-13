@@ -12,7 +12,7 @@ namespace Model.Controllers
 {
     public class TypeEventsController : Controller
     {
-        private ohlalaEntities db = new ohlalaEntities();
+        private ohlalaEntities db = new ohlalaEntities("local");
 
         // GET: TypeEvents
         public ActionResult Index()

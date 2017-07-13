@@ -232,6 +232,11 @@ namespace Oh_lala_Web.Controllers
             }
         }
 
+        public ActionResult Loader()
+        {
+            return View();
+        }
+
         public List<Event> setPagination(List<Event> events, string identifier)
         {
             var totalPages = Math.Ceiling((double)events.Count() / Constants.elementsForView);
