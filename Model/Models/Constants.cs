@@ -10,7 +10,7 @@ namespace Model.Models
     {
         public enum Events
         {
-            Fifteen,
+            Quince,
             Bodas,
             NewBorn
         }

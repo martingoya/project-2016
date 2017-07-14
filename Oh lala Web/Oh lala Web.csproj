@@ -212,6 +212,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
+    <Compile Include="Controllers\TypeEventsController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -684,6 +685,13 @@
     <Content Include="Views\Shared\_BodySection.cshtml" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Ultimo.cshtml" />
+    <Content Include="Views\Home\Loader.cshtml" />
+    <Content Include="Views\Shared\_LoaderMenu.cshtml" />
+    <Content Include="Views\Loader\TypeEvents\Create.cshtml" />
+    <Content Include="Views\Loader\TypeEvents\Delete.cshtml" />
+    <Content Include="Views\Loader\TypeEvents\Details.cshtml" />
+    <Content Include="Views\Loader\TypeEvents\Edit.cshtml" />
+    <Content Include="Views\Loader\TypeEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
