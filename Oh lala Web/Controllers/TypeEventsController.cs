@@ -27,13 +27,13 @@ namespace Oh_lala_Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(typeEvent);
+            return View("~/Views/Loader/TypeEvents/Details.cshtml", typeEvent);
         }
 
         // GET: TypeEvents/Create
         public ActionResult Create()
         {
-            return View();
+            return View("~/Views/Loader/TypeEvents/Create.cshtml");
         }
 
         // POST: TypeEvents/Create
@@ -53,7 +53,7 @@ namespace Oh_lala_Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(typeEventView);
+            return View("~/Views/Loader/TypeEvents/Create.cshtml", typeEventView);
         }
 
         // GET: TypeEvents/Edit/5
@@ -68,7 +68,7 @@ namespace Oh_lala_Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(typeEvent);
+            return View("~/Views/Loader/TypeEvents/Edit.cshtml", typeEvent);
         }
 
         // POST: TypeEvents/Edit/5
@@ -84,7 +84,7 @@ namespace Oh_lala_Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(typeEvent);
+            return View("~/Views/Loader/TypeEvents/Edit.cshtml", typeEvent);
         }
 
         // GET: TypeEvents/Delete/5
@@ -99,7 +99,7 @@ namespace Oh_lala_Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(typeEvent);
+            return View("~/Views/Loader/TypeEvents/Delete.cshtml", typeEvent);
         }
 
         // POST: TypeEvents/Delete/5
@@ -110,7 +110,7 @@ namespace Oh_lala_Web.Controllers
             TypeEvent typeEvent = db.TypeEvent.Find(id);
             db.TypeEvent.Remove(typeEvent);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("~/Views/Loader/TypeEvents/Index.cshtml");
         }
 
         protected override void Dispose(bool disposing)
