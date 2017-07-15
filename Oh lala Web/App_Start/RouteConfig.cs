@@ -14,6 +14,12 @@ namespace Oh_lala_Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Error",
+                url: "Error/{action}",
+                defaults: new { controller = "Error", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{action}/{identifier}",
                 defaults: new { controller = "Home", action = "Index", identifier = UrlParameter.Optional }

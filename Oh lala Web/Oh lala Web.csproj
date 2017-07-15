@@ -210,7 +210,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Controllers\TypeEventsController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -649,7 +651,9 @@
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\tm-scripts.js" />
     <Content Include="Scripts\touchTouch.jquery.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -692,6 +696,16 @@
     <Content Include="Views\Loader\TypeEvents\Details.cshtml" />
     <Content Include="Views\Loader\TypeEvents\Edit.cshtml" />
     <Content Include="Views\Loader\TypeEvents\Index.cshtml" />
+    <Content Include="Views\Loader\Images\Create.cshtml" />
+    <Content Include="Views\Loader\Images\Delete.cshtml" />
+    <Content Include="Views\Loader\Images\Details.cshtml" />
+    <Content Include="Views\Loader\Images\Edit.cshtml" />
+    <Content Include="Views\Loader\Images\Index.cshtml" />
+    <Content Include="Views\Loader\Events\Create.cshtml" />
+    <Content Include="Views\Loader\Events\Delete.cshtml" />
+    <Content Include="Views\Loader\Events\Details.cshtml" />
+    <Content Include="Views\Loader\Events\Edit.cshtml" />
+    <Content Include="Views\Loader\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
