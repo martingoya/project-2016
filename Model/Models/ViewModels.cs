@@ -66,6 +66,7 @@ namespace Model.Models
         public string Introduction { get; set; }
         public int CoverImageID { get; set; }
         public string Path { get; set; }
+        public string VideoLink { get; set; }
 
         public virtual Image CoverImage { get; set; }
         public virtual TypeEvent TypeEvent { get; set; }

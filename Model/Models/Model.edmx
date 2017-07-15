@@ -4,149 +4,43 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ohlalaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="ohlalaModelStoreContainer">
-    <EntitySet Name="Event" EntityType="ohlalaModel.Store.Event" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Image" EntityType="ohlalaModel.Store.Image" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TypeEvent" EntityType="ohlalaModel.Store.TypeEvent" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="EventImage" EntityType="ohlalaModel.Store.EventImage" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Event_Image" Association="ohlalaModel.Store.FK_Event_Image">
-      <End Role="Image" EntitySet="Image" />
-      <End Role="Event" EntitySet="Event" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Event_TypeEvent" Association="ohlalaModel.Store.FK_Event_TypeEvent">
-      <End Role="TypeEvent" EntitySet="TypeEvent" />
-      <End Role="Event" EntitySet="Event" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EventImage_Event" Association="ohlalaModel.Store.FK_EventImage_Event">
-      <End Role="Event" EntitySet="Event" />
-      <End Role="EventImage" EntitySet="EventImage" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EventImage_Image" Association="ohlalaModel.Store.FK_EventImage_Image">
-      <End Role="Image" EntitySet="Image" />
-      <End Role="EventImage" EntitySet="EventImage" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Event">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="50" />
-    <Property Name="TypeEventID" Type="int" Nullable="false" />
-    <Property Name="Date" Type="datetime" Nullable="false" />
-    <Property Name="Text" Type="varchar" Nullable="true" MaxLength="2048" />
-    <Property Name="CoverImageID" Type="int" Nullable="false" />
-    <Property Name="Introduction" Type="nvarchar" Nullable="true" MaxLength="512" />
-    <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="256" />
-  </EntityType>
-  <EntityType Name="Image">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="varchar" Nullable="true" MaxLength="50" />
-    <Property Name="ImagePath" Type="varchar" Nullable="false" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="TypeEvent">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="EventImage">
-    <Key>
-      <PropertyRef Name="EventData_ID" />
-      <PropertyRef Name="Images_ID" />
-    </Key>
-    <Property Name="EventData_ID" Type="int" Nullable="false" />
-    <Property Name="Images_ID" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_Event_Image">
-    <End Role="Image" Type="ohlalaModel.Store.Image" Multiplicity="1" />
-    <End Role="Event" Type="ohlalaModel.Store.Event" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Image">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="CoverImageID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Event_TypeEvent">
-    <End Role="TypeEvent" Type="ohlalaModel.Store.TypeEvent" Multiplicity="1" />
-    <End Role="Event" Type="ohlalaModel.Store.Event" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TypeEvent">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="TypeEventID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EventImage_Event">
-    <End Role="Event" Type="ohlalaModel.Store.Event" Multiplicity="1" />
-    <End Role="EventImage" Type="ohlalaModel.Store.EventImage" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Event">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EventImage">
-        <PropertyRef Name="EventData_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EventImage_Image">
-    <End Role="EventImage" Type="ohlalaModel.Store.EventImage" Multiplicity="*" />
-    <End Role="Image" Type="ohlalaModel.Store.Image" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="Image">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="EventImage">
-        <PropertyRef Name="Images_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="ohlalaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+    <Schema Namespace="ohlalaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TypeEventID" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Text" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" Nullable="true" />
-          <Property Name="CoverImageID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CoverImage" Relationship="Self.FK_Event_Image" FromRole="Event" ToRole="Image" />
-          <NavigationProperty Name="TypeEvent" Relationship="Self.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
-          <NavigationProperty Name="Images" Relationship="Self.EventImage" FromRole="Event" ToRole="Image" />
-          <Property Name="Introduction" Type="String" Nullable="true" MaxLength="512" />
-          <Property Name="Path" Type="String" Nullable="false" FixedLength="false" MaxLength="256" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeEventID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="varchar" MaxLength="2048" />
+          <Property Name="CoverImageID" Type="int" Nullable="false" />
+          <Property Name="Introduction" Type="nvarchar" MaxLength="512" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="VideoLink" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EventImage">
+          <Key>
+            <PropertyRef Name="EventData_ID" />
+            <PropertyRef Name="Images_ID" />
+          </Key>
+          <Property Name="EventData_ID" Type="int" Nullable="false" />
+          <Property Name="Images_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="EventData" Relationship="Self.EventImage" FromRole="Image" ToRole="Event" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeEvent">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Event" Relationship="Self.FK_Event_TypeEvent" FromRole="TypeEvent" ToRole="Event" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Event_Image">
           <End Role="Image" Type="Self.Image" Multiplicity="1" />
@@ -172,14 +66,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EventImage">
-          <End Role="Event" Type="Self.Event" Multiplicity="*" />
-          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+        <Association Name="FK_EventImage_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="EventImage" Type="Self.EventImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventImage">
+              <PropertyRef Name="EventData_ID" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ohlalaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Event" EntityType="Self.Event" />
-          <EntitySet Name="Image" EntityType="Self.Image" />
-          <EntitySet Name="TypeEvent" EntityType="Self.TypeEvent" />
+        <Association Name="FK_EventImage_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="EventImage" Type="Self.EventImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EventImage">
+              <PropertyRef Name="Images_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ohlalaModelStoreContainer">
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventImage" EntityType="Self.EventImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeEvent" EntityType="Self.TypeEvent" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Event_Image" Association="Self.FK_Event_Image">
             <End Role="Image" EntitySet="Image" />
             <End Role="Event" EntitySet="Event" />
@@ -188,31 +103,105 @@
             <End Role="TypeEvent" EntitySet="TypeEvent" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
-          <AssociationSet Name="EventImage" Association="Self.EventImage">
+          <AssociationSet Name="FK_EventImage_Event" Association="Self.FK_EventImage_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="EventImage" EntitySet="EventImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventImage_Image" Association="Self.FK_EventImage_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="EventImage" EntitySet="EventImage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ohlalaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="ohlalaModel.FK_Event_Image" FromRole="Image" ToRole="Event" />
+          <NavigationProperty Name="Event1" Relationship="ohlalaModel.EventImage" FromRole="Image" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="TypeEvent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="ohlalaModel.FK_Event_TypeEvent" FromRole="TypeEvent" ToRole="Event" />
+        </EntityType>
+        <EntityContainer Name="ohlalaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Image" EntityType="Self.Image" />
+          <EntitySet Name="TypeEvent" EntityType="Self.TypeEvent" />
+          <EntitySet Name="Event" EntityType="ohlalaModel.Event" />
+          <AssociationSet Name="FK_Event_Image" Association="ohlalaModel.FK_Event_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_TypeEvent" Association="ohlalaModel.FK_Event_TypeEvent">
+            <End Role="TypeEvent" EntitySet="TypeEvent" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="EventImage" Association="ohlalaModel.EventImage">
             <End Role="Event" EntitySet="Event" />
             <End Role="Image" EntitySet="Image" />
           </AssociationSet>
           </EntityContainer>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeEventID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Text" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="CoverImageID" Type="Int32" Nullable="false" />
+          <Property Name="Introduction" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="VideoLink" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CoverImage" Relationship="ohlalaModel.FK_Event_Image" FromRole="Event" ToRole="Image" />
+          <NavigationProperty Name="TypeEvent" Relationship="ohlalaModel.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
+          <NavigationProperty Name="Images" Relationship="ohlalaModel.EventImage" FromRole="Event" ToRole="Image" />
+        </EntityType>
+        <Association Name="FK_Event_Image">
+          <End Type="ohlalaModel.Image" Role="Image" Multiplicity="1" />
+          <End Type="ohlalaModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="CoverImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_TypeEvent">
+          <End Type="ohlalaModel.TypeEvent" Role="TypeEvent" Multiplicity="1" />
+          <End Type="ohlalaModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEvent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="TypeEventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EventImage">
+          <End Type="ohlalaModel.Event" Role="Event" Multiplicity="*" />
+          <End Type="ohlalaModel.Image" Role="Image" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ohlalaModelStoreContainer" CdmEntityContainer="ohlalaEntities">
-    <EntitySetMapping Name="Event">
-      <EntityTypeMapping TypeName="IsTypeOf(ohlalaModel.Event)">
-        <MappingFragment StoreEntitySet="Event">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="TypeEventID" ColumnName="TypeEventID" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Text" ColumnName="Text" />
-          <ScalarProperty Name="CoverImageID" ColumnName="CoverImageID" />
-          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
-          <ScalarProperty Name="Path" ColumnName="Path" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Image">
       <EntityTypeMapping TypeName="IsTypeOf(ohlalaModel.Image)">
         <MappingFragment StoreEntitySet="Image">
@@ -230,14 +219,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="EventImage" TypeName="ohlalaModel.EventImage" StoreEntitySet="EventImage">
-      <EndProperty Name="Event">
-        <ScalarProperty Name="ID" ColumnName="EventData_ID" />
-      </EndProperty>
-      <EndProperty Name="Image">
-        <ScalarProperty Name="ID" ColumnName="Images_ID" />
-      </EndProperty>
-    </AssociationSetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="ohlalaModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+                <ScalarProperty Name="CoverImageID" ColumnName="CoverImageID" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TypeEventID" ColumnName="TypeEventID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="EventImage" TypeName="ohlalaModel.EventImage" StoreEntitySet="EventImage">
+            <EndProperty Name="Image">
+              <ScalarProperty Name="ID" ColumnName="Images_ID" />
+            </EndProperty>
+            <EndProperty Name="Event">
+              <ScalarProperty Name="ID" ColumnName="EventData_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9df9793d412c4befa4d3ceda2abb84e4" Name="Diagram1">
-        <EntityTypeShape EntityType="ohlalaModel.Event" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="ohlalaModel.Image" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ohlalaModel.TypeEvent" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="ohlalaModel.FK_Event_Image" ManuallyRouted="false" />
-        <AssociationConnector Association="ohlalaModel.FK_Event_TypeEvent" ManuallyRouted="false" />
-        <AssociationConnector Association="ohlalaModel.EventImage" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ohlalaModel.Event" Width="1.5" PointX="7.5" PointY="2.75" />
+        <AssociationConnector Association="ohlalaModel.FK_Event_Image" />
+        <AssociationConnector Association="ohlalaModel.FK_Event_TypeEvent" />
+        <AssociationConnector Association="ohlalaModel.EventImage" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
