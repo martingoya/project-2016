@@ -13,22 +13,22 @@ namespace Oh_lala_Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "Error",
-                url: "Error/{action}",
-                defaults: new { controller = "Error", action = "Index" }
-            );
+            //routes.MapRoute(
+            //    name: "Error",
+            //    url: "Error/{action}",
+            //    defaults: new { controller = "Error", action = "Index" }
+            //);
+
+            //routes.MapRoute(
+            //    name: "Events",
+            //    url: "{action}/{identifier}",
+            //    defaults: new { controller = "Home", action = "Index", identifier = UrlParameter.Optional }
+            //);
 
             routes.MapRoute(
                 name: "Default",
-                url: "{action}/{identifier}",
-                defaults: new { controller = "Home", action = "Index", identifier = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Loader",
-                url: "Loader/{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Loader", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

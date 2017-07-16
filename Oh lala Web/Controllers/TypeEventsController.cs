@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace Oh_lala_Web.Controllers
 {
+    [Authorize]
     public class TypeEventsController : Controller
     {
         private ohlalaEntities db = new ohlalaEntities();

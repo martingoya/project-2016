@@ -4,7 +4,6 @@ using System.Net.Mail;
 using Model.Models;
 using System.Linq;
 using System.Data.Entity;
-using Oh_lala_Web.Models;
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -33,7 +32,7 @@ namespace Oh_lala_Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Contact(EmailFormModel model, FormCollection form)
+        public async Task<ActionResult> Contact(Models.EmailFormModel model, FormCollection form)
         {
             if (ModelState.IsValid)
             {
@@ -232,6 +231,7 @@ namespace Oh_lala_Web.Controllers
             }
         }
 
+        [Authorize]
         public ActionResult Loader()
         {
             return View();

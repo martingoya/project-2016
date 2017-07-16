@@ -10,6 +10,7 @@ using Model.Models;
 
 namespace Model.Controllers
 {
+    [Authorize]
     public class ImagesController : Controller
     {
         private ohlalaEntities db = new ohlalaEntities();

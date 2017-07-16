@@ -242,7 +242,7 @@
               <ScalarProperty Name="ID" ColumnName="EventData_ID" />
             </EndProperty>
           </AssociationSetMapping>
-  </EntityContainerMapping>
+          </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->

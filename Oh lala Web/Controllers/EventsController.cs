@@ -11,6 +11,7 @@ using System.IO;
 
 namespace Model.Controllers
 {
+    [Authorize]
     public class EventsController : Controller
     {
         private ohlalaEntities db = new ohlalaEntities();
