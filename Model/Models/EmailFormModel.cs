@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace Oh_lala_Web.Models
+namespace Model.Models
 {
     public class EmailFormModel
     {

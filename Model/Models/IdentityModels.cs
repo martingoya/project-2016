@@ -21,7 +21,7 @@ namespace Model.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("prodSQL", throwIfV1Schema: false)
+            : base("userLocal", throwIfV1Schema: false)
         {
         }
 

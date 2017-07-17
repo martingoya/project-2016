@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Model.Models.Event>
+@{
+    ViewBag.Title = "Bodas";
+}
+
+<div class="rowSectionText">
+    <div class="container">
+        <p>En Oh Lalá queremos contar tu historia de la manera más romantica y simple. El amor habla por si solo en las imágenes de la ceremonia, previa y fiesta.</p>
+        <p>La familia, los amigos y los niños cumplen un rol preponderante en estos eventos. Nosotras prestamos atención a los detalles sin perder la impronta de la pareja.</p>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Shared/_BodySection.cshtml", Model)

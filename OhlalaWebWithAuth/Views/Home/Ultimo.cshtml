@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Model.Models.Event>
+@{
+    ViewBag.Title = "Ultimo";
+}
+
+<div class="rowSectionText">
+    <div class="container">
+        <p>Últimos eventos.</p>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Shared/_BodySection.cshtml", Model)
