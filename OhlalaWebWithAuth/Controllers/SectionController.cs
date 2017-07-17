@@ -7,7 +7,7 @@ using PagedList;
 using Model.Models;
 using System.Data.Entity;
 
-namespace Oh_lala_Web.Controllers
+namespace OhlalaWebWithAuth.Controllers
 {
     public class SectionController : Controller
     {

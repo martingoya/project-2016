@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using AutoMapper;
 
-namespace Oh_lala_Web.Controllers
+namespace OhlalaWebWithAuth.Controllers
 {
     public class HomeController : Controller
     {

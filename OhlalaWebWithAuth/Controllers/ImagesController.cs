@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Model.Models;
 
-namespace Model.Controllers
+namespace OhlalaWebWithAuth.Controllers
 {
     [Authorize]
     public class ImagesController : Controller

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
-namespace Oh_lala_Web.Controllers
+namespace OhlalaWebWithAuth.Controllers
 {
     [Authorize]
     public class TypeEventsController : Controller

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Oh_lala_Web.Controllers
+namespace OhlalaWebWithAuth.Controllers
 {
     public class ErrorController : Controller
     {

@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oh lala Web", "Oh lala Web\Oh lala Web.csproj", "{A87AC81A-F1B9-4880-88AD-263C97B78CDB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{964978C8-F741-4F25-B676-59B75ABCF014}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationMVC", "AuthorizationMVC\AuthorizationMVC.csproj", "{9E6E9D1D-A4DA-4BEC-A0FD-2FF26C5ACEF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OhlalaWebWithAuth", "OhlalaWebWithAuth\OhlalaWebWithAuth.csproj", "{2A61E62E-98AB-4130-851F-BA988019B85B}"
 EndProject
@@ -17,18 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A87AC81A-F1B9-4880-88AD-263C97B78CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A87AC81A-F1B9-4880-88AD-263C97B78CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A87AC81A-F1B9-4880-88AD-263C97B78CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A87AC81A-F1B9-4880-88AD-263C97B78CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{964978C8-F741-4F25-B676-59B75ABCF014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{964978C8-F741-4F25-B676-59B75ABCF014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{964978C8-F741-4F25-B676-59B75ABCF014}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{964978C8-F741-4F25-B676-59B75ABCF014}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E6E9D1D-A4DA-4BEC-A0FD-2FF26C5ACEF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E6E9D1D-A4DA-4BEC-A0FD-2FF26C5ACEF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E6E9D1D-A4DA-4BEC-A0FD-2FF26C5ACEF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E6E9D1D-A4DA-4BEC-A0FD-2FF26C5ACEF0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A61E62E-98AB-4130-851F-BA988019B85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A61E62E-98AB-4130-851F-BA988019B85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A61E62E-98AB-4130-851F-BA988019B85B}.Release|Any CPU.ActiveCfg = Release|Any CPU

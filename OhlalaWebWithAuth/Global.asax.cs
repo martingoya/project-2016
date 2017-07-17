@@ -13,6 +13,7 @@ namespace OhlalaWebWithAuth
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            ControllerBuilder.Current.DefaultNamespaces.Add("OhlalaWebWithAuth.Controllers");
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
