@@ -207,6 +207,11 @@ footer {
     font-size: xx-large;
 }
 
+.eventTitleSection > a > p:hover {
+    text-decoration: none;
+    color: #f8ff85;
+}
+
 .eventTitleSection > a {
     color: #000000;
 }
@@ -222,6 +227,11 @@ footer {
     font-size: large;
     font-family: 'RotisSansSerifStd', cursive;
     font-weight: 500;
+}
+
+.eventTitleSection > a:hover {
+    text-decoration: none;
+    color: #f8ff85;
 }
 
 .eventSection {

@@ -11,6 +11,13 @@
         <AssociationConnector Association="ohlalaModel.FK_Event_Image" />
         <AssociationConnector Association="ohlalaModel.FK_Event_TypeEvent" />
         <AssociationConnector Association="ohlalaModel.EventImage" />
+        <EntityTypeShape EntityType="ohlalaModel.AspNetUsers" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ohlalaModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="11.875" />
+        <EntityTypeShape EntityType="ohlalaModel.AspNetUserClaims" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="ohlalaModel.AspNetUserLogins" Width="1.5" PointX="3" PointY="6.5" />
+        <AssociationConnector Association="ohlalaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ohlalaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ohlalaModel.AspNetUserRoles" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
