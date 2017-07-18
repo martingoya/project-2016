@@ -310,6 +310,7 @@
     <Content Include="Content\images\preloader-back-white.gif" />
     <Content Include="Content\images\preloader.gif" />
     <Content Include="Content\images\searchimg.png" />
+    <Content Include="Content\images\separator.png" />
     <Content Include="Content\images\small-logo-footer-completo.png" />
     <Content Include="Content\images\small-logo-footer.png" />
     <Content Include="Content\images\small-logo-white.png" />
