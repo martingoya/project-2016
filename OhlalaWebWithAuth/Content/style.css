@@ -586,33 +586,33 @@ footer {
     margin-bottom: 25px;
 }
 
-    .rowRelativeEvents p {
-        font-size: x-large;
-        font-family: 'Shadows Into Light', cursive;
-        font-weight: bold;
-        padding-top: 5px;
-    }
+.rowRelativeEvents p {
+    font-size: x-large;
+    font-family: 'RotisSansSerifStd', cursive;
+    font-weight: bold;
+    padding-top: 5px;
+}
 
-    .rowRelativeEvents a figure {
-        -webkit-transition: .3s ease-in-out;
-        transition: .3s ease-in-out;
-    }
+.rowRelativeEvents a figure {
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
 
-        .rowRelativeEvents a figure:hover {
-            opacity: .75;
-        }
+.rowRelativeEvents a figure:hover {
+    opacity: .75;
+}
 
-    .rowRelativeEvents a {
-        color: #1e1e1e;
-    }
+.rowRelativeEvents a {
+    color: #1e1e1e;
+}
 
-    .rowRelativeEvents a {
-        color: #1e1e1e;
-    }
+.rowRelativeEvents a {
+    color: #1e1e1e;
+}
 
-        .rowRelativeEvents a:hover {
-            text-decoration: none;
-        }
+.rowRelativeEvents a:hover {
+    text-decoration: none;
+}
 
 /*--------------------------------------------------*/
 
