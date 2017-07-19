@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using AutoMapper;
+using System.Net;
 
 namespace OhlalaWebWithAuth.Controllers
 {
@@ -38,21 +39,38 @@ namespace OhlalaWebWithAuth.Controllers
             {
                 if (verifyCaptcha(form["g-recaptcha-response"]))
                 {
-                    var body = "<p>Email From: {0} ({1}, {2})</p><p>Message:</p><p>{3}</p>";
-                    var message = new MailMessage();
-                    message.To.Add("postmaster@ohlalaph.com");  // replace with valid value 
-                    message.From = new MailAddress("tincho.592@gmail.com", "Admin");  // replace with valid value
-                    message.SubjectEncoding = System.Text.Encoding.UTF8;
-                    message.Body = string.Format(body, model.FromName, model.FromEmail, model.Phone, model.Message);
-                    message.BodyEncoding = System.Text.Encoding.UTF8;
-                    message.IsBodyHtml = true;
+                    MailMessage mail = new MailMessage();
 
-                    SmtpClient client = new SmtpClient();
-                    client.Credentials = new System.Net.NetworkCredential("tincho.592@gmail.com", "10110010110010011");
-                    client.Port = 25;
-                    client.Host = "smtp.gmail.com";
-                    client.EnableSsl = true; //Esto es para que vaya a través de SSL que es obligatorio con GMail
-                    await client.SendMailAsync(message);
+                    //set the addresses 
+                    mail.From = new MailAddress("postmaster@ohlalaph.com.ar"); //IMPORTANT: This must be same as your smtp authentication address.
+                    mail.To.Add("silvana_cq@hotmail.com;martin.goya@hotmail.com");
+
+                    //set the content 
+                    mail.Subject = model.FromName;
+                    var body = "<p>Email From: {0} ({1}, {2})</p><p>Message:</p><p>{3}</p>";
+                    mail.Body = string.Format(body, model.FromName, model.FromEmail, model.Phone, model.Message);
+                    //send the message 
+                    SmtpClient smtp = new SmtpClient("mail.ohlalaph.com.ar");
+
+                    //IMPORANT:  Your smtp login email MUST be same as your FROM address. 
+                    NetworkCredential Credentials = new NetworkCredential("postmaster@ohlalaph.com.ar", "lhl247MAIL!");
+                    smtp.Credentials = Credentials;
+                    smtp.Send(mail);
+                    //var body = "<p>Email From: {0} ({1}, {2})</p><p>Message:</p><p>{3}</p>";
+                    //var message = new MailMessage();
+                    //message.To.Add("postmaster@ohlalaph.com");  // replace with valid value 
+                    //message.From = new MailAddress("tincho.592@gmail.com", "Admin");  // replace with valid value
+                    //message.SubjectEncoding = System.Text.Encoding.UTF8;
+                    //message.Body = string.Format(body, model.FromName, model.FromEmail, model.Phone, model.Message);
+                    //message.BodyEncoding = System.Text.Encoding.UTF8;
+                    //message.IsBodyHtml = true;
+
+                    //SmtpClient client = new SmtpClient();
+                    //client.Credentials = new System.Net.NetworkCredential("tincho.592@gmail.com", "10110010110010011");
+                    //client.Port = 25;
+                    //client.Host = "smtp.gmail.com";
+                    //client.EnableSsl = true; //Esto es para que vaya a través de SSL que es obligatorio con GMail
+                    //await client.SendMailAsync(message);
                     return RedirectToAction("Sent");
                 }
             }
